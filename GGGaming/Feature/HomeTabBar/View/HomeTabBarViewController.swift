@@ -29,6 +29,7 @@ class HomeTabBarViewController: UITabBarController {
         
         self.setupNavigationBar()
         self.setupTabBarView()
+        self.setupRightBarItem()
         
         self.bindUI()
     }
@@ -53,6 +54,11 @@ class HomeTabBarViewController: UITabBarController {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
+    private func setupRightBarItem() {
+        let buttonProfile = UIBarButtonItem(image: #imageLiteral(resourceName: "icn-profile"), style: .plain, target: self, action: #selector(navigateToProfile))
+        self.navigationItem.rightBarButtonItem = buttonProfile
+    }
+    
     private func setupTabBarView() {
         self.tabBar.tintColor = UIColor.white
         self.tabBar.barTintColor = UIColor.black
@@ -61,5 +67,12 @@ class HomeTabBarViewController: UITabBarController {
     
     func changeNavigationBarTitle(title: String) {
         self.title = title
+    }
+    
+    @objc func navigateToProfile() {
+        let viewModel = ProfileViewModel()
+        let viewController = ProfileViewController(viewModel: viewModel)
+        
+        UIApplication.topViewController()?.navigationController?.pushViewController(viewController, animated: true)
     }
 }

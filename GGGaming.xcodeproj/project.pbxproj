@@ -10,11 +10,18 @@
 		3878E113B6155C6C26509FEB /* Pods_GGGaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A926CB3152B81380E99C7A /* Pods_GGGaming.framework */; };
 		A1CD1B6D25FA63E000CB4B15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD1B6C25FA63E000CB4B15 /* AppDelegate.swift */; };
 		A1CD1B6F25FA63E000CB4B15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD1B6E25FA63E000CB4B15 /* SceneDelegate.swift */; };
-		A1CD1B7125FA63E000CB4B15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD1B7025FA63E000CB4B15 /* ViewController.swift */; };
-		A1CD1B7425FA63E000CB4B15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1CD1B7225FA63E000CB4B15 /* Main.storyboard */; };
 		A1CD1B7725FA63E000CB4B15 /* GGGaming.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1CD1B7525FA63E000CB4B15 /* GGGaming.xcdatamodeld */; };
 		A1CD1B7925FA63E200CB4B15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1CD1B7825FA63E200CB4B15 /* Assets.xcassets */; };
 		A1CD1B7C25FA63E200CB4B15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1CD1B7A25FA63E200CB4B15 /* LaunchScreen.storyboard */; };
+		A1E5F27825FA6FE600ADC5B8 /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F27725FA6FE600ADC5B8 /* HomeTabBarViewController.swift */; };
+		A1E5F27C25FA700D00ADC5B8 /* HomeTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F27B25FA700D00ADC5B8 /* HomeTabBarViewModel.swift */; };
+		A1E5F28125FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F28025FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift */; };
+		A1E5F28B25FA725000ADC5B8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F28A25FA725000ADC5B8 /* HomeViewModel.swift */; };
+		A1E5F28F25FA726700ADC5B8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F28D25FA726700ADC5B8 /* HomeViewController.swift */; };
+		A1E5F29025FA726700ADC5B8 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E5F28E25FA726700ADC5B8 /* HomeViewController.xib */; };
+		A1E5F29825FA761B00ADC5B8 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F29625FA761B00ADC5B8 /* WishlistViewController.swift */; };
+		A1E5F29925FA761B00ADC5B8 /* WishlistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E5F29725FA761B00ADC5B8 /* WishlistViewController.xib */; };
+		A1E5F29C25FA762600ADC5B8 /* WishlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F29B25FA762500ADC5B8 /* WishlistViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,12 +29,19 @@
 		A1CD1B6925FA63E000CB4B15 /* GGGaming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGGaming.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CD1B6C25FA63E000CB4B15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1CD1B6E25FA63E000CB4B15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A1CD1B7025FA63E000CB4B15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A1CD1B7325FA63E000CB4B15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A1CD1B7625FA63E000CB4B15 /* GGGaming.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GGGaming.xcdatamodel; sourceTree = "<group>"; };
 		A1CD1B7825FA63E200CB4B15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1CD1B7B25FA63E200CB4B15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1CD1B7D25FA63E200CB4B15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1E5F27725FA6FE600ADC5B8 /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
+		A1E5F27B25FA700D00ADC5B8 /* HomeTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewModel.swift; sourceTree = "<group>"; };
+		A1E5F28025FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewControllerList.swift; sourceTree = "<group>"; };
+		A1E5F28A25FA725000ADC5B8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A1E5F28D25FA726700ADC5B8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A1E5F28E25FA726700ADC5B8 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		A1E5F29625FA761B00ADC5B8 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
+		A1E5F29725FA761B00ADC5B8 /* WishlistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishlistViewController.xib; sourceTree = "<group>"; };
+		A1E5F29B25FA762500ADC5B8 /* WishlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewModel.swift; sourceTree = "<group>"; };
 		E529E9BA61B8EF0DA69413C0 /* Pods-GGGaming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GGGaming.debug.xcconfig"; path = "Target Support Files/Pods-GGGaming/Pods-GGGaming.debug.xcconfig"; sourceTree = "<group>"; };
 		F4A926CB3152B81380E99C7A /* Pods_GGGaming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GGGaming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -74,16 +88,183 @@
 		A1CD1B6B25FA63E000CB4B15 /* GGGaming */ = {
 			isa = PBXGroup;
 			children = (
+				A1E5F26D25FA6F5400ADC5B8 /* Feature */,
+				A1E5F26E25FA6F5A00ADC5B8 /* Internal */,
+				A1E5F26F25FA6F5E00ADC5B8 /* Supporting Files */,
 				A1CD1B6C25FA63E000CB4B15 /* AppDelegate.swift */,
 				A1CD1B6E25FA63E000CB4B15 /* SceneDelegate.swift */,
-				A1CD1B7025FA63E000CB4B15 /* ViewController.swift */,
-				A1CD1B7225FA63E000CB4B15 /* Main.storyboard */,
-				A1CD1B7825FA63E200CB4B15 /* Assets.xcassets */,
-				A1CD1B7A25FA63E200CB4B15 /* LaunchScreen.storyboard */,
 				A1CD1B7D25FA63E200CB4B15 /* Info.plist */,
-				A1CD1B7525FA63E000CB4B15 /* GGGaming.xcdatamodeld */,
 			);
 			path = GGGaming;
+			sourceTree = "<group>";
+		};
+		A1E5F26D25FA6F5400ADC5B8 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				A1E5F28325FA720D00ADC5B8 /* Home */,
+				A1E5F27425FA6FCA00ADC5B8 /* HomeTabBar */,
+				A1E5F28525FA721500ADC5B8 /* Launch */,
+				A1E5F29225FA75D100ADC5B8 /* Wishlist */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		A1E5F26E25FA6F5A00ADC5B8 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				A1E5F27225FA6F8F00ADC5B8 /* CoreData */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		A1E5F26F25FA6F5E00ADC5B8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A1CD1B7825FA63E200CB4B15 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A1E5F27225FA6F8F00ADC5B8 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				A1CD1B7525FA63E000CB4B15 /* GGGaming.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		A1E5F27425FA6FCA00ADC5B8 /* HomeTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A1E5F27E25FA702300ADC5B8 /* Utils */,
+				A1E5F27625FA6FD300ADC5B8 /* View */,
+				A1E5F27525FA6FD000ADC5B8 /* ViewModel */,
+			);
+			path = HomeTabBar;
+			sourceTree = "<group>";
+		};
+		A1E5F27525FA6FD000ADC5B8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A1E5F27B25FA700D00ADC5B8 /* HomeTabBarViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A1E5F27625FA6FD300ADC5B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A1E5F27725FA6FE600ADC5B8 /* HomeTabBarViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A1E5F27E25FA702300ADC5B8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A1E5F27F25FA702B00ADC5B8 /* Singleton */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A1E5F27F25FA702B00ADC5B8 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				A1E5F28025FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
+		A1E5F28325FA720D00ADC5B8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A1E5F28925FA724100ADC5B8 /* API */,
+				A1E5F28825FA723800ADC5B8 /* Model */,
+				A1E5F28725FA723500ADC5B8 /* View */,
+				A1E5F28425FA721100ADC5B8 /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A1E5F28425FA721100ADC5B8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A1E5F28A25FA725000ADC5B8 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A1E5F28525FA721500ADC5B8 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				A1E5F28625FA721E00ADC5B8 /* View */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		A1E5F28625FA721E00ADC5B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A1CD1B7A25FA63E200CB4B15 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A1E5F28725FA723500ADC5B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A1E5F28D25FA726700ADC5B8 /* HomeViewController.swift */,
+				A1E5F28E25FA726700ADC5B8 /* HomeViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A1E5F28825FA723800ADC5B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A1E5F28925FA724100ADC5B8 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		A1E5F29225FA75D100ADC5B8 /* Wishlist */ = {
+			isa = PBXGroup;
+			children = (
+				A1E5F29525FA760600ADC5B8 /* Model */,
+				A1E5F29425FA760100ADC5B8 /* View */,
+				A1E5F29325FA75FC00ADC5B8 /* ViewModel */,
+			);
+			path = Wishlist;
+			sourceTree = "<group>";
+		};
+		A1E5F29325FA75FC00ADC5B8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A1E5F29B25FA762500ADC5B8 /* WishlistViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A1E5F29425FA760100ADC5B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A1E5F29625FA761B00ADC5B8 /* WishlistViewController.swift */,
+				A1E5F29725FA761B00ADC5B8 /* WishlistViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A1E5F29525FA760600ADC5B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F16034BD813AFFA35F1565A5 /* Frameworks */ = {
@@ -155,8 +336,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1CD1B7C25FA63E200CB4B15 /* LaunchScreen.storyboard in Resources */,
+				A1E5F29925FA761B00ADC5B8 /* WishlistViewController.xib in Resources */,
 				A1CD1B7925FA63E200CB4B15 /* Assets.xcassets in Resources */,
-				A1CD1B7425FA63E000CB4B15 /* Main.storyboard in Resources */,
+				A1E5F29025FA726700ADC5B8 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,9 +408,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1CD1B7125FA63E000CB4B15 /* ViewController.swift in Sources */,
 				A1CD1B6D25FA63E000CB4B15 /* AppDelegate.swift in Sources */,
+				A1E5F29C25FA762600ADC5B8 /* WishlistViewModel.swift in Sources */,
+				A1E5F28125FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift in Sources */,
+				A1E5F28B25FA725000ADC5B8 /* HomeViewModel.swift in Sources */,
+				A1E5F28F25FA726700ADC5B8 /* HomeViewController.swift in Sources */,
+				A1E5F29825FA761B00ADC5B8 /* WishlistViewController.swift in Sources */,
+				A1E5F27825FA6FE600ADC5B8 /* HomeTabBarViewController.swift in Sources */,
 				A1CD1B7725FA63E000CB4B15 /* GGGaming.xcdatamodeld in Sources */,
+				A1E5F27C25FA700D00ADC5B8 /* HomeTabBarViewModel.swift in Sources */,
 				A1CD1B6F25FA63E000CB4B15 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,14 +424,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A1CD1B7225FA63E000CB4B15 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1CD1B7325FA63E000CB4B15 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A1CD1B7A25FA63E200CB4B15 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

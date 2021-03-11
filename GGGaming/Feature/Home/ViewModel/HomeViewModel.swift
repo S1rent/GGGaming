@@ -8,5 +8,15 @@
 import Foundation
 
 final class HomeViewModel {
+    struct Input {
+        
+    }
     
+    struct Output {
+        
+    }
+    
+    public func transform(input: Input) -> Output {
+        return Output()
+    }
 }

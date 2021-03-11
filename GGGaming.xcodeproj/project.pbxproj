@@ -371,6 +371,8 @@
 				A1E5F2C625FA7DFA00ADC5B8 /* SkillItemView.xib */,
 			);
 			path = SkillItem;
+			sourceTree = "<group>";
+		};
 		A1E5F2D425FA888200ADC5B8 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (

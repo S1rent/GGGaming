@@ -38,11 +38,11 @@ class HomeViewController: UIViewController {
     }
     
     private func setupCollectionView() {
-        self.collectionView.register(HomeCollectionViewCell.nibName, forCellWithReuseIdentifier: "CampusDirectoryCollectionViewCell")
+        self.collectionView.register(HomeCollectionViewCell.uiNib, forCellWithReuseIdentifier: "CampusDirectoryCollectionViewCell")
         
-        let layout: UICollectionViewFlowLayout = self.campusDirectoryCollectionView?.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = CGSize(width: self.campusDirectoryCollectionView.frame.width - 100, height: self.campusDirectoryCollectionView.frame.height - 5)
-        self.campusDirectoryCollectionView.setCollectionViewLayout(layout, animated: true)
+        let layout: UICollectionViewFlowLayout = self.collectionView?.collectionViewLayout as? UICollectionViewFlowLayout ?? UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: self.collectionView.frame.width - 100, height: self.collectionView.frame.height - 5)
+        self.collectionView.setCollectionViewLayout(layout, animated: true)
     }
     
 }

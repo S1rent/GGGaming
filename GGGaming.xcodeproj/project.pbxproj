@@ -22,6 +22,7 @@
 		A1E5F29825FA761B00ADC5B8 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F29625FA761B00ADC5B8 /* WishlistViewController.swift */; };
 		A1E5F29925FA761B00ADC5B8 /* WishlistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E5F29725FA761B00ADC5B8 /* WishlistViewController.xib */; };
 		A1E5F29C25FA762600ADC5B8 /* WishlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F29B25FA762500ADC5B8 /* WishlistViewModel.swift */; };
+<<<<<<< Updated upstream
 		A1E5F2A725FA78FD00ADC5B8 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2A625FA78FD00ADC5B8 /* ProfileViewModel.swift */; };
 		A1E5F2AA25FA790900ADC5B8 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2A925FA790900ADC5B8 /* ProfileModel.swift */; };
 		A1E5F2AE25FA791400ADC5B8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2AC25FA791400ADC5B8 /* ProfileViewController.swift */; };
@@ -34,6 +35,13 @@
 		A1E5F2C725FA7DFA00ADC5B8 /* SkillItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E5F2C625FA7DFA00ADC5B8 /* SkillItemView.xib */; };
 		A1E5F2CA25FA7EF800ADC5B8 /* ExperienceItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2C925FA7EF800ADC5B8 /* ExperienceItemView.swift */; };
 		A1E5F2CD25FA7F2D00ADC5B8 /* ExperienceItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E5F2CC25FA7F2D00ADC5B8 /* ExperienceItemView.xib */; };
+=======
+		A1E5F2D725FA889600ADC5B8 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2D525FA889600ADC5B8 /* HomeCollectionViewCell.swift */; };
+		A1E5F2D825FA889600ADC5B8 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E5F2D625FA889600ADC5B8 /* HomeCollectionViewCell.xib */; };
+		A1E5F2DB25FA8A6900ADC5B8 /* HomeTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2DA25FA8A6900ADC5B8 /* HomeTarget.swift */; };
+		A1E5F2DE25FA8A7300ADC5B8 /* HomeNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2DD25FA8A7300ADC5B8 /* HomeNetworkProvider.swift */; };
+		A1E5F2E125FA8E8A00ADC5B8 /* HomeResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2E025FA8E8A00ADC5B8 /* HomeResponseWrapper.swift */; };
+>>>>>>> Stashed changes
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +62,7 @@
 		A1E5F29625FA761B00ADC5B8 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
 		A1E5F29725FA761B00ADC5B8 /* WishlistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishlistViewController.xib; sourceTree = "<group>"; };
 		A1E5F29B25FA762500ADC5B8 /* WishlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewModel.swift; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
 		A1E5F2A625FA78FD00ADC5B8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		A1E5F2A925FA790900ADC5B8 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		A1E5F2AC25FA791400ADC5B8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +75,13 @@
 		A1E5F2C625FA7DFA00ADC5B8 /* SkillItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillItemView.xib; sourceTree = "<group>"; };
 		A1E5F2C925FA7EF800ADC5B8 /* ExperienceItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceItemView.swift; sourceTree = "<group>"; };
 		A1E5F2CC25FA7F2D00ADC5B8 /* ExperienceItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExperienceItemView.xib; sourceTree = "<group>"; };
+=======
+		A1E5F2D525FA889600ADC5B8 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		A1E5F2D625FA889600ADC5B8 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		A1E5F2DA25FA8A6900ADC5B8 /* HomeTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTarget.swift; sourceTree = "<group>"; };
+		A1E5F2DD25FA8A7300ADC5B8 /* HomeNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNetworkProvider.swift; sourceTree = "<group>"; };
+		A1E5F2E025FA8E8A00ADC5B8 /* HomeResponseWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponseWrapper.swift; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 		E529E9BA61B8EF0DA69413C0 /* Pods-GGGaming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GGGaming.debug.xcconfig"; path = "Target Support Files/Pods-GGGaming/Pods-GGGaming.debug.xcconfig"; sourceTree = "<group>"; };
 		F4A926CB3152B81380E99C7A /* Pods_GGGaming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GGGaming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -239,6 +255,7 @@
 		A1E5F28725FA723500ADC5B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A1E5F2D425FA888200ADC5B8 /* CollectionViewCell */,
 				A1E5F28D25FA726700ADC5B8 /* HomeViewController.swift */,
 				A1E5F28E25FA726700ADC5B8 /* HomeViewController.xib */,
 			);
@@ -248,6 +265,7 @@
 		A1E5F28825FA723800ADC5B8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A1E5F2E025FA8E8A00ADC5B8 /* HomeResponseWrapper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -255,6 +273,8 @@
 		A1E5F28925FA724100ADC5B8 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				A1E5F2DA25FA8A6900ADC5B8 /* HomeTarget.swift */,
+				A1E5F2DD25FA8A7300ADC5B8 /* HomeNetworkProvider.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -293,6 +313,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+<<<<<<< Updated upstream
 		A1E5F2A225FA78DD00ADC5B8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +378,15 @@
 				A1E5F2C625FA7DFA00ADC5B8 /* SkillItemView.xib */,
 			);
 			path = SkillItem;
+=======
+		A1E5F2D425FA888200ADC5B8 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A1E5F2D525FA889600ADC5B8 /* HomeCollectionViewCell.swift */,
+				A1E5F2D625FA889600ADC5B8 /* HomeCollectionViewCell.xib */,
+			);
+			path = CollectionViewCell;
+>>>>>>> Stashed changes
 			sourceTree = "<group>";
 		};
 		F16034BD813AFFA35F1565A5 /* Frameworks */ = {
@@ -427,6 +457,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1E5F2D825FA889600ADC5B8 /* HomeCollectionViewCell.xib in Resources */,
 				A1CD1B7C25FA63E200CB4B15 /* LaunchScreen.storyboard in Resources */,
 				A1E5F2C725FA7DFA00ADC5B8 /* SkillItemView.xib in Resources */,
 				A1E5F29925FA761B00ADC5B8 /* WishlistViewController.xib in Resources */,
@@ -508,11 +539,21 @@
 				A1E5F29C25FA762600ADC5B8 /* WishlistViewModel.swift in Sources */,
 				A1E5F2BB25FA7BE100ADC5B8 /* UIApplication+Extension.swift in Sources */,
 				A1E5F28125FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift in Sources */,
+<<<<<<< Updated upstream
 				A1E5F2AA25FA790900ADC5B8 /* ProfileModel.swift in Sources */,
+=======
+				A1E5F2DB25FA8A6900ADC5B8 /* HomeTarget.swift in Sources */,
+>>>>>>> Stashed changes
 				A1E5F28B25FA725000ADC5B8 /* HomeViewModel.swift in Sources */,
 				A1E5F28F25FA726700ADC5B8 /* HomeViewController.swift in Sources */,
+				A1E5F2DE25FA8A7300ADC5B8 /* HomeNetworkProvider.swift in Sources */,
+				A1E5F2E125FA8E8A00ADC5B8 /* HomeResponseWrapper.swift in Sources */,
 				A1E5F29825FA761B00ADC5B8 /* WishlistViewController.swift in Sources */,
+<<<<<<< Updated upstream
 				A1E5F2B725FA7BAB00ADC5B8 /* UIStackView+Extension.swift in Sources */,
+=======
+				A1E5F2D725FA889600ADC5B8 /* HomeCollectionViewCell.swift in Sources */,
+>>>>>>> Stashed changes
 				A1E5F27825FA6FE600ADC5B8 /* HomeTabBarViewController.swift in Sources */,
 				A1E5F2A725FA78FD00ADC5B8 /* ProfileViewModel.swift in Sources */,
 				A1CD1B7725FA63E000CB4B15 /* GGGaming.xcdatamodeld in Sources */,

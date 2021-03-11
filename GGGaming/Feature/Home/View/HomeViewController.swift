@@ -9,6 +9,10 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    
     let changeTitle: (_ title: String) -> Void
     let viewModel: HomeViewModel
     
@@ -18,6 +22,7 @@ class HomeViewController: UIViewController {
     ) {
         self.changeTitle = callBack
         self.viewModel = viewModel
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -28,6 +33,16 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.changeTitle("Home")
+        
+        self.setupCollectionView()
+    }
+    
+    private func setupCollectionView() {
+        self.collectionView.register(HomeCollectionViewCell.nibName, forCellWithReuseIdentifier: "CampusDirectoryCollectionViewCell")
+        
+        let layout: UICollectionViewFlowLayout = self.campusDirectoryCollectionView?.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: self.campusDirectoryCollectionView.frame.width - 100, height: self.campusDirectoryCollectionView.frame.height - 5)
+        self.campusDirectoryCollectionView.setCollectionViewLayout(layout, animated: true)
     }
     
 }

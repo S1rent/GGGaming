@@ -17,7 +17,7 @@ final class HomeViewModel {
     
     struct Output {
         let developerData: Driver<[Developer]>
-        let gameData: Driver<[SectionModel<String, Any>]>
+        let gameData: Driver<[Game]>
         let loading: Driver<Bool>
         let developerNoData: Driver<Bool>
         let gameNoData: Driver<Bool>
@@ -36,28 +36,13 @@ final class HomeViewModel {
                 .asDriverOnErrorJustComplete()
         }
         
-        let rawGameData = input.loadTrigger.flatMapLatest { _ -> Driver<[Game]> in
+        let gameData = input.loadTrigger.flatMapLatest { _ -> Driver<[Game]> in
             
             return HomeNetworkProvider.shared
                 .getHomeTopRatedGames()
                 .trackError(errorTracker)
                 .trackActivity(activityTracker)
                 .asDriverOnErrorJustComplete()
-        }
-        
-        let gameData = rawGameData.map { game -> [SectionModel<String, Any>] in
-            var titleTopRated: String = ""
-            var combinedArrays: [SectionModel<String,Any>] = []
-            
-            if !game.isEmpty {
-                titleTopRated = "Top Rated Games"
-            }
-            
-            if !game.isEmpty {
-                combinedArrays.append(SectionModel(model: titleTopRated, items: game))
-            }
-            
-            return combinedArrays
         }
         
         let developerNoData = developerData.map { !($0.isEmpty) }

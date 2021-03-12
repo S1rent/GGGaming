@@ -1,5 +1,5 @@
 //
-//  HomeTableViewCell.swift
+//  HomeGameItem.swift
 //  GGGaming
 //
 //  Created by IT Division on 12/03/21.
@@ -7,8 +7,9 @@
 
 import UIKit
 
-class HomeTableViewCell: UITableViewCell {
+class HomeGameItemView: UIView {
     
+    @IBOutlet var contentView: UIView!
     @IBOutlet weak var labelGameName: UILabel!
     @IBOutlet weak var labelGameRating: UILabel!
     @IBOutlet weak var labelGameReleaseDate: UILabel!
@@ -23,14 +24,23 @@ class HomeTableViewCell: UITableViewCell {
         self.headerView.roundCorners(corners: [.topLeft, .topRight], radius: 6)
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    init() {
+        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        
+        self.bindNib()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func bindNib() {
+        Bundle.main.loadNibNamed(HomeGameItemView.identifier, owner: self, options: nil)
+        self.addSubview(self.contentView)
+        self.contentView.frame = self.bounds
+        self.contentView.layer.masksToBounds = true
         
         self.setupView()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
     
     public func setData(_ data: Game) {

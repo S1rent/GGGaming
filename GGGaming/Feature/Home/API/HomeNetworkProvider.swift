@@ -24,7 +24,7 @@ class HomeNetworkProvider {
             .request(requestToken)
             .filterSuccessfulStatusCodes()
             .map(HomeDeveloperResponseWrapper.self)
-            .map{ $0.data ?? [] }
+            .map { $0.data ?? [] }
             .asObservable()
     }
     
@@ -35,7 +35,7 @@ class HomeNetworkProvider {
             .request(requestToken)
             .filterSuccessfulStatusCodes()
             .map(HomeGameResponseWrapper.self)
-            .map{ $0.data ?? [] }
+            .map { $0.data ?? [] }
             .asObservable()
     }
 }

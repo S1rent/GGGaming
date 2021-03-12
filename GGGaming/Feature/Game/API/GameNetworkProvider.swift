@@ -12,13 +12,13 @@ import RxCocoa
 
 class GameNetworkProvider {
 
-    let provider = MoyaProvider<HomeTarget>()
+    let provider = MoyaProvider<GameTarget>()
     public static let shared = GameNetworkProvider()
     
     private init() { }
     
     public func getGameDetail(with id: Int) -> Observable<GameDetailResponseWrapper> {
-        let requestToken = HomeTarget.getGameDetail(id: id)
+        let requestToken = GameTarget.getGameDetail(id: id)
         
         return self.provider.rx
             .request(requestToken)

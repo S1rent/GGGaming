@@ -21,8 +21,14 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     // Top Rated View Outlet
+    @IBOutlet weak var topGameView: UIView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var initView: UIView!
+    @IBOutlet weak var labelTopRatedGames: UILabel!
+    
+    // Other Outlet
+    @IBOutlet weak var labelNoData: UILabel!
+    @IBOutlet weak var noResultView: UIView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
         didSet {
@@ -41,6 +47,9 @@ class HomeViewController: UIViewController {
     let changeTitle: (_ title: String) -> Void
     let viewModel: HomeViewModel
     let loadRelay: BehaviorRelay<Void>
+    
+    var hasCollectionData = false
+    var hasGameData = false
     
     init(
         callBack: @escaping (_ title: String) -> Void,
@@ -75,8 +84,15 @@ class HomeViewController: UIViewController {
             output.developerData.drive(self.collectionView.rx.items(cellIdentifier: HomeCollectionViewCell.identifier, cellType: HomeCollectionViewCell.self)) { (_, data, cell) in
                 cell.setData(data)
             },
+            output.developerData.drive(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                
+                self.hasCollectionData = true
+            }),
             output.gameData.drive(onNext: { [weak self] data in
                 guard let self = self else { return }
+                
+                self.hasGameData = true
                 self.setupStackViewData(data)
             }),
             output.loading.drive(onNext: { [weak self] loading in
@@ -85,11 +101,11 @@ class HomeViewController: UIViewController {
                 if loading {
                     self.activityIndicator.animateFadeIn()
                     self.activityIndicator.startAnimating()
-                    self.developerView.animateFadeOut()
                 } else {
                     self.activityIndicator.animateFadeOut()
                     self.activityIndicator.stopAnimating()
-                    self.developerView.animateFadeIn()
+                    
+                    self.setupNoResultView()
                 }
             })
         )
@@ -110,6 +126,26 @@ class HomeViewController: UIViewController {
         let layout: UICollectionViewFlowLayout = self.collectionView?.collectionViewLayout as? UICollectionViewFlowLayout ?? UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 250, height: 160)
         self.collectionView.setCollectionViewLayout(layout, animated: true)
+    }
+    
+    private func setupNoResultView() {
+        if self.hasCollectionData && self.hasGameData {
+            self.noResultView.animateFadeOut()
+            self.labelTopRatedGames.isHidden = false
+            self.stackView.isHidden = false
+        } else if self.hasCollectionData && !self.hasGameData {
+            self.noResultView.animateFadeOut()
+            self.topGameView.snp.remakeConstraints { (remake) in
+                remake.height.equalTo(0)
+            }
+        } else if !self.hasCollectionData && self.hasGameData {
+            self.noResultView.animateFadeOut()
+            self.developerView.snp.remakeConstraints { (remake) in
+                remake.height.equalTo(0)
+            }
+        } else {
+            self.labelNoData.alpha = 1
+        }
     }
     
     private func setupView() {

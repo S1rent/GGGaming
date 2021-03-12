@@ -24,7 +24,6 @@
 		A1CEFB0C25FB33E90034DB0D /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFB0B25FB33E90034DB0D /* ActivityIndicator.swift */; };
 		A1CEFB0F25FB33F20034DB0D /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFB0E25FB33F20034DB0D /* ErrorTracker.swift */; };
 		A1CEFB1625FB4C200034DB0D /* HomeGameResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFB1525FB4C200034DB0D /* HomeGameResponseWrapper.swift */; };
-		A1CEFB1B25FB4EDD0034DB0D /* HomeNoDataEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFB1A25FB4EDD0034DB0D /* HomeNoDataEnum.swift */; };
 		A1CEFB2725FB5C7E0034DB0D /* HomeGameItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1CEFB2625FB5C7E0034DB0D /* HomeGameItemView.xib */; };
 		A1CEFB3C25FB5E2E0034DB0D /* HomeGameItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFB3B25FB5E2E0034DB0D /* HomeGameItemView.swift */; };
 		A1E5F27825FA6FE600ADC5B8 /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F27725FA6FE600ADC5B8 /* HomeTabBarViewController.swift */; };
@@ -75,7 +74,6 @@
 		A1CEFB0B25FB33E90034DB0D /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		A1CEFB0E25FB33F20034DB0D /* ErrorTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
 		A1CEFB1525FB4C200034DB0D /* HomeGameResponseWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGameResponseWrapper.swift; sourceTree = "<group>"; };
-		A1CEFB1A25FB4EDD0034DB0D /* HomeNoDataEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNoDataEnum.swift; sourceTree = "<group>"; };
 		A1CEFB2625FB5C7E0034DB0D /* HomeGameItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeGameItemView.xib; sourceTree = "<group>"; };
 		A1CEFB3B25FB5E2E0034DB0D /* HomeGameItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGameItemView.swift; sourceTree = "<group>"; };
 		A1E5F27725FA6FE600ADC5B8 /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
@@ -239,22 +237,6 @@
 			path = Tracker;
 			sourceTree = "<group>";
 		};
-		A1CEFB1825FB4EC60034DB0D /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				A1CEFB1925FB4ED30034DB0D /* Enum */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		A1CEFB1925FB4ED30034DB0D /* Enum */ = {
-			isa = PBXGroup;
-			children = (
-				A1CEFB1A25FB4EDD0034DB0D /* HomeNoDataEnum.swift */,
-			);
-			path = Enum;
-			sourceTree = "<group>";
-		};
 		A1CEFB1E25FB50740034DB0D /* HomeGameItem */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,7 +332,6 @@
 			children = (
 				A1E5F28925FA724100ADC5B8 /* API */,
 				A1E5F28825FA723800ADC5B8 /* Model */,
-				A1CEFB1825FB4EC60034DB0D /* Utils */,
 				A1E5F28725FA723500ADC5B8 /* View */,
 				A1E5F28425FA721100ADC5B8 /* ViewModel */,
 			);
@@ -674,7 +655,6 @@
 				A1E5F2BB25FA7BE100ADC5B8 /* UIApplication+Extension.swift in Sources */,
 				A1CEFB0C25FB33E90034DB0D /* ActivityIndicator.swift in Sources */,
 				A15C251125FB77CA00BF7EE2 /* GameDetailViewController.swift in Sources */,
-				A1CEFB1B25FB4EDD0034DB0D /* HomeNoDataEnum.swift in Sources */,
 				A15C251E25FB878600BF7EE2 /* String+Extension.swift in Sources */,
 				A1E5F28125FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift in Sources */,
 				A1CEFB3C25FB5E2E0034DB0D /* HomeGameItemView.swift in Sources */,

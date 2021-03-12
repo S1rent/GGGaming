@@ -14,7 +14,7 @@ class ExperienceItemView: UIView {
     @IBOutlet weak var roundedView: UIView!
     @IBOutlet weak var labelDescription: UILabel!
     
-    init(){
+    init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
         
         self.bindNib()
@@ -24,7 +24,7 @@ class ExperienceItemView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func bindNib(){
+    private func bindNib() {
         Bundle.main.loadNibNamed(ExperienceItemView.identifier, owner: self, options: nil)
         self.addSubview(self.contentView)
         self.contentView.frame = self.bounds

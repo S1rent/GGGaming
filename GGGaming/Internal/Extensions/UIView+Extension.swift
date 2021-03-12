@@ -46,7 +46,6 @@ extension UIView {
             options: [.curveEaseOut],
             animations: {
                 self.alpha = 0
-                self.isHidden = true
         })
     }
 }

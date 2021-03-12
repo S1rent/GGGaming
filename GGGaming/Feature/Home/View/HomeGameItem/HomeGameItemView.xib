@@ -106,6 +106,9 @@
                         <constraint firstAttribute="trailing" secondItem="4tE-UM-NYt" secondAttribute="trailing" id="o3l-MD-CUr"/>
                         <constraint firstItem="4tE-UM-NYt" firstAttribute="leading" secondItem="zqe-ba-t3x" secondAttribute="leading" id="qbq-dE-RRE"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="Pel-Xi-7zk" appends="YES" id="yRt-a4-Jli"/>
+                    </connections>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -119,6 +122,11 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="190" y="2"/>
         </view>
+        <tapGestureRecognizer id="Pel-Xi-7zk">
+            <connections>
+                <action selector="navigateToGameDetail:" destination="-1" id="iSL-RJ-oY8"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="icn-broken-photo" width="170.5" height="170.5"/>

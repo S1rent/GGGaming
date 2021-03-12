@@ -1,5 +1,5 @@
 //
-//  HomeTarget.swift
+//  GameTarget.swift
 //  GGGaming
 //
 //  Created by IT Division on 12/03/21.
@@ -8,23 +8,17 @@
 import Foundation
 import Moya
 
-internal enum HomeTarget {
-    case getHomeDeveloperList
-    case getHomeTopRatedGames
+internal enum GameTarget {
     case getGameDetail(id: Int)
 }
 
-extension HomeTarget: TargetType {
+extension GameTarget: TargetType {
     var baseURL: URL {
         return URL(string: "https://api.rawg.io/")!
     }
     
     var path: String {
         switch self {
-        case .getHomeDeveloperList:
-            return "api/developers"
-        case .getHomeTopRatedGames:
-            return "api/games"
         case let .getGameDetail(id):
             return "api/games/\(id)"
         }
@@ -32,17 +26,6 @@ extension HomeTarget: TargetType {
     
     var parameters: [String : Any]? {
         switch self {
-        case .getHomeDeveloperList:
-            return [
-                "key": "7aeec70b17574b5089ad68144d1e8a87",
-                "page_size": 10
-            ]
-        case .getHomeTopRatedGames:
-            return [
-                "key": "7aeec70b17574b5089ad68144d1e8a87",
-                "page_size": 10,
-                "ordering": "-rating"
-            ]
         case .getGameDetail:
             return nil
         }
@@ -74,3 +57,4 @@ extension HomeTarget: TargetType {
         return "{\"data\": 123}".data(using: .utf8)!
     }
 }
+

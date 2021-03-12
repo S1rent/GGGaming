@@ -18,13 +18,16 @@ class HomeGameItemView: UIView {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var middleView: UIView!
     
+    let data: Game
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
         self.headerView.roundCorners(corners: [.topLeft, .topRight], radius: 6)
     }
     
-    init() {
+    init(_ data: Game) {
+        self.data = data
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         
         self.bindNib()
@@ -61,4 +64,9 @@ class HomeGameItemView: UIView {
         self.containerView.layer.borderColor = UIColor.white.cgColor
         self.containerView.layer.cornerRadius = 6
     }
+    
+    @IBAction func navigateToGameDetail(_ sender: Any) {
+        GameNavigator.shared.goToGameDetail(gameData: self.data)
+    }
+    
 }

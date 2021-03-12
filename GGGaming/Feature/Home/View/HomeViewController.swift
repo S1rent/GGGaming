@@ -97,7 +97,8 @@ class HomeViewController: UIViewController {
     
     private func setupStackViewData(_ data: [Game]) {
         for game in data {
-            let gameItemRow = HomeGameItemView()
+            let gameItemRow = HomeGameItemView(game)
+            
             gameItemRow.setData(game)
             self.stackView.addArrangedSubview(gameItemRow)
         }
@@ -115,5 +116,6 @@ class HomeViewController: UIViewController {
         self.buttonViewAllDeveloper.layer.cornerRadius = 6
         self.buttonViewAllDeveloper.layer.backgroundColor = UIColor.white.cgColor
         self.stackView.safelyRemoveAllArrangedSubviews()
+        self.stackView.isUserInteractionEnabled = true
     }
 }

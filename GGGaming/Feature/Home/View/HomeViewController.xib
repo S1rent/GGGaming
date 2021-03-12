@@ -31,9 +31,6 @@
                     <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="4gt-Oy-KYR">
-                    <rect key="frame" x="197" y="438" width="20" height="20"/>
-                </activityIndicatorView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dB-zk-ZUD">
                     <rect key="frame" x="0.0" y="100" width="414" height="762"/>
                     <subviews>
@@ -137,6 +134,9 @@
                         <constraint firstAttribute="trailing" secondItem="Hva-Hp-4aU" secondAttribute="trailing" id="z4u-iS-ZrM"/>
                     </constraints>
                 </scrollView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="4gt-Oy-KYR">
+                    <rect key="frame" x="197" y="438" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

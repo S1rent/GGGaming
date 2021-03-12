@@ -8,18 +8,19 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class HomeViewController: UIViewController {
     
-    //Developer Outlet
+    // Developer Outlet
     @IBOutlet weak var developerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var buttonViewAllDeveloper: UIButton!
     
-    //Search Bar Outlet
+    // Search Bar Outlet
     @IBOutlet weak var searchBar: UISearchBar!
     
-    //Tableview Outlet
+    // Tableview Outlet
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
@@ -39,6 +40,18 @@ class HomeViewController: UIViewController {
     let changeTitle: (_ title: String) -> Void
     let viewModel: HomeViewModel
     let loadRelay: BehaviorRelay<Void>
+    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Any>>(configureCell: { (_, tableView, _, data) in
+        if let gameData = data as? Game {
+            let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier) as? HomeTableViewCell ?? HomeTableViewCell()
+            cell.selectionStyle = .none
+            cell.setData(gameData)
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+    }, titleForHeaderInSection: { dataSource, sectionIndex in
+        return dataSource[sectionIndex].model
+    })
     
     init(
         callBack: @escaping (_ title: String) -> Void,
@@ -61,6 +74,7 @@ class HomeViewController: UIViewController {
         
         self.setupView()
         self.setupCollectionView()
+        self.setupTableView()
         self.bindUI()
     }
     
@@ -70,9 +84,10 @@ class HomeViewController: UIViewController {
         ))
         
         self.rx.disposeBag.insert(
-            output.data.drive(self.collectionView.rx.items(cellIdentifier: HomeCollectionViewCell.identifier, cellType: HomeCollectionViewCell.self)) { (_, data, cell) in
+            output.developerData.drive(self.collectionView.rx.items(cellIdentifier: HomeCollectionViewCell.identifier, cellType: HomeCollectionViewCell.self)) { (_, data, cell) in
                 cell.setData(data)
             },
+            output.gameData.drive(self.tableView.rx.items(dataSource: dataSource)),
             output.loading.drive(onNext: { [weak self] loading in
                 guard let self = self else { return }
                 
@@ -95,8 +110,38 @@ class HomeViewController: UIViewController {
         self.collectionView.setCollectionViewLayout(layout, animated: true)
     }
     
+    private func setupTableView() {
+        self.tableView.register(HomeTableViewCell.uiNib, forCellReuseIdentifier: HomeTableViewCell.identifier)
+        self.tableView.rx.setDelegate(self).disposed(by: self.rx.disposeBag)
+        self.tableView.rowHeight = UITableView.automaticDimension
+    }
+    
     private func setupView() {
         self.buttonViewAllDeveloper.layer.cornerRadius = 6
         self.buttonViewAllDeveloper.layer.backgroundColor = UIColor.white.cgColor
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+           let containerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
+           
+           let label = UILabel()
+           label.text = dataSource[section].model
+           label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            label.font = .boldSystemFont(ofSize: 24)
+           label.sizeToFit()
+           containerView.addSubview(label)
+           label.snp.makeConstraints { make in
+               make.left.equalToSuperview().offset(16)
+               make.right.equalToSuperview().offset(16)
+               make.centerY.equalToSuperview()
+           }
+        containerView.backgroundColor = UIColor.black
+           return containerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
     }
 }

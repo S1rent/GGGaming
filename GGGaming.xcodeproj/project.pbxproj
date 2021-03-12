@@ -15,6 +15,10 @@
 		A1CD1B7C25FA63E200CB4B15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1CD1B7A25FA63E200CB4B15 /* LaunchScreen.storyboard */; };
 		A1CEFB0C25FB33E90034DB0D /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFB0B25FB33E90034DB0D /* ActivityIndicator.swift */; };
 		A1CEFB0F25FB33F20034DB0D /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFB0E25FB33F20034DB0D /* ErrorTracker.swift */; };
+		A1CEFB1625FB4C200034DB0D /* HomeGameResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFB1525FB4C200034DB0D /* HomeGameResponseWrapper.swift */; };
+		A1CEFB1B25FB4EDD0034DB0D /* HomeNoDataEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFB1A25FB4EDD0034DB0D /* HomeNoDataEnum.swift */; };
+		A1CEFB2125FB508F0034DB0D /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFB1F25FB508F0034DB0D /* HomeTableViewCell.swift */; };
+		A1CEFB2225FB508F0034DB0D /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1CEFB2025FB508F0034DB0D /* HomeTableViewCell.xib */; };
 		A1E5F27825FA6FE600ADC5B8 /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F27725FA6FE600ADC5B8 /* HomeTabBarViewController.swift */; };
 		A1E5F27C25FA700D00ADC5B8 /* HomeTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F27B25FA700D00ADC5B8 /* HomeTabBarViewModel.swift */; };
 		A1E5F28125FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F28025FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift */; };
@@ -40,7 +44,7 @@
 		A1E5F2D825FA889600ADC5B8 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E5F2D625FA889600ADC5B8 /* HomeCollectionViewCell.xib */; };
 		A1E5F2DB25FA8A6900ADC5B8 /* HomeTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2DA25FA8A6900ADC5B8 /* HomeTarget.swift */; };
 		A1E5F2DE25FA8A7300ADC5B8 /* HomeNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2DD25FA8A7300ADC5B8 /* HomeNetworkProvider.swift */; };
-		A1E5F2E125FA8E8A00ADC5B8 /* HomeResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2E025FA8E8A00ADC5B8 /* HomeResponseWrapper.swift */; };
+		A1E5F2E125FA8E8A00ADC5B8 /* HomeDeveloperResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2E025FA8E8A00ADC5B8 /* HomeDeveloperResponseWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +58,10 @@
 		A1CD1B7D25FA63E200CB4B15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1CEFB0B25FB33E90034DB0D /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		A1CEFB0E25FB33F20034DB0D /* ErrorTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
+		A1CEFB1525FB4C200034DB0D /* HomeGameResponseWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGameResponseWrapper.swift; sourceTree = "<group>"; };
+		A1CEFB1A25FB4EDD0034DB0D /* HomeNoDataEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNoDataEnum.swift; sourceTree = "<group>"; };
+		A1CEFB1F25FB508F0034DB0D /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		A1CEFB2025FB508F0034DB0D /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		A1E5F27725FA6FE600ADC5B8 /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
 		A1E5F27B25FA700D00ADC5B8 /* HomeTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewModel.swift; sourceTree = "<group>"; };
 		A1E5F28025FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewControllerList.swift; sourceTree = "<group>"; };
@@ -79,7 +87,7 @@
 		A1E5F2D625FA889600ADC5B8 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		A1E5F2DA25FA8A6900ADC5B8 /* HomeTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTarget.swift; sourceTree = "<group>"; };
 		A1E5F2DD25FA8A7300ADC5B8 /* HomeNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNetworkProvider.swift; sourceTree = "<group>"; };
-		A1E5F2E025FA8E8A00ADC5B8 /* HomeResponseWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponseWrapper.swift; sourceTree = "<group>"; };
+		A1E5F2E025FA8E8A00ADC5B8 /* HomeDeveloperResponseWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDeveloperResponseWrapper.swift; sourceTree = "<group>"; };
 		E529E9BA61B8EF0DA69413C0 /* Pods-GGGaming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GGGaming.debug.xcconfig"; path = "Target Support Files/Pods-GGGaming/Pods-GGGaming.debug.xcconfig"; sourceTree = "<group>"; };
 		F4A926CB3152B81380E99C7A /* Pods_GGGaming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GGGaming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -143,6 +151,31 @@
 				A1CEFB0B25FB33E90034DB0D /* ActivityIndicator.swift */,
 			);
 			path = Tracker;
+			sourceTree = "<group>";
+		};
+		A1CEFB1825FB4EC60034DB0D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A1CEFB1925FB4ED30034DB0D /* Enum */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A1CEFB1925FB4ED30034DB0D /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				A1CEFB1A25FB4EDD0034DB0D /* HomeNoDataEnum.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		A1CEFB1E25FB50740034DB0D /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A1CEFB1F25FB508F0034DB0D /* HomeTableViewCell.swift */,
+				A1CEFB2025FB508F0034DB0D /* HomeTableViewCell.xib */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		A1E5F26D25FA6F5400ADC5B8 /* Feature */ = {
@@ -230,6 +263,7 @@
 			children = (
 				A1E5F28925FA724100ADC5B8 /* API */,
 				A1E5F28825FA723800ADC5B8 /* Model */,
+				A1CEFB1825FB4EC60034DB0D /* Utils */,
 				A1E5F28725FA723500ADC5B8 /* View */,
 				A1E5F28425FA721100ADC5B8 /* ViewModel */,
 			);
@@ -264,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				A1E5F2D425FA888200ADC5B8 /* CollectionViewCell */,
+				A1CEFB1E25FB50740034DB0D /* TableViewCell */,
 				A1E5F28D25FA726700ADC5B8 /* HomeViewController.swift */,
 				A1E5F28E25FA726700ADC5B8 /* HomeViewController.xib */,
 			);
@@ -273,7 +308,8 @@
 		A1E5F28825FA723800ADC5B8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A1E5F2E025FA8E8A00ADC5B8 /* HomeResponseWrapper.swift */,
+				A1E5F2E025FA8E8A00ADC5B8 /* HomeDeveloperResponseWrapper.swift */,
+				A1CEFB1525FB4C200034DB0D /* HomeGameResponseWrapper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -468,6 +504,7 @@
 				A1CD1B7C25FA63E200CB4B15 /* LaunchScreen.storyboard in Resources */,
 				A1E5F2C725FA7DFA00ADC5B8 /* SkillItemView.xib in Resources */,
 				A1E5F29925FA761B00ADC5B8 /* WishlistViewController.xib in Resources */,
+				A1CEFB2225FB508F0034DB0D /* HomeTableViewCell.xib in Resources */,
 				A1CD1B7925FA63E200CB4B15 /* Assets.xcassets in Resources */,
 				A1E5F2CD25FA7F2D00ADC5B8 /* ExperienceItemView.xib in Resources */,
 				A1E5F2AF25FA791400ADC5B8 /* ProfileViewController.xib in Resources */,
@@ -543,16 +580,18 @@
 			files = (
 				A1CD1B6D25FA63E000CB4B15 /* AppDelegate.swift in Sources */,
 				A1E5F2CA25FA7EF800ADC5B8 /* ExperienceItemView.swift in Sources */,
+				A1CEFB2125FB508F0034DB0D /* HomeTableViewCell.swift in Sources */,
 				A1E5F29C25FA762600ADC5B8 /* WishlistViewModel.swift in Sources */,
 				A1E5F2BB25FA7BE100ADC5B8 /* UIApplication+Extension.swift in Sources */,
 				A1CEFB0C25FB33E90034DB0D /* ActivityIndicator.swift in Sources */,
+				A1CEFB1B25FB4EDD0034DB0D /* HomeNoDataEnum.swift in Sources */,
 				A1E5F28125FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift in Sources */,
 				A1E5F2AA25FA790900ADC5B8 /* ProfileModel.swift in Sources */,
 				A1E5F2DB25FA8A6900ADC5B8 /* HomeTarget.swift in Sources */,
 				A1E5F28B25FA725000ADC5B8 /* HomeViewModel.swift in Sources */,
 				A1E5F28F25FA726700ADC5B8 /* HomeViewController.swift in Sources */,
 				A1E5F2DE25FA8A7300ADC5B8 /* HomeNetworkProvider.swift in Sources */,
-				A1E5F2E125FA8E8A00ADC5B8 /* HomeResponseWrapper.swift in Sources */,
+				A1E5F2E125FA8E8A00ADC5B8 /* HomeDeveloperResponseWrapper.swift in Sources */,
 				A1E5F29825FA761B00ADC5B8 /* WishlistViewController.swift in Sources */,
 				A1E5F2B725FA7BAB00ADC5B8 /* UIStackView+Extension.swift in Sources */,
 				A1CEFB0F25FB33F20034DB0D /* ErrorTracker.swift in Sources */,
@@ -564,6 +603,7 @@
 				A1E5F2C025FA7DAF00ADC5B8 /* SkillItemView.swift in Sources */,
 				A1E5F2AE25FA791400ADC5B8 /* ProfileViewController.swift in Sources */,
 				A1E5F27C25FA700D00ADC5B8 /* HomeTabBarViewModel.swift in Sources */,
+				A1CEFB1625FB4C200034DB0D /* HomeGameResponseWrapper.swift in Sources */,
 				A1E5F2B325FA7B8700ADC5B8 /* ObservableType+Extension.swift in Sources */,
 				A1CD1B6F25FA63E000CB4B15 /* SceneDelegate.swift in Sources */,
 			);

@@ -36,7 +36,7 @@ public struct Developer: Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         self.developerID = try values.decodeIfPresent(Int.self, forKey: .developerID)
-        self.developerName = try values.decode(String.self, forKey: .developerName)
-        self.developerImagePreview = try values.decode(String.self, forKey: .developerImagePreview)
+        self.developerName = try values.decodeIfPresent(String.self, forKey: .developerName)
+        self.developerImagePreview = try values.decodeIfPresent(String.self, forKey: .developerImagePreview)
     }
 }

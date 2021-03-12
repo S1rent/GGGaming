@@ -24,7 +24,18 @@ class HomeNetworkProvider {
             .request(requestToken)
             .filterSuccessfulStatusCodes()
             .map(HomeDeveloperResponseWrapper.self)
-            .map { $0.data ?? [] }
+            .map{ $0.data ?? [] }
+            .asObservable()
+    }
+    
+    public func getHomeTopRatedGames() -> Observable<[Game]> {
+        let requestToken = HomeTarget.getHomeTopRatedGames
+        
+        return self.provider.rx
+            .request(requestToken)
+            .filterSuccessfulStatusCodes()
+            .map(HomeGameResponseWrapper.self)
+            .map{ $0.data ?? [] }
             .asObservable()
     }
 }

@@ -13,11 +13,13 @@ import RxDataSources
 final class HomeViewModel {
     struct Input {
         let loadTrigger: Driver<Void>
+        let searchedText: Driver<String>
     }
     
     struct Output {
         let developerData: Driver<[Developer]>
         let gameData: Driver<[Game]>
+        let searchedGameData: Driver<[Game]>
         let loading: Driver<Bool>
         let developerNoData: Driver<Bool>
         let gameNoData: Driver<Bool>
@@ -31,6 +33,15 @@ final class HomeViewModel {
             
             return HomeNetworkProvider.shared
                 .getHomeDeveloperList()
+                .trackError(errorTracker)
+                .trackActivity(activityTracker)
+                .asDriverOnErrorJustComplete()
+        }
+    
+        let searchedGameData = input.searchedText.flatMapLatest { string -> Driver<[Game]> in
+            
+            return HomeNetworkProvider.shared
+                .getHomeSearchedGames(with: string)
                 .trackError(errorTracker)
                 .trackActivity(activityTracker)
                 .asDriverOnErrorJustComplete()
@@ -52,6 +63,7 @@ final class HomeViewModel {
         return Output(
                 developerData: developerData,
                 gameData: gameData,
+                searchedGameData: searchedGameData,
                 loading: activityTracker.asDriver(),
                 developerNoData: developerNoData,
                 gameNoData: gameNoData

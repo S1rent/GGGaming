@@ -77,7 +77,8 @@ class HomeViewController: UIViewController {
     
     private func bindUI() {
         let output = viewModel.transform(input: HomeViewModel.Input(
-            loadTrigger: self.loadRelay.asDriver()
+            loadTrigger: self.loadRelay.asDriver(),
+            searchedText: self.searchBar.rx.text.orEmpty.asDriver().debounce(RxTimeInterval.milliseconds(1000)).skip(1)
         ))
         
         self.rx.disposeBag.insert(
@@ -94,6 +95,11 @@ class HomeViewController: UIViewController {
                 
                 self.hasGameData = true
                 self.setupStackViewData(data)
+            }),
+            output.searchedGameData.drive(onNext: { [weak self] data in
+                guard let self = self else { return }
+                
+                HomeNavigator.shared.navigateToSearchedGameResultPage(gameData: data, searchedKey: self.searchBar.text ?? "")
             }),
             output.loading.drive(onNext: { [weak self] loading in
                 guard let self = self else { return }
@@ -153,5 +159,13 @@ class HomeViewController: UIViewController {
         self.buttonViewAllDeveloper.layer.backgroundColor = UIColor.white.cgColor
         self.stackView.safelyRemoveAllArrangedSubviews()
         self.stackView.isUserInteractionEnabled = true
+        self.searchBar.searchTextField.delegate = self
+    }
+}
+
+extension HomeViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

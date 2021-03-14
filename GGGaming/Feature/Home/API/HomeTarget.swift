@@ -11,6 +11,7 @@ import Moya
 internal enum HomeTarget {
     case getHomeDeveloperList
     case getHomeTopRatedGames
+    case getHomeSearchedGames(searchKey: String)
 }
 
 extension HomeTarget: TargetType {
@@ -22,7 +23,7 @@ extension HomeTarget: TargetType {
         switch self {
         case .getHomeDeveloperList:
             return "api/developers"
-        case .getHomeTopRatedGames:
+        case .getHomeTopRatedGames, .getHomeSearchedGames:
             return "api/games"
         }
     }
@@ -39,6 +40,12 @@ extension HomeTarget: TargetType {
                 "key": "7aeec70b17574b5089ad68144d1e8a87",
                 "page_size": 10,
                 "ordering": "-rating"
+            ]
+        case let .getHomeSearchedGames(searchKey):
+            return [
+                "key": "7aeec70b17574b5089ad68144d1e8a87",
+                "page_size": 10,
+                "search": searchKey
             ]
         }
     }

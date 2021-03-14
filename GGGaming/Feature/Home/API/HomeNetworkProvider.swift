@@ -38,4 +38,15 @@ class HomeNetworkProvider {
             .map { $0.data ?? [] }
             .asObservable()
     }
+    
+    public func getHomeSearchedGames(with searchKey: String) -> Observable<[Game]> {
+        let requestToken = HomeTarget.getHomeSearchedGames(searchKey: searchKey)
+        
+        return self.provider.rx
+            .request(requestToken)
+            .filterSuccessfulStatusCodes()
+            .map(HomeGameResponseWrapper.self)
+            .map { $0.data ?? [] }
+            .asObservable()
+    }
 }

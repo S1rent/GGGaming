@@ -22,6 +22,8 @@ class GameDetailViewController: UIViewController {
     @IBOutlet weak var ratingView: UIView!
     @IBOutlet weak var noResultView: UIView!
     @IBOutlet weak var labelNoData: UILabel!
+    @IBOutlet weak var actionButton: UIButton!
+    @IBOutlet weak var actionView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
         didSet {
             self.activityIndicator.isHidden = true
@@ -36,12 +38,15 @@ class GameDetailViewController: UIViewController {
         }
     }
     
+    let gameData: Game
     let viewModel: GameDetailViewModel
     let loadTrigger: BehaviorRelay<Void>
     
     var hasData = false
+    var isInsideWishlist = false
     
-    init(viewModel: GameDetailViewModel) {
+    init(gameData: Game, viewModel: GameDetailViewModel) {
+        self.gameData = gameData
         self.viewModel = viewModel
         self.loadTrigger = BehaviorRelay<Void>(value: ())
         
@@ -88,6 +93,15 @@ class GameDetailViewController: UIViewController {
                         self.labelNoData.alpha = 1
                     }
                 }
+            }),
+            output.action.drive(onNext: { [weak self] isInsideWishList in
+                guard let self = self else { return }
+                
+                if isInsideWishList {
+                    self.setupAction(true)
+                } else {
+                    self.setupAction(false)
+                }
             })
         )
     }
@@ -119,9 +133,50 @@ class GameDetailViewController: UIViewController {
         self.labelGameDeveloper.text = developerString
     }
     
+    private func setupAction(_ action: Bool) {
+        if action {
+            self.actionButton.setTitleColor(UIColor.red, for: .normal)
+            self.actionButton.setTitle("Remove from Wishlist", for: .normal)
+            self.actionView.layer.backgroundColor = UIColor.red.cgColor
+            self.isInsideWishlist = true
+        } else {
+            self.actionButton.setTitleColor(UIColor.green, for: .normal)
+            self.actionButton.setTitle("Add to Wishlist", for: .normal)
+            self.actionView.layer.backgroundColor = UIColor.green.cgColor
+            self.isInsideWishlist = false
+        }
+    }
+    
     private func setupView() {
         self.ratingView.layer.cornerRadius = 6
         self.imageGamePhotoMain.layer.cornerRadius = 6
         self.imageGamePhotoAdditional.layer.cornerRadius = 6
+        self.actionView.layer.cornerRadius = 6
+        self.actionButton.layer.cornerRadius = 6
+    }
+    
+    private func showInformation(remove: Bool) {
+        var alertController = UIAlertController()
+        if remove {
+            alertController = UIAlertController(title: "Information", message: "Successfully remove game from wishlist.", preferredStyle: .alert)
+        } else {
+            alertController = UIAlertController(title: "Information", message: "Successfully add game to wishlist.", preferredStyle: .alert)
+        }
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: {
+            let action = (remove) ? true : false
+            self.setupAction(!action)
+        })
+    }
+    
+    @IBAction func actionButtonTapped(_ sender: Any) {
+        if isInsideWishlist {
+            Wishlist.shared.removeGameFromWishList(game: self.gameData)
+            self.showInformation(remove: true)
+        } else {
+            Wishlist.shared.addGameToWishList(game: self.gameData)
+            self.showInformation(remove: false)
+        }
     }
 }

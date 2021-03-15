@@ -17,6 +17,7 @@ final class GameDetailViewModel {
     struct Output {
         let data: Driver<GameDetailResponseWrapper>
         let loading: Driver<Bool>
+        let action: Driver<Bool>
     }
     
     let gameData: Game
@@ -39,9 +40,14 @@ final class GameDetailViewModel {
                 .asDriverOnErrorJustComplete()
         }
         
+        let isInsideUserWishlist = input.loadTrigger.map { _ -> Bool in
+            return Wishlist.shared.isGameInsideWishList(gameData: self.gameData)
+        }
+        
         return Output(
             data: data,
-            loading: activityTracker.asDriver()
+            loading: activityTracker.asDriver(),
+            action: isInsideUserWishlist
         )
     }
 }

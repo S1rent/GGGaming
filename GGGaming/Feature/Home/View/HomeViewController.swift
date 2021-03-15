@@ -65,10 +65,14 @@ class HomeViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.changeTitle("Home")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.changeTitle("Home")
         
         self.setupView()
         self.setupCollectionView()
@@ -104,6 +108,7 @@ class HomeViewController: UIViewController {
             output.searchedGameData.drive(onNext: { [weak self] data in
                 guard let self = self else { return }
                 
+                self.searchBar.endEditing(true)
                 GameNavigator.shared.navigateToSearchedGameResultPage(gameData: data, searchedKey: self.searchBar.text ?? "")
             }),
             output.loading.drive(onNext: { [weak self] loading in

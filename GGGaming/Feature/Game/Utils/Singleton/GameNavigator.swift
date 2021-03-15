@@ -15,7 +15,7 @@ class GameNavigator {
     
     public func navigateToGameDetail(gameData: Game) {
         let viewModel = GameDetailViewModel(gameData: gameData)
-        let viewController = GameDetailViewController(viewModel: viewModel)
+        let viewController = GameDetailViewController(gameData: gameData, viewModel: viewModel)
         
         UIApplication.topViewController()?.navigationController?.pushViewController(viewController, animated: true)
     }

@@ -26,4 +26,30 @@ class GameNetworkProvider {
             .map(GameDetailResponseWrapper.self)
             .asObservable()
     }
+    
+    public func getGameListByDeveloperID(with developerID: Int) -> Observable<[Game]> {
+        let requestToken = GameTarget.getGameListByDeveloperID(id: developerID)
+        
+        return self.provider.rx
+            .request(requestToken)
+            .filterSuccessfulStatusCodes()
+            .map(HomeGameResponseWrapper.self)
+            .map {
+                $0.data ?? []
+            }
+            .asObservable()
+    }
+    
+    public func getGameDeveloperList() -> Observable<[Developer]> {
+        let requestToken = GameTarget.getGameDeveloperList
+        
+        return self.provider.rx
+            .request(requestToken)
+            .filterSuccessfulStatusCodes()
+            .map(HomeDeveloperResponseWrapper.self)
+            .map {
+                $0.data ?? []
+            }
+            .asObservable()
+    }
 }

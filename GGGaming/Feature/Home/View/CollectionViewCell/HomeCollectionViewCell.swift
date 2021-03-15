@@ -26,7 +26,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     }
     
     public func setData(_ data: Developer) {
-        self.imageDeveloper.sd_setImage(with: URL(string: data.developerImagePreview ?? ""), placeholderImage: #imageLiteral(resourceName: "icn-home"))
+        self.imageDeveloper.sd_setImage(with: URL(string: data.developerImagePreview ?? ""), placeholderImage: #imageLiteral(resourceName: "icn-broken-photo"))
         self.labelDeveloperName.text = data.developerName ?? ""
     }
     

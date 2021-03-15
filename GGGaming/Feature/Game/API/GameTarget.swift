@@ -10,6 +10,8 @@ import Moya
 
 internal enum GameTarget {
     case getGameDetail(id: Int)
+    case getGameListByDeveloperID(id: Int)
+    case getGameDeveloperList
 }
 
 extension GameTarget: TargetType {
@@ -21,13 +23,30 @@ extension GameTarget: TargetType {
         switch self {
         case let .getGameDetail(id):
             return "api/games/\(id)"
+        case .getGameListByDeveloperID:
+            return "api/games"
+        case .getGameDeveloperList:
+            return "api/developers"
         }
     }
     
     var parameters: [String : Any]? {
         switch self {
         case .getGameDetail:
-            return nil
+            return [
+                "key": "7aeec70b17574b5089ad68144d1e8a87"
+            ]
+        case let .getGameListByDeveloperID(id):
+            return [
+                "key": "7aeec70b17574b5089ad68144d1e8a87",
+                "developers": id,
+                "page_size": 20
+            ]
+        case .getGameDeveloperList:
+            return [
+                "key": "7aeec70b17574b5089ad68144d1e8a87",
+                "page_size": 100
+            ]
         }
     }
     
@@ -57,4 +76,3 @@ extension GameTarget: TargetType {
         return "{\"data\": 123}".data(using: .utf8)!
     }
 }
-

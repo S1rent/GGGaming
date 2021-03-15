@@ -76,8 +76,14 @@ class HomeViewController: UIViewController {
     }
     
     private func bindUI() {
+        let willAppear = self.rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
+            .mapToVoid()
+            .asDriverOnErrorJustComplete()
+        
         let output = viewModel.transform(input: HomeViewModel.Input(
-            loadTrigger: self.loadRelay.asDriver()
+            loadTrigger: self.loadRelay.asDriver(),
+            searchedText: self.searchBar.rx.text.orEmpty.asDriverOnErrorJustComplete().skip(1).debounce(RxTimeInterval.milliseconds(500)),
+            willAppearTrigger: willAppear
         ))
         
         self.rx.disposeBag.insert(
@@ -94,6 +100,11 @@ class HomeViewController: UIViewController {
                 
                 self.hasGameData = true
                 self.setupStackViewData(data)
+            }),
+            output.searchedGameData.drive(onNext: { [weak self] data in
+                guard let self = self else { return }
+                
+                GameNavigator.shared.navigateToSearchedGameResultPage(gameData: data, searchedKey: self.searchBar.text ?? "")
             }),
             output.loading.drive(onNext: { [weak self] loading in
                 guard let self = self else { return }
@@ -126,6 +137,16 @@ class HomeViewController: UIViewController {
         let layout: UICollectionViewFlowLayout = self.collectionView?.collectionViewLayout as? UICollectionViewFlowLayout ?? UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 250, height: 160)
         self.collectionView.setCollectionViewLayout(layout, animated: true)
+        
+        self.collectionView.rx.modelSelected(Any.self)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { data in
+                if let developerData = data as? Developer {
+                    GameNavigator.shared.navigateToSearchedGameResultByDeveloperPage(developerData: developerData)
+                }
+                self.deselectCollectionItem()
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .disposed(by: self.rx.disposeBag)
     }
     
     private func setupNoResultView() {
@@ -153,5 +174,24 @@ class HomeViewController: UIViewController {
         self.buttonViewAllDeveloper.layer.backgroundColor = UIColor.white.cgColor
         self.stackView.safelyRemoveAllArrangedSubviews()
         self.stackView.isUserInteractionEnabled = true
+        self.searchBar.searchTextField.delegate = self
+    }
+    
+    private func deselectCollectionItem() {
+        if let index = self.collectionView.indexPathsForSelectedItems {
+            self.collectionView.deselectItem(at: index[0], animated: true)
+        }
+    }
+    
+    @IBAction func developerViewAllTapped(_ sender: Any) {
+        GameNavigator.shared.navigateToDeveloperList()
+    }
+    
+}
+
+extension HomeViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

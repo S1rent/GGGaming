@@ -144,6 +144,7 @@ class HomeViewController: UIViewController {
                 if let developerData = data as? Developer {
                     GameNavigator.shared.navigateToSearchedGameResultByDeveloperPage(developerData: developerData)
                 }
+                self.deselectCollectionItem()
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.rx.disposeBag)
     }
@@ -174,6 +175,12 @@ class HomeViewController: UIViewController {
         self.stackView.safelyRemoveAllArrangedSubviews()
         self.stackView.isUserInteractionEnabled = true
         self.searchBar.searchTextField.delegate = self
+    }
+    
+    private func deselectCollectionItem() {
+        if let index = self.collectionView.indexPathsForSelectedItems {
+            self.collectionView.deselectItem(at: index[0], animated: true)
+        }
     }
 }
 

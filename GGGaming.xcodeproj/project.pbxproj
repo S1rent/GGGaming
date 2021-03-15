@@ -155,8 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				A1D2D60925FE48BE00606466 /* GameDetail */,
-				A1E04A3625FF18430072775A /* GameListByDeveloper */,
 				A1D2D60825FE48B700606466 /* GameSearchResult */,
+				A1E04A3625FF18430072775A /* GameListByDeveloper */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

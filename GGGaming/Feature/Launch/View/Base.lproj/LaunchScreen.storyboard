@@ -28,22 +28,23 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GG" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIW-4C-TPh">
-                                <rect key="frame" x="151.5" y="399" width="111" height="98.5"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="72"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn-application-logo" translatesAutoresizingMaskIntoConstraints="NO" id="HOo-g9-LhQ">
+                                <rect key="frame" x="82" y="323" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="EcB-90-KU9"/>
+                                    <constraint firstAttribute="height" constant="250" id="tu8-pr-4vc"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tJJ-0P-Gjg" secondAttribute="trailing" constant="16" id="0eo-zv-8XL"/>
                             <constraint firstItem="tJJ-0P-Gjg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="BuO-kx-RAp"/>
-                            <constraint firstItem="mIW-4C-TPh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="HmL-Ki-sJN"/>
-                            <constraint firstItem="mIW-4C-TPh" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="OUm-VF-O6b"/>
                             <constraint firstItem="7b9-XQ-KtR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Ptv-y1-l2f"/>
+                            <constraint firstItem="HOo-g9-LhQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Rau-B3-aDT"/>
                             <constraint firstItem="tJJ-0P-Gjg" firstAttribute="top" secondItem="7b9-XQ-KtR" secondAttribute="bottom" constant="8" id="dmU-lR-ey2"/>
+                            <constraint firstItem="HOo-g9-LhQ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="eOO-Zg-H8Z"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7b9-XQ-KtR" secondAttribute="trailing" constant="16" id="haa-6a-5lQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tJJ-0P-Gjg" secondAttribute="bottom" constant="16" id="xIC-BY-ihU"/>
                         </constraints>
@@ -54,4 +55,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icn-application-logo" width="341" height="341"/>
+    </resources>
 </document>

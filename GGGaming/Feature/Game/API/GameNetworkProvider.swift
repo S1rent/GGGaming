@@ -39,4 +39,17 @@ class GameNetworkProvider {
             }
             .asObservable()
     }
+    
+    public func getGameDeveloperList() -> Observable<[Developer]> {
+        let requestToken = GameTarget.getGameDeveloperList
+        
+        return self.provider.rx
+            .request(requestToken)
+            .filterSuccessfulStatusCodes()
+            .map(HomeDeveloperResponseWrapper.self)
+            .map {
+                $0.data ?? []
+            }
+            .asObservable()
+    }
 }

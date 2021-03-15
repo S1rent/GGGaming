@@ -23,11 +23,13 @@ public struct HomeDeveloperResponseWrapper: Decodable {
 
 public struct Developer: Decodable {
     let developerID: Int?
+    let developerGamesCount: Int?
     let developerName: String?
     let developerImagePreview: String?
     
     internal enum CodingKeys: String, CodingKey {
         case developerID = "id"
+        case developerGamesCount = "games_count"
         case developerName = "name"
         case developerImagePreview = "image_background"
     }
@@ -36,6 +38,7 @@ public struct Developer: Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         self.developerID = try values.decodeIfPresent(Int.self, forKey: .developerID)
+        self.developerGamesCount = try values.decodeIfPresent(Int.self, forKey: .developerGamesCount)
         self.developerName = try values.decodeIfPresent(String.self, forKey: .developerName)
         self.developerImagePreview = try values.decodeIfPresent(String.self, forKey: .developerImagePreview)
     }

@@ -33,4 +33,11 @@ class GameNavigator {
         
         UIApplication.topViewController()?.navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    public func navigateToDeveloperList() {
+        let viewModel = GameDeveloperListViewModel()
+        let viewController = GameDeveloperListViewController(viewModel: viewModel)
+        
+        UIApplication.topViewController()?.navigationController?.pushViewController(viewController, animated: true)
+    }
 }

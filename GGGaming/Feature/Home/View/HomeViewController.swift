@@ -182,6 +182,11 @@ class HomeViewController: UIViewController {
             self.collectionView.deselectItem(at: index[0], animated: true)
         }
     }
+    
+    @IBAction func developerViewAllTapped(_ sender: Any) {
+        GameNavigator.shared.navigateToDeveloperList()
+    }
+    
 }
 
 extension HomeViewController: UITextFieldDelegate {

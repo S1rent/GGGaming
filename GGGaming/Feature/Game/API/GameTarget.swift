@@ -11,6 +11,7 @@ import Moya
 internal enum GameTarget {
     case getGameDetail(id: Int)
     case getGameListByDeveloperID(id: Int)
+    case getGameDeveloperList
 }
 
 extension GameTarget: TargetType {
@@ -24,6 +25,8 @@ extension GameTarget: TargetType {
             return "api/games/\(id)"
         case .getGameListByDeveloperID:
             return "api/games"
+        case .getGameDeveloperList:
+            return "api/developers"
         }
     }
     
@@ -38,6 +41,11 @@ extension GameTarget: TargetType {
                 "key": "7aeec70b17574b5089ad68144d1e8a87",
                 "developers": id,
                 "page_size": 20
+            ]
+        case .getGameDeveloperList:
+            return [
+                "key": "7aeec70b17574b5089ad68144d1e8a87",
+                "page_size": 100
             ]
         }
     }

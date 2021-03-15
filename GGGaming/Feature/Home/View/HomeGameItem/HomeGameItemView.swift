@@ -66,7 +66,7 @@ class HomeGameItemView: UIView {
     }
     
     @IBAction func navigateToGameDetail(_ sender: Any) {
-        GameNavigator.shared.goToGameDetail(gameData: self.data)
+        GameNavigator.shared.navigateToGameDetail(gameData: self.data)
     }
     
 }

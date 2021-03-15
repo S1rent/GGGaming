@@ -1,19 +1,19 @@
 //
-//  GameSearchResultViewController.swift
+//  GameSearchResultByDeveloperViewController.swift
 //  GGGaming
 //
-//  Created by IT Division on 14/03/21.
+//  Created by IT Division on 15/03/21.
 //
 
 import UIKit
 import RxSwift
 import RxCocoa
+import NSObject_Rx
 
-class GameSearchResultViewController: UIViewController {
-    
-    @IBOutlet weak var initView: UIView!
+class GameListByDeveloperViewController: UIViewController {
+
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var labelSearchResult: UILabel!
+    @IBOutlet weak var initView: UIView!
     @IBOutlet weak var noResultView: UIView!
     @IBOutlet weak var labelNoData: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
@@ -30,12 +30,14 @@ class GameSearchResultViewController: UIViewController {
         }
     }
     
-    let searchKey: String
-    let viewModel: GameSearchResultViewModel
+    let data: Developer
+    let viewModel: GameListByDeveloperViewModel
     let loadRelay: BehaviorRelay<Void>
     
-    init(searchKey: String, viewModel: GameSearchResultViewModel) {
-        self.searchKey = searchKey
+    var hasData = false
+    
+    init(developerData: Developer, viewModel: GameListByDeveloperViewModel) {
+        self.data = developerData
         self.viewModel = viewModel
         self.loadRelay = BehaviorRelay<Void>(value: ())
         
@@ -48,14 +50,14 @@ class GameSearchResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Search Game"
+        self.title = "\(self.data.developerName ?? "") Games"
         
         self.setupView()
         self.bindUI()
     }
     
     private func bindUI() {
-        let output = self.viewModel.transform(input: GameSearchResultViewModel.Input(
+        let output = self.viewModel.transform(input: GameListByDeveloperViewModel.Input(
             loadTrigger: self.loadRelay.asDriver()
         ))
         
@@ -68,33 +70,34 @@ class GameSearchResultViewController: UIViewController {
             output.noData.drive(onNext: { [weak self] noData in
                 guard let self = self else { return }
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
-                    guard let self = self else { return }
+                self.hasData = noData
+            }),
+            output.loading.drive(onNext: { [weak self] loading in
+                guard let self = self else { return }
+                
+                if loading {
+                    self.setActivityIndicator(loading: true)
+                    self.noResultView.animateFadeIn()
+                } else {
                     self.setActivityIndicator(loading: false)
                     
-                    if !noData {
-                        self.labelNoData.alpha = 1
-                    } else {
+                    if self.hasData {
                         self.noResultView.animateFadeOut()
+                    } else {
+                        self.labelNoData.alpha = 1
                     }
                 }
             })
         )
     }
     
-    private func setupStackViewData(_ gameList: [Game]) {
-        for game in gameList {
+    private func setupStackViewData(_ data: [Game]) {
+        for game in data {
             let gameItem = HomeGameItemView(game)
             gameItem.setData(game)
             
             self.stackView.addArrangedSubview(gameItem)
         }
-    }
-    
-    private func setupView() {
-        self.setActivityIndicator(loading: true)
-        self.stackView.safelyRemoveAllArrangedSubviews()
-        self.labelSearchResult.text = "Search result for \"\(self.searchKey)\""
     }
     
     private func setActivityIndicator(loading: Bool) {
@@ -105,5 +108,9 @@ class GameSearchResultViewController: UIViewController {
             self.activityIndicator.animateFadeOut()
             self.activityIndicator.stopAnimating()
         }
+    }
+
+    private func setupView() {
+        self.stackView.safelyRemoveAllArrangedSubviews()
     }
 }

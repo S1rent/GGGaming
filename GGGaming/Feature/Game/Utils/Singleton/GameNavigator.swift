@@ -13,9 +13,23 @@ class GameNavigator {
     
     private init() { }
     
-    public func goToGameDetail(gameData: Game) {
+    public func navigateToGameDetail(gameData: Game) {
         let viewModel = GameDetailViewModel(gameData: gameData)
         let viewController = GameDetailViewController(viewModel: viewModel)
+        UIApplication.topViewController()?.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    public func navigateToSearchedGameResultPage(gameData: [Game], searchedKey: String) {
+        let viewModel = GameSearchResultViewModel(data: gameData)
+        let viewController = GameSearchResultViewController(searchKey: searchedKey, viewModel: viewModel)
+        
+        UIApplication.topViewController()?.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    public func navigateToSearchedGameResultByDeveloperPage(developerData: Developer) {
+        let viewModel = GameListByDeveloperViewModel(data: developerData)
+        let viewController = GameListByDeveloperViewController(developerData: developerData, viewModel: viewModel)
+        
         UIApplication.topViewController()?.navigationController?.pushViewController(viewController, animated: true)
     }
 }

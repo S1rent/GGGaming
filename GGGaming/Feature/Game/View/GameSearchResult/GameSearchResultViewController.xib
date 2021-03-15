@@ -11,8 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameSearchResultViewController" customModule="GGGaming" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="F7Q-qN-w5h" id="fB4-j2-OeW"/>
                 <outlet property="initView" destination="S8Q-U8-oaK" id="MLv-i9-U9t"/>
+                <outlet property="labelNoData" destination="j9f-oe-EHc" id="t7X-V2-z3S"/>
                 <outlet property="labelSearchResult" destination="2VH-f2-bKo" id="qxq-ra-DhY"/>
+                <outlet property="noResultView" destination="1fU-h1-ubF" id="DZf-oZ-CgG"/>
                 <outlet property="stackView" destination="7Au-so-bfg" id="Y5G-5R-aFr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -74,13 +77,38 @@
                         <constraint firstAttribute="trailing" secondItem="3Ny-Zl-aP9" secondAttribute="trailing" id="xle-px-Sd9"/>
                     </constraints>
                 </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fU-h1-ubF">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9f-oe-EHc">
+                            <rect key="frame" x="172" y="398.5" width="70" height="21.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="j9f-oe-EHc" firstAttribute="centerY" secondItem="1fU-h1-ubF" secondAttribute="centerY" id="Dbz-6E-CV3"/>
+                        <constraint firstItem="j9f-oe-EHc" firstAttribute="centerX" secondItem="1fU-h1-ubF" secondAttribute="centerX" id="nya-Ff-ipb"/>
+                    </constraints>
+                </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="F7Q-qN-w5h">
+                    <rect key="frame" x="197" y="438" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="labelColor"/>
             <constraints>
+                <constraint firstItem="1fU-h1-ubF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7BK-dj-QYR"/>
+                <constraint firstItem="F7Q-qN-w5h" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Ctb-P9-leg"/>
+                <constraint firstItem="F7Q-qN-w5h" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ELg-vT-wK6"/>
                 <constraint firstItem="3MM-1K-gbJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="JSQ-ai-087"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="3MM-1K-gbJ" secondAttribute="bottom" id="MHh-fH-Aff"/>
+                <constraint firstItem="1fU-h1-ubF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bLz-pa-hQ4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3MM-1K-gbJ" secondAttribute="trailing" id="e6A-RG-efr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="1fU-h1-ubF" secondAttribute="bottom" id="jzP-lz-Nd0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1fU-h1-ubF" secondAttribute="trailing" id="kQV-d4-oE2"/>
                 <constraint firstItem="3MM-1K-gbJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="tud-aI-qhz"/>
             </constraints>
             <point key="canvasLocation" x="139" y="66"/>

@@ -104,8 +104,7 @@ class HomeViewController: UIViewController {
             output.searchedGameData.drive(onNext: { [weak self] data in
                 guard let self = self else { return }
                 
-                self.searchBar.resignFirstResponder()
-                HomeNavigator.shared.navigateToSearchedGameResultPage(gameData: data, searchedKey: self.searchBar.text ?? "")
+                GameNavigator.shared.navigateToSearchedGameResultPage(gameData: data, searchedKey: self.searchBar.text ?? "")
             }),
             output.loading.drive(onNext: { [weak self] loading in
                 guard let self = self else { return }
@@ -138,6 +137,15 @@ class HomeViewController: UIViewController {
         let layout: UICollectionViewFlowLayout = self.collectionView?.collectionViewLayout as? UICollectionViewFlowLayout ?? UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 250, height: 160)
         self.collectionView.setCollectionViewLayout(layout, animated: true)
+        
+        self.collectionView.rx.modelSelected(Any.self)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { data in
+                if let developerData = data as? Developer {
+                    GameNavigator.shared.navigateToSearchedGameResultByDeveloperPage(developerData: developerData)
+                }
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .disposed(by: self.rx.disposeBag)
     }
     
     private func setupNoResultView() {

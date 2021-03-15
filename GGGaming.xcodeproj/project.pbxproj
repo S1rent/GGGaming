@@ -630,8 +630,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1CD1B8025FA63E200CB4B15 /* Build configuration list for PBXNativeTarget "GGGaming" */;
 			buildPhases = (
-				A1E5F26B25FA6BE100ADC5B8 /* ShellScript */,
 				3FE0FCC85D3D654C9FA12E51 /* [CP] Check Pods Manifest.lock */,
+				A1E5F26B25FA6BE100ADC5B8 /* ShellScript */,
 				A1CD1B6525FA63E000CB4B15 /* Sources */,
 				A1CD1B6625FA63E000CB4B15 /* Frameworks */,
 				A1CD1B6725FA63E000CB4B15 /* Resources */,

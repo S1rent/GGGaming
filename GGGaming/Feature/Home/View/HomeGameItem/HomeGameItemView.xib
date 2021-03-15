@@ -59,7 +59,7 @@
                                     </constraints>
                                 </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="log-4g-JM0">
-                                    <rect key="frame" x="16" y="165.5" width="24" height="24"/>
+                                    <rect key="frame" x="16" y="157.5" width="24" height="24"/>
                                     <color key="tintColor" systemColor="systemYellowColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="24" id="5Qi-Hu-38b"/>
@@ -67,13 +67,13 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTc-UL-sKe">
-                                    <rect key="frame" x="48" y="168" width="350" height="19.5"/>
+                                    <rect key="frame" x="48" y="160" width="350" height="19.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMd-Xc-ImZ">
-                                    <rect key="frame" x="16" y="198" width="382" height="19.5"/>
+                                    <rect key="frame" x="16" y="186" width="382" height="19.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -83,11 +83,11 @@
                             <constraints>
                                 <constraint firstItem="TMd-Xc-ImZ" firstAttribute="leading" secondItem="bvT-cS-goX" secondAttribute="leading" constant="16" id="5v2-Jp-Ao6"/>
                                 <constraint firstItem="OTc-UL-sKe" firstAttribute="top" secondItem="log-4g-JM0" secondAttribute="top" constant="2" id="FEM-vJ-PvB"/>
-                                <constraint firstItem="log-4g-JM0" firstAttribute="top" secondItem="cOD-Fi-d3c" secondAttribute="bottom" constant="16" id="SgM-4v-i7J"/>
+                                <constraint firstItem="log-4g-JM0" firstAttribute="top" secondItem="cOD-Fi-d3c" secondAttribute="bottom" constant="8" id="SgM-4v-i7J"/>
                                 <constraint firstAttribute="trailing" secondItem="OTc-UL-sKe" secondAttribute="trailing" constant="16" id="WAv-CY-Ljw"/>
                                 <constraint firstAttribute="trailing" secondItem="cOD-Fi-d3c" secondAttribute="trailing" id="WN9-l0-8Pg"/>
                                 <constraint firstAttribute="trailing" secondItem="TMd-Xc-ImZ" secondAttribute="trailing" constant="16" id="Wt5-h7-eNL"/>
-                                <constraint firstItem="TMd-Xc-ImZ" firstAttribute="top" secondItem="log-4g-JM0" secondAttribute="bottom" constant="8" id="a6b-k7-5cE"/>
+                                <constraint firstItem="TMd-Xc-ImZ" firstAttribute="top" secondItem="log-4g-JM0" secondAttribute="bottom" constant="4" id="a6b-k7-5cE"/>
                                 <constraint firstItem="cOD-Fi-d3c" firstAttribute="top" secondItem="bvT-cS-goX" secondAttribute="top" id="nLj-ws-we3"/>
                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="TMd-Xc-ImZ" secondAttribute="bottom" constant="16" id="p6C-JK-JLw"/>
                                 <constraint firstItem="cOD-Fi-d3c" firstAttribute="leading" secondItem="bvT-cS-goX" secondAttribute="leading" id="qnV-mo-7lC"/>

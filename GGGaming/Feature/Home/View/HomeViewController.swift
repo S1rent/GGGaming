@@ -76,9 +76,14 @@ class HomeViewController: UIViewController {
     }
     
     private func bindUI() {
+        let willAppear = self.rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
+            .mapToVoid()
+            .asDriverOnErrorJustComplete()
+        
         let output = viewModel.transform(input: HomeViewModel.Input(
             loadTrigger: self.loadRelay.asDriver(),
-            searchedText: self.searchBar.rx.text.orEmpty.asDriver().debounce(RxTimeInterval.milliseconds(1000)).skip(1)
+            searchedText: self.searchBar.rx.text.orEmpty.asDriverOnErrorJustComplete().skip(1).debounce(RxTimeInterval.milliseconds(500)),
+            willAppearTrigger: willAppear
         ))
         
         self.rx.disposeBag.insert(
@@ -99,6 +104,7 @@ class HomeViewController: UIViewController {
             output.searchedGameData.drive(onNext: { [weak self] data in
                 guard let self = self else { return }
                 
+                self.searchBar.resignFirstResponder()
                 HomeNavigator.shared.navigateToSearchedGameResultPage(gameData: data, searchedKey: self.searchBar.text ?? "")
             }),
             output.loading.drive(onNext: { [weak self] loading in

@@ -37,6 +37,9 @@
 		A1E04A9325FF26870072775A /* GameDeveloperListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E04A9125FF26870072775A /* GameDeveloperListViewController.xib */; };
 		A1E04A9E25FF35E30072775A /* GameDeveloperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E04A9C25FF35E30072775A /* GameDeveloperTableViewCell.swift */; };
 		A1E04A9F25FF35E30072775A /* GameDeveloperTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E04A9D25FF35E30072775A /* GameDeveloperTableViewCell.xib */; };
+		A1E04AAA25FF653B0072775A /* WishlistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E04AA925FF653B0072775A /* WishlistModel.swift */; };
+		A1E04AAE25FF8AF20072775A /* WishlistItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E04AAD25FF8AF20072775A /* WishlistItemView.swift */; };
+		A1E04AB225FF8AFC0072775A /* WishlistItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E04AB125FF8AFC0072775A /* WishlistItemView.xib */; };
 		A1E5F27825FA6FE600ADC5B8 /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F27725FA6FE600ADC5B8 /* HomeTabBarViewController.swift */; };
 		A1E5F27C25FA700D00ADC5B8 /* HomeTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F27B25FA700D00ADC5B8 /* HomeTabBarViewModel.swift */; };
 		A1E5F28125FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F28025FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift */; };
@@ -98,6 +101,9 @@
 		A1E04A9125FF26870072775A /* GameDeveloperListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameDeveloperListViewController.xib; sourceTree = "<group>"; };
 		A1E04A9C25FF35E30072775A /* GameDeveloperTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDeveloperTableViewCell.swift; sourceTree = "<group>"; };
 		A1E04A9D25FF35E30072775A /* GameDeveloperTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameDeveloperTableViewCell.xib; sourceTree = "<group>"; };
+		A1E04AA925FF653B0072775A /* WishlistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistModel.swift; sourceTree = "<group>"; };
+		A1E04AAD25FF8AF20072775A /* WishlistItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistItemView.swift; sourceTree = "<group>"; };
+		A1E04AB125FF8AFC0072775A /* WishlistItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishlistItemView.xib; sourceTree = "<group>"; };
 		A1E5F27725FA6FE600ADC5B8 /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
 		A1E5F27B25FA700D00ADC5B8 /* HomeTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewModel.swift; sourceTree = "<group>"; };
 		A1E5F28025FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewControllerList.swift; sourceTree = "<group>"; };
@@ -343,6 +349,15 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		A1E04AAC25FF8ADB0072775A /* WishlistItemView */ = {
+			isa = PBXGroup;
+			children = (
+				A1E04AAD25FF8AF20072775A /* WishlistItemView.swift */,
+				A1E04AB125FF8AFC0072775A /* WishlistItemView.xib */,
+			);
+			path = WishlistItemView;
+			sourceTree = "<group>";
+		};
 		A1E5F26D25FA6F5400ADC5B8 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,6 +524,7 @@
 		A1E5F29425FA760100ADC5B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A1E04AAC25FF8ADB0072775A /* WishlistItemView */,
 				A1E5F29625FA761B00ADC5B8 /* WishlistViewController.swift */,
 				A1E5F29725FA761B00ADC5B8 /* WishlistViewController.xib */,
 			);
@@ -518,6 +534,7 @@
 		A1E5F29525FA760600ADC5B8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A1E04AA925FF653B0072775A /* WishlistModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -676,6 +693,7 @@
 				A1E04A9325FF26870072775A /* GameDeveloperListViewController.xib in Resources */,
 				A1E5F29925FA761B00ADC5B8 /* WishlistViewController.xib in Resources */,
 				A1CD1B7925FA63E200CB4B15 /* Assets.xcassets in Resources */,
+				A1E04AB225FF8AFC0072775A /* WishlistItemView.xib in Resources */,
 				A1E5F2CD25FA7F2D00ADC5B8 /* ExperienceItemView.xib in Resources */,
 				A1E04A0B25FF10AF0072775A /* GameListByDeveloperViewController.xib in Resources */,
 				A1E5F2AF25FA791400ADC5B8 /* ProfileViewController.xib in Resources */,
@@ -753,6 +771,7 @@
 				A1CD1B6D25FA63E000CB4B15 /* AppDelegate.swift in Sources */,
 				A1E5F2CA25FA7EF800ADC5B8 /* ExperienceItemView.swift in Sources */,
 				A1E5F29C25FA762600ADC5B8 /* WishlistViewModel.swift in Sources */,
+				A1E04AAA25FF653B0072775A /* WishlistModel.swift in Sources */,
 				A1E5F2BB25FA7BE100ADC5B8 /* UIApplication+Extension.swift in Sources */,
 				A1E04A0A25FF10AF0072775A /* GameListByDeveloperViewController.swift in Sources */,
 				A1D2D60C25FE48D500606466 /* GameSearchResultViewModel.swift in Sources */,
@@ -767,6 +786,7 @@
 				A1D2D60525FE47AC00606466 /* GameSearchResultViewController.swift in Sources */,
 				A15C250425FB75BF00BF7EE2 /* GameNetworkProvider.swift in Sources */,
 				A1E5F28B25FA725000ADC5B8 /* HomeViewModel.swift in Sources */,
+				A1E04AAE25FF8AF20072775A /* WishlistItemView.swift in Sources */,
 				A15C250B25FB760D00BF7EE2 /* GameDetailResponseWrapper.swift in Sources */,
 				A1E5F28F25FA726700ADC5B8 /* HomeViewController.swift in Sources */,
 				A1E5F2DE25FA8A7300ADC5B8 /* HomeNetworkProvider.swift in Sources */,

@@ -20,6 +20,12 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         self.setupView()
+        self.buttonLogin.rx.tap.subscribe(onNext: { _ in
+            let viewController = UINavigationController(rootViewController: HomeTabBarViewController())
+            viewController.isNavigationBarHidden = false
+            let delegate = self.view.window?.windowScene?.delegate as? SceneDelegate
+            delegate?.setRootViewController(viewController: viewController)
+        }).disposed(by: self.rx.disposeBag)
     }
     
     private func setupView() {

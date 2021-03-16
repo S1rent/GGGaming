@@ -131,6 +131,7 @@ class GameDetailViewController: UIViewController {
         }
         
         self.labelGameDeveloper.text = developerString
+        self.labelGameDescription.font = .systemFont(ofSize: 16)
     }
     
     private func setupAction(_ action: Bool) {

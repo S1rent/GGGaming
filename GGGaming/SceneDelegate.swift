@@ -18,8 +18,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         
         IQKeyboardManager.shared.enable = true
-//        let rootViewController = UINavigationController(rootViewController: HomeTabBarViewController())
-//        rootViewController.isNavigationBarHidden = false
         let viewController = LoginViewController()
         self.setRootViewController(viewController: viewController)
         window.makeKeyAndVisible()

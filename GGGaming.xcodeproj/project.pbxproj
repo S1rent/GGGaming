@@ -69,6 +69,8 @@
 		A1EFBAEA2600F89F002432CA /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EFBAE92600F89F002432CA /* UserService.swift */; };
 		A1EFBAF22600FA3D002432CA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EFBAF02600FA3D002432CA /* LoginViewController.swift */; };
 		A1EFBAF32600FA3D002432CA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1EFBAF12600FA3D002432CA /* LoginViewController.xib */; };
+		A1EFBB12260106E6002432CA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EFBB10260106E6002432CA /* RegisterViewController.swift */; };
+		A1EFBB13260106E6002432CA /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1EFBB11260106E6002432CA /* RegisterViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +138,8 @@
 		A1EFBAE92600F89F002432CA /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		A1EFBAF02600FA3D002432CA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A1EFBAF12600FA3D002432CA /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		A1EFBB10260106E6002432CA /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		A1EFBB11260106E6002432CA /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		E529E9BA61B8EF0DA69413C0 /* Pods-GGGaming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GGGaming.debug.xcconfig"; path = "Target Support Files/Pods-GGGaming/Pods-GGGaming.debug.xcconfig"; sourceTree = "<group>"; };
 		F4A926CB3152B81380E99C7A /* Pods_GGGaming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GGGaming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -372,6 +376,7 @@
 				A1E5F27425FA6FCA00ADC5B8 /* HomeTabBar */,
 				A1E5F28525FA721500ADC5B8 /* Launch */,
 				A1EFBAEC2600FA0B002432CA /* Login */,
+				A1EFBB0C2601068D002432CA /* Register */,
 				A1E5F2A225FA78DD00ADC5B8 /* Profile */,
 				A1E5F29225FA75D100ADC5B8 /* Wishlist */,
 			);
@@ -664,6 +669,39 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A1EFBB0C2601068D002432CA /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFBB0F260106B1002432CA /* Model */,
+				A1EFBB0E260106AD002432CA /* View */,
+				A1EFBB0D260106A8002432CA /* ViewModel */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		A1EFBB0D260106A8002432CA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A1EFBB0E260106AD002432CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFBB10260106E6002432CA /* RegisterViewController.swift */,
+				A1EFBB11260106E6002432CA /* RegisterViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A1EFBB0F260106B1002432CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F16034BD813AFFA35F1565A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -747,6 +785,7 @@
 				A1E5F2CD25FA7F2D00ADC5B8 /* ExperienceItemView.xib in Resources */,
 				A1E04A0B25FF10AF0072775A /* GameListByDeveloperViewController.xib in Resources */,
 				A1E5F2AF25FA791400ADC5B8 /* ProfileViewController.xib in Resources */,
+				A1EFBB13260106E6002432CA /* RegisterViewController.xib in Resources */,
 				A1E5F29025FA726700ADC5B8 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -854,6 +893,7 @@
 				A1E04A3825FF185A0072775A /* GameListByDeveloperViewModel.swift in Sources */,
 				A1CD1B7725FA63E000CB4B15 /* GGGaming.xcdatamodeld in Sources */,
 				A1E5F2C425FA7DCD00ADC5B8 /* UIView+Extension.swift in Sources */,
+				A1EFBB12260106E6002432CA /* RegisterViewController.swift in Sources */,
 				A1E5F2C025FA7DAF00ADC5B8 /* SkillItemView.swift in Sources */,
 				A15C250825FB75CD00BF7EE2 /* GameTarget.swift in Sources */,
 				A1E5F2AE25FA791400ADC5B8 /* ProfileViewController.swift in Sources */,

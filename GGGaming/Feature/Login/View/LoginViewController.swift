@@ -35,5 +35,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func registerTapped(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+            let viewController = RegisterViewController()
+            
+            let delegate = self.view.window?.windowScene?.delegate as? SceneDelegate
+            delegate?.setRootViewController(viewController: viewController)
+        }
     }
 }

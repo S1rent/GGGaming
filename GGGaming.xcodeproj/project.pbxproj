@@ -67,6 +67,8 @@
 		A1E5F2DE25FA8A7300ADC5B8 /* HomeNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2DD25FA8A7300ADC5B8 /* HomeNetworkProvider.swift */; };
 		A1E5F2E125FA8E8A00ADC5B8 /* HomeDeveloperResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2E025FA8E8A00ADC5B8 /* HomeDeveloperResponseWrapper.swift */; };
 		A1EFBAEA2600F89F002432CA /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EFBAE92600F89F002432CA /* UserService.swift */; };
+		A1EFBAF22600FA3D002432CA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EFBAF02600FA3D002432CA /* LoginViewController.swift */; };
+		A1EFBAF32600FA3D002432CA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1EFBAF12600FA3D002432CA /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +134,8 @@
 		A1E5F2DD25FA8A7300ADC5B8 /* HomeNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNetworkProvider.swift; sourceTree = "<group>"; };
 		A1E5F2E025FA8E8A00ADC5B8 /* HomeDeveloperResponseWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDeveloperResponseWrapper.swift; sourceTree = "<group>"; };
 		A1EFBAE92600F89F002432CA /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		A1EFBAF02600FA3D002432CA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A1EFBAF12600FA3D002432CA /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		E529E9BA61B8EF0DA69413C0 /* Pods-GGGaming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GGGaming.debug.xcconfig"; path = "Target Support Files/Pods-GGGaming/Pods-GGGaming.debug.xcconfig"; sourceTree = "<group>"; };
 		F4A926CB3152B81380E99C7A /* Pods_GGGaming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GGGaming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -367,6 +371,7 @@
 				A1E5F28325FA720D00ADC5B8 /* Home */,
 				A1E5F27425FA6FCA00ADC5B8 /* HomeTabBar */,
 				A1E5F28525FA721500ADC5B8 /* Launch */,
+				A1EFBAEC2600FA0B002432CA /* Login */,
 				A1E5F2A225FA78DD00ADC5B8 /* Profile */,
 				A1E5F29225FA75D100ADC5B8 /* Wishlist */,
 			);
@@ -376,10 +381,10 @@
 		A1E5F26E25FA6F5A00ADC5B8 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				A1EFBAE82600F81B002432CA /* UserDefaults */,
 				A1E5F27225FA6F8F00ADC5B8 /* CoreData */,
 				A1E5F2B125FA7B7700ADC5B8 /* Extensions */,
 				A1CEFB0A25FB33900034DB0D /* Tracker */,
+				A1EFBAE82600F81B002432CA /* UserDefaults */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -626,6 +631,39 @@
 			path = UserDefaults;
 			sourceTree = "<group>";
 		};
+		A1EFBAEC2600FA0B002432CA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFBAEF2600FA17002432CA /* Model */,
+				A1EFBAEE2600FA13002432CA /* View */,
+				A1EFBAED2600FA0F002432CA /* ViewModel */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A1EFBAED2600FA0F002432CA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A1EFBAEE2600FA13002432CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFBAF02600FA3D002432CA /* LoginViewController.swift */,
+				A1EFBAF12600FA3D002432CA /* LoginViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A1EFBAEF2600FA17002432CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F16034BD813AFFA35F1565A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -694,6 +732,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1EFBAF32600FA3D002432CA /* LoginViewController.xib in Resources */,
 				A1E5F2D825FA889600ADC5B8 /* HomeCollectionViewCell.xib in Resources */,
 				A1CD1B7C25FA63E200CB4B15 /* LaunchScreen.storyboard in Resources */,
 				A1E5F2C725FA7DFA00ADC5B8 /* SkillItemView.xib in Resources */,
@@ -796,6 +835,7 @@
 				A1E5F2DB25FA8A6900ADC5B8 /* HomeTarget.swift in Sources */,
 				A1D2D60525FE47AC00606466 /* GameSearchResultViewController.swift in Sources */,
 				A15C250425FB75BF00BF7EE2 /* GameNetworkProvider.swift in Sources */,
+				A1EFBAF22600FA3D002432CA /* LoginViewController.swift in Sources */,
 				A1E5F28B25FA725000ADC5B8 /* HomeViewModel.swift in Sources */,
 				A1E04AAE25FF8AF20072775A /* WishlistItemView.swift in Sources */,
 				A15C250B25FB760D00BF7EE2 /* GameDetailResponseWrapper.swift in Sources */,

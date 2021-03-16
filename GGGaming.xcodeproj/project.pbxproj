@@ -66,6 +66,7 @@
 		A1E5F2DB25FA8A6900ADC5B8 /* HomeTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2DA25FA8A6900ADC5B8 /* HomeTarget.swift */; };
 		A1E5F2DE25FA8A7300ADC5B8 /* HomeNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2DD25FA8A7300ADC5B8 /* HomeNetworkProvider.swift */; };
 		A1E5F2E125FA8E8A00ADC5B8 /* HomeDeveloperResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2E025FA8E8A00ADC5B8 /* HomeDeveloperResponseWrapper.swift */; };
+		A1EFBAEA2600F89F002432CA /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EFBAE92600F89F002432CA /* UserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +131,7 @@
 		A1E5F2DA25FA8A6900ADC5B8 /* HomeTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTarget.swift; sourceTree = "<group>"; };
 		A1E5F2DD25FA8A7300ADC5B8 /* HomeNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNetworkProvider.swift; sourceTree = "<group>"; };
 		A1E5F2E025FA8E8A00ADC5B8 /* HomeDeveloperResponseWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDeveloperResponseWrapper.swift; sourceTree = "<group>"; };
+		A1EFBAE92600F89F002432CA /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		E529E9BA61B8EF0DA69413C0 /* Pods-GGGaming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GGGaming.debug.xcconfig"; path = "Target Support Files/Pods-GGGaming/Pods-GGGaming.debug.xcconfig"; sourceTree = "<group>"; };
 		F4A926CB3152B81380E99C7A /* Pods_GGGaming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GGGaming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -374,6 +376,7 @@
 		A1E5F26E25FA6F5A00ADC5B8 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				A1EFBAE82600F81B002432CA /* UserDefaults */,
 				A1E5F27225FA6F8F00ADC5B8 /* CoreData */,
 				A1E5F2B125FA7B7700ADC5B8 /* Extensions */,
 				A1CEFB0A25FB33900034DB0D /* Tracker */,
@@ -615,6 +618,14 @@
 			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
+		A1EFBAE82600F81B002432CA /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFBAE92600F89F002432CA /* UserService.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 		F16034BD813AFFA35F1565A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -795,6 +806,7 @@
 				A1E5F2B725FA7BAB00ADC5B8 /* UIStackView+Extension.swift in Sources */,
 				A1E04A8D25FF26340072775A /* GameDeveloperListViewModel.swift in Sources */,
 				A1CEFB0F25FB33F20034DB0D /* ErrorTracker.swift in Sources */,
+				A1EFBAEA2600F89F002432CA /* UserService.swift in Sources */,
 				A15C251B25FB7CF700BF7EE2 /* GameDetailViewModel.swift in Sources */,
 				A1E5F2D725FA889600ADC5B8 /* HomeCollectionViewCell.swift in Sources */,
 				A1E5F27825FA6FE600ADC5B8 /* HomeTabBarViewController.swift in Sources */,

@@ -59,7 +59,14 @@ class Profile {
         return model
     }
     
-    public func makeProfileModel(name: String, email: String, picture: UIImage, educationList: [Experience], workingExperienceList: [Experience], skills: [Skill]) -> ProfileModel {
+    public func makeProfileModel(
+        name: String,
+        email: String,
+        picture: UIImage,
+        educationList: [Experience],
+        workingExperienceList: [Experience],
+        skills: [Skill]
+    ) -> ProfileModel {
         let model = ProfileModel(name: name, email: email, picture: picture, educationList: educationList, workingExperienceList: workingExperienceList, skills: skills)
         
         return model

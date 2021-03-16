@@ -26,10 +26,8 @@ class Wishlist {
     }
     
     public func isGameInsideWishList(gameData: Game) -> Bool {
-        for game in self.gameWishList {
-            if game.gameID == gameData.gameID {
-                return true
-            }
+        for game in self.gameWishList where game.gameID == gameData.gameID {
+            return true
         }
         return false
     }

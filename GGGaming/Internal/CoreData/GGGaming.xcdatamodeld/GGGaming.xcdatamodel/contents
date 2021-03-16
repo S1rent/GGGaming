@@ -1,4 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Educations" representedClassName="Educations" syncable="YES" codeGenerationType="class">
+        <attribute name="educationID" optional="YES" attributeType="String"/>
+        <attribute name="educationName" optional="YES" attributeType="String"/>
+        <attribute name="educationPeriod" optional="YES" attributeType="String"/>
+        <relationship name="ofUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="education" inverseEntity="User"/>
+    </entity>
+    <entity name="Experiences" representedClassName="Experiences" syncable="YES" codeGenerationType="class">
+        <attribute name="educationPeriod" optional="YES" attributeType="String"/>
+        <attribute name="experienceID" optional="YES" attributeType="String"/>
+        <attribute name="experienceName" optional="YES" attributeType="String"/>
+        <relationship name="ofUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="experience" inverseEntity="User"/>
+    </entity>
+    <entity name="Skills" representedClassName="Skills" syncable="YES" codeGenerationType="class">
+        <attribute name="skillID" optional="YES" attributeType="String"/>
+        <attribute name="skillName" optional="YES" attributeType="String"/>
+        <attribute name="skillProgress" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="ofUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="skills" inverseEntity="User"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="userEmail" optional="YES" attributeType="String"/>
+        <attribute name="userID" optional="YES" attributeType="String"/>
+        <attribute name="userName" optional="YES" attributeType="String"/>
+        <attribute name="userPassword" optional="YES" attributeType="String"/>
+        <relationship name="education" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Educations" inverseName="ofUser" inverseEntity="Educations"/>
+        <relationship name="experience" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Experiences" inverseName="ofUser" inverseEntity="Experiences"/>
+        <relationship name="skills" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Skills" inverseName="ofUser" inverseEntity="Skills"/>
+    </entity>
+    <elements>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="Experiences" positionX="-54" positionY="18" width="128" height="103"/>
+        <element name="Educations" positionX="-36" positionY="27" width="128" height="103"/>
+        <element name="Skills" positionX="-18" positionY="36" width="128" height="103"/>
+    </elements>
 </model>

@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="GGGaming" customModuleProvider="target">
             <connections>
                 <outlet property="buttonLogin" destination="llK-wC-UQ3" id="Ciw-z7-bs2"/>
+                <outlet property="coverView" destination="SJP-Q7-xzx" id="mUi-4K-Rzv"/>
                 <outlet property="emailField" destination="Os0-ZZ-kcQ" id="oN6-Q4-m5c"/>
                 <outlet property="loginView" destination="5dH-8G-k1H" id="YZM-Ph-D5o"/>
                 <outlet property="passwordField" destination="qbx-YT-1zH" id="3DW-Bq-R9b"/>
@@ -128,14 +129,22 @@
                         <constraint firstAttribute="trailing" secondItem="nGC-OH-Xk0" secondAttribute="trailing" id="ygQ-zh-Yfk"/>
                     </constraints>
                 </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJP-Q7-xzx" userLabel="Cover View">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Sfe-op-NZj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2Az-Lp-Xca"/>
                 <constraint firstItem="Sfe-op-NZj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ErO-ru-F95"/>
+                <constraint firstItem="SJP-Q7-xzx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Qck-Tq-Jb2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="SJP-Q7-xzx" secondAttribute="bottom" id="Uos-NW-X4x"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SJP-Q7-xzx" secondAttribute="trailing" id="fHr-Ak-KqY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Sfe-op-NZj" secondAttribute="trailing" id="lVL-eZ-kKO"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Sfe-op-NZj" secondAttribute="bottom" id="pF7-Po-yTB"/>
+                <constraint firstItem="SJP-Q7-xzx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="yZI-Tv-vwN"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="65.625"/>
         </view>

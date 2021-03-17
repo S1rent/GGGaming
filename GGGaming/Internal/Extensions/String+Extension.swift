@@ -18,7 +18,7 @@ extension String {
     }
     
     var isAlphanumeric: Bool {
-        return !isEmpty && range(of: "[^a-zA-Z0-9]", options: .regularExpression) == nil
+        return !isEmpty && range(of: "[^[A-Za-z0-9 !\"#$%&'()*+,-./:;<=>?@\\[\\\\\\]^_`{|}~].{8,}$]", options: .regularExpression) == nil
     }
 }
 

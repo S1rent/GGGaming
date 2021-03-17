@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var buttonLogin: UIButton!
     @IBOutlet weak var loginView: UIView!
+    @IBOutlet weak var coverView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,17 @@ class LoginViewController: UIViewController {
     }
     
     private func setupView() {
+        let session = UserService.shared.getUserSession()
+        if session.userID != nil || !(session.userID?.isEmpty ?? false) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) { [weak self] in
+                guard let self = self else { return }
+                let viewController = UINavigationController(rootViewController: HomeTabBarViewController())
+                viewController.isNavigationBarHidden = false
+                let delegate = self.view.window?.windowScene?.delegate as? SceneDelegate
+                delegate?.setRootViewController(viewController: viewController)
+            }
+        }
+        
         self.setupTextFieldDelegate()
         self.setupGestureRecognizer()
         self.setupCornerRadius()
@@ -69,4 +81,3 @@ extension LoginViewController: UITextFieldDelegate {
         return false
     }
 }
-

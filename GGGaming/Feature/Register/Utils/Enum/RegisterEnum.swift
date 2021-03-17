@@ -17,6 +17,7 @@ enum RegisterEnum: String {
     case errorEmailNoDot = "Email must contain at least one \'.\'"
     case errorEmailStartAtOrDot = "Email must not start with \'@\' or \'.\'."
     case errorEmailEndAtOrDot = "Email must not end with \'@\' or \'.\'"
+    case errorEmailExist = "Email already exist, please use another one."
     case errorFatal = "Something went wrong, please try again later."
     case success = "Successfully created your account."
 }

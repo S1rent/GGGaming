@@ -48,6 +48,8 @@ final class RegisterViewModel {
                 return RegisterEnum.errorFatal
             }
             
+            UserService.shared.registerUserSession(user: model)
+            
             return RegisterEnum.success
         }
         
@@ -106,7 +108,9 @@ final class RegisterViewModel {
             return RegisterEnum.errorEmailStartAtOrDot
         } else if trimmedEmail[trimmedEmail.index(before: trimmedEmail.endIndex)] == "@" || trimmedEmail[trimmedEmail.index(before: trimmedEmail.endIndex)] == "." {
             return RegisterEnum.errorEmailEndAtOrDot
-        } 
+        } else if !UserCoreDataFunctionality.shared.getUser(email: trimmedEmail).isEmpty {
+            return RegisterEnum.errorEmailExist
+        }
         
         return RegisterEnum.success
     }

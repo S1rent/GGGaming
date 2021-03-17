@@ -22,8 +22,29 @@ class RegisterViewController: UIViewController {
     }
     
     private func setupView() {
+        self.setupTextFieldDelegate()
+        self.setupGestureRecognizer()
+        self.setupCornerRadius()
+    }
+    
+    private func setupTextFieldDelegate() {
+        self.nameField.delegate = self
+        self.emailField.delegate = self
+        self.passwordField.delegate = self
+    }
+    
+    private func setupGestureRecognizer() {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+        self.view.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    private func setupCornerRadius() {
         self.registerView.layer.cornerRadius = 6
         self.buttonRegister.layer.cornerRadius = 6
+    }
+    
+    @objc func hideKeyboard() {
+        self.view.endEditing(true)
     }
     
     @IBAction func loginTapped(_ sender: Any) {
@@ -33,5 +54,12 @@ class RegisterViewController: UIViewController {
             let delegate = self.view.window?.windowScene?.delegate as? SceneDelegate
             delegate?.setRootViewController(viewController: viewController)
         }
+    }
+}
+
+extension RegisterViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }

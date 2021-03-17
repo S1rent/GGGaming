@@ -29,9 +29,22 @@ class LoginViewController: UIViewController {
     }
     
     private func setupView() {
+        self.setupTextFieldDelegate()
+        self.setupGestureRecognizer()
+        self.setupCornerRadius()
+    }
+    
+    private func setupTextFieldDelegate() {
+        self.passwordField.delegate = self
+        self.emailField.delegate = self
+    }
+    
+    private func setupGestureRecognizer() {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         self.view.addGestureRecognizer(gestureRecognizer)
-        
+    }
+    
+    private func setupCornerRadius() {
         self.buttonLogin.layer.cornerRadius = 6
         self.loginView.layer.cornerRadius = 6
     }
@@ -49,3 +62,11 @@ class LoginViewController: UIViewController {
         }
     }
 }
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+}
+

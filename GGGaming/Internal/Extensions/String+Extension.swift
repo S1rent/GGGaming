@@ -16,6 +16,10 @@ extension String {
             return NSAttributedString()
         }
     }
+    
+    var isAlphanumeric: Bool {
+        return !isEmpty && range(of: "[^a-zA-Z0-9]", options: .regularExpression) == nil
+    }
 }
 
 extension NSAttributedString {

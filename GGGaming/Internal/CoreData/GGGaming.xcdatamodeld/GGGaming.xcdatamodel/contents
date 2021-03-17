@@ -12,11 +12,10 @@
         <attribute name="userID" optional="YES" attributeType="String"/>
         <attribute name="userName" optional="YES" attributeType="String"/>
         <attribute name="userPassword" optional="YES" attributeType="String"/>
-        <attribute name="userPhotoURL" optional="YES" attributeType="String"/>
         <relationship name="favorite" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Favorite" inverseName="ofUser" inverseEntity="Favorite"/>
     </entity>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="133"/>
         <element name="Favorite" positionX="-54" positionY="18" width="128" height="118"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>

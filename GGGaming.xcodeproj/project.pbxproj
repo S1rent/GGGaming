@@ -26,6 +26,10 @@
 		A1CEFB1625FB4C200034DB0D /* HomeGameResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFB1525FB4C200034DB0D /* HomeGameResponseWrapper.swift */; };
 		A1CEFB2725FB5C7E0034DB0D /* HomeGameItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1CEFB2625FB5C7E0034DB0D /* HomeGameItemView.xib */; };
 		A1CEFB3C25FB5E2E0034DB0D /* HomeGameItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFB3B25FB5E2E0034DB0D /* HomeGameItemView.swift */; };
+		A1CF775F2601F7DB008E7F9A /* UserCoreDataFunctionality.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF775E2601F7DB008E7F9A /* UserCoreDataFunctionality.swift */; };
+		A1CF77632601F80F008E7F9A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF77622601F80F008E7F9A /* UserModel.swift */; };
+		A1CF77662601FCCF008E7F9A /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF77652601FCCF008E7F9A /* RegisterViewModel.swift */; };
+		A1CF776B2601FD46008E7F9A /* RegisterEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF776A2601FD46008E7F9A /* RegisterEnum.swift */; };
 		A1D2D60525FE47AC00606466 /* GameSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D2D60325FE47AC00606466 /* GameSearchResultViewController.swift */; };
 		A1D2D60625FE47AC00606466 /* GameSearchResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D2D60425FE47AC00606466 /* GameSearchResultViewController.xib */; };
 		A1D2D60C25FE48D500606466 /* GameSearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D2D60B25FE48D500606466 /* GameSearchResultViewModel.swift */; };
@@ -95,6 +99,10 @@
 		A1CEFB1525FB4C200034DB0D /* HomeGameResponseWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGameResponseWrapper.swift; sourceTree = "<group>"; };
 		A1CEFB2625FB5C7E0034DB0D /* HomeGameItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeGameItemView.xib; sourceTree = "<group>"; };
 		A1CEFB3B25FB5E2E0034DB0D /* HomeGameItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGameItemView.swift; sourceTree = "<group>"; };
+		A1CF775E2601F7DB008E7F9A /* UserCoreDataFunctionality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoreDataFunctionality.swift; sourceTree = "<group>"; };
+		A1CF77622601F80F008E7F9A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		A1CF77652601FCCF008E7F9A /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		A1CF776A2601FD46008E7F9A /* RegisterEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEnum.swift; sourceTree = "<group>"; };
 		A1D2D60325FE47AC00606466 /* GameSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSearchResultViewController.swift; sourceTree = "<group>"; };
 		A1D2D60425FE47AC00606466 /* GameSearchResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameSearchResultViewController.xib; sourceTree = "<group>"; };
 		A1D2D60B25FE48D500606466 /* GameSearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSearchResultViewModel.swift; sourceTree = "<group>"; };
@@ -290,6 +298,30 @@
 			path = HomeGameItem;
 			sourceTree = "<group>";
 		};
+		A1CF775D2601F7A3008E7F9A /* User */ = {
+			isa = PBXGroup;
+			children = (
+				A1CF775E2601F7DB008E7F9A /* UserCoreDataFunctionality.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		A1CF77682601FD33008E7F9A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A1CF77692601FD3B008E7F9A /* Enum */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A1CF77692601FD3B008E7F9A /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				A1CF776A2601FD46008E7F9A /* RegisterEnum.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		A1D2D60225FE478E00606466 /* GameSearchResult */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,6 +437,7 @@
 		A1E5F27225FA6F8F00ADC5B8 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				A1CF775D2601F7A3008E7F9A /* User */,
 				A1CD1B7525FA63E000CB4B15 /* GGGaming.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -673,6 +706,7 @@
 			isa = PBXGroup;
 			children = (
 				A1EFBB0F260106B1002432CA /* Model */,
+				A1CF77682601FD33008E7F9A /* Utils */,
 				A1EFBB0E260106AD002432CA /* View */,
 				A1EFBB0D260106A8002432CA /* ViewModel */,
 			);
@@ -682,6 +716,7 @@
 		A1EFBB0D260106A8002432CA /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A1CF77652601FCCF008E7F9A /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -698,6 +733,7 @@
 		A1EFBB0F260106B1002432CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A1CF77622601F80F008E7F9A /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -866,6 +902,8 @@
 				A1D2D60C25FE48D500606466 /* GameSearchResultViewModel.swift in Sources */,
 				A1CEFB0C25FB33E90034DB0D /* ActivityIndicator.swift in Sources */,
 				A15C251125FB77CA00BF7EE2 /* GameDetailViewController.swift in Sources */,
+				A1CF77632601F80F008E7F9A /* UserModel.swift in Sources */,
+				A1CF776B2601FD46008E7F9A /* RegisterEnum.swift in Sources */,
 				A15C251E25FB878600BF7EE2 /* String+Extension.swift in Sources */,
 				A1E5F28125FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift in Sources */,
 				A1CEFB3C25FB5E2E0034DB0D /* HomeGameItemView.swift in Sources */,
@@ -892,12 +930,14 @@
 				A1E5F2A725FA78FD00ADC5B8 /* ProfileViewModel.swift in Sources */,
 				A1E04A3825FF185A0072775A /* GameListByDeveloperViewModel.swift in Sources */,
 				A1CD1B7725FA63E000CB4B15 /* GGGaming.xcdatamodeld in Sources */,
+				A1CF77662601FCCF008E7F9A /* RegisterViewModel.swift in Sources */,
 				A1E5F2C425FA7DCD00ADC5B8 /* UIView+Extension.swift in Sources */,
 				A1EFBB12260106E6002432CA /* RegisterViewController.swift in Sources */,
 				A1E5F2C025FA7DAF00ADC5B8 /* SkillItemView.swift in Sources */,
 				A15C250825FB75CD00BF7EE2 /* GameTarget.swift in Sources */,
 				A1E5F2AE25FA791400ADC5B8 /* ProfileViewController.swift in Sources */,
 				A1E04A9225FF26870072775A /* GameDeveloperListViewController.swift in Sources */,
+				A1CF775F2601F7DB008E7F9A /* UserCoreDataFunctionality.swift in Sources */,
 				A1E5F27C25FA700D00ADC5B8 /* HomeTabBarViewModel.swift in Sources */,
 				A1CEFB1625FB4C200034DB0D /* HomeGameResponseWrapper.swift in Sources */,
 				A1E5F2B325FA7B8700ADC5B8 /* ObservableType+Extension.swift in Sources */,

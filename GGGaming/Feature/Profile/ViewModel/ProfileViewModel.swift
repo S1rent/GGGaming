@@ -21,18 +21,19 @@ final class ProfileViewModel {
     public func transform(input: Input) -> Output {
         let profileData = input.loadTrigger.flatMapLatest { _ -> Driver<ProfileModel> in
             
+            let user = UserService.shared.getUserSession()
             let educationList: [Experience] = self.initEducationList()
             
             let workingExperienceList: [Experience] = self.initWorkingExperienceList()
             
             let skillList: [Skill] = self.initSkillList()
             
-            let name = "Philip Indra Prayitno"
-            let email = "philip.prayitno@gmail.com"
+            let name = user.userName ?? "-"
+            let email = user.userEmail ?? "-"
             let profile: ProfileModel = Profile.shared.makeProfileModel(
                 name: name,
                 email: email,
-                picture: #imageLiteral(resourceName: "img-profile"),
+                picture: UserService.shared.getUserPhoto(),
                 educationList: educationList,
                 workingExperienceList: workingExperienceList,
                 skills: skillList

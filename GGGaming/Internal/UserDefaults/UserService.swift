@@ -40,4 +40,8 @@ class UserService {
             name: name
         )
     }
+    
+    func getUserPhoto() -> String {
+        return UserDefaults.standard.string(forKey: UserDefaultsKey.userPhotoURL.rawValue) ?? ""
+    }
 }

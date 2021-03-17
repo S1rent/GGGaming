@@ -83,13 +83,17 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupData(_ data: ProfileModel) {
-        self.imageProfile.image = data.picture
+        self.imageProfile.sd_setImage(with: URL(string: data.picture), placeholderImage: UIImage(systemName: "person"))
         self.labelName.text = data.name
         self.labelEmail.text = data.email
         
         self.setupExperienceStackViewData(stackView: self.educationStackView, experienceList: data.educationList)
         self.setupExperienceStackViewData(stackView: self.workingExperienceStackView, experienceList: data.workingExperienceList)
         self.setupSkillStackViewData(stackView: self.skillStackView, skills: data.skills)
+        
+        if imageProfile.image == UIImage(systemName: "person") {
+            self.imageProfile.layer.cornerRadius = 0
+        }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
             guard let self = self else { return }

@@ -6,17 +6,16 @@
 //
 
 import Foundation
-import UIKit
 
 public struct ProfileModel {
     let name: String
     let email: String
-    let picture: UIImage
+    let picture: String
     let educationList: [Experience]
     let workingExperienceList: [Experience]
     let skills: [Skill]
     
-    public init(name: String, email: String, picture: UIImage, educationList: [Experience], workingExperienceList: [Experience], skills: [Skill]) {
+    public init(name: String, email: String, picture: String, educationList: [Experience], workingExperienceList: [Experience], skills: [Skill]) {
         self.name = name
         self.email = email
         self.educationList = educationList
@@ -62,7 +61,7 @@ class Profile {
     public func makeProfileModel(
         name: String,
         email: String,
-        picture: UIImage,
+        picture: String,
         educationList: [Experience],
         workingExperienceList: [Experience],
         skills: [Skill]

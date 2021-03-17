@@ -22,6 +22,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var workingExperienceInitView: UIView!
     @IBOutlet weak var skillStackView: UIStackView!
     @IBOutlet weak var skillInitView: UIView!
+    @IBOutlet weak var logoutView: UIView!
+    @IBOutlet weak var buttonLogout: UIButton!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
         didSet {
@@ -149,6 +151,8 @@ class ProfileViewController: UIViewController {
     
     private func setupView() {
         self.imageProfile.layer.cornerRadius = self.imageProfile.frame.width / 2
+        self.logoutView.layer.cornerRadius = 6
+        self.buttonLogout.layer.cornerRadius = 6
         
         self.setupStackView(stackView: self.educationStackView)
         self.setupStackView(stackView: self.workingExperienceStackView)
@@ -182,5 +186,35 @@ class ProfileViewController: UIViewController {
         view.backgroundColor = UIColor.white
         
         return view
+    }
+    
+    private func presentInformation() {
+        let alertController = UIAlertController(title: "Information", message: "Successfully logged out.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            UserService.shared.deleteUserSession()
+            let viewController = LoginViewController()
+            let delegate = self.view.window?.windowScene?.delegate as? SceneDelegate
+            delegate?.setRootViewController(viewController: viewController)
+        })
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func showLogoutPopupConfirmation() {
+        let alertController = UIAlertController(title: "Confirmation", message: "Are you sure you want logout ?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.presentInformation()
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        UIApplication.topViewController()?.navigationController?.present(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func logoutTapped(_ sender: Any) {
+        self.showLogoutPopupConfirmation()
     }
 }

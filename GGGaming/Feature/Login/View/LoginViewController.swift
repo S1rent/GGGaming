@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
     
     private func setupView() {
         let session = UserService.shared.getUserSession()
-        if session.userID != nil || !(session.userID?.isEmpty ?? false) {
+        if session.userID != nil && !(session.userID?.isEmpty ?? false) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) { [weak self] in
                 guard let self = self else { return }
                 let viewController = UINavigationController(rootViewController: HomeTabBarViewController())
@@ -39,6 +39,8 @@ class LoginViewController: UIViewController {
                 let delegate = self.view.window?.windowScene?.delegate as? SceneDelegate
                 delegate?.setRootViewController(viewController: viewController)
             }
+        } else {
+            self.coverView.animateFadeOut()
         }
         
         self.setupTextFieldDelegate()

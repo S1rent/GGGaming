@@ -44,4 +44,11 @@ class UserService {
     func getUserPhoto() -> String {
         return UserDefaults.standard.string(forKey: UserDefaultsKey.userPhotoURL.rawValue) ?? ""
     }
+    
+    func deleteUserSession() {
+        UserDefaults.standard.set("", forKey: UserDefaultsKey.userID.rawValue)
+        UserDefaults.standard.set("", forKey: UserDefaultsKey.userPassword.rawValue)
+        UserDefaults.standard.set("", forKey: UserDefaultsKey.userName.rawValue)
+        UserDefaults.standard.set("", forKey: UserDefaultsKey.userEmail.rawValue)
+    }
 }

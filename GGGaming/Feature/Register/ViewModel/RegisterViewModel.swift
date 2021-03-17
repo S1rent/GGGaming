@@ -35,7 +35,7 @@ final class RegisterViewModel {
                 email: tuple.1,
                 id: UUID().uuidString,
                 password: tuple.2,
-                name: tuple.1
+                name: tuple.0
             )
             
             if nameValidation != RegisterEnum.success {

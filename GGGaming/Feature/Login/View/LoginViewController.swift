@@ -17,16 +17,37 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginView: UIView!
     @IBOutlet weak var coverView: UIView!
     
+    let viewModel = LoginViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.setupView()
-        self.buttonLogin.rx.tap.subscribe(onNext: { _ in
-            let viewController = UINavigationController(rootViewController: HomeTabBarViewController())
-            viewController.isNavigationBarHidden = false
-            let delegate = self.view.window?.windowScene?.delegate as? SceneDelegate
-            delegate?.setRootViewController(viewController: viewController)
-        }).disposed(by: self.rx.disposeBag)
+        self.bindUI()
+    }
+    
+    private func bindUI() {
+        let output = viewModel.transform(input: LoginViewModel.Input(
+            loginTrigger: self.buttonLogin.rx.tap.asDriver().throttle(RxTimeInterval.seconds(1)),
+            emailRelay: self.emailField.rx.text.orEmpty.asDriver().debounce(RxTimeInterval.milliseconds(500)),
+            passwordRelay: self.passwordField.rx.text.orEmpty.asDriver().debounce(RxTimeInterval.milliseconds(500))
+        ))
+        
+        self.rx.disposeBag.insert(
+            output.success.drive(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                
+                let viewController = UINavigationController(rootViewController: HomeTabBarViewController())
+                viewController.isNavigationBarHidden = false
+                let delegate = self.view.window?.windowScene?.delegate as? SceneDelegate
+                delegate?.setRootViewController(viewController: viewController)
+            }),
+            output.error.drive(onNext: { [weak self] message in
+                guard let self = self else { return }
+                
+                self.showErrorPopup(message)
+            })
+        )
     }
     
     private func setupView() {
@@ -65,6 +86,14 @@ class LoginViewController: UIViewController {
     
     @objc func hideKeyboard() {
         self.view.endEditing(true)
+    }
+    
+    private func showErrorPopup(_ message: String) {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func registerTapped(_ sender: Any) {

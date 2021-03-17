@@ -79,12 +79,14 @@ class ProfileViewController: UIViewController {
         self.rx.disposeBag.insert(
             output.data.drive(onNext: { [weak self] data in
                 guard let self = self else { return }
+                
                 self.setupData(data)
             })
         )
     }
     
     private func setupData(_ data: ProfileModel) {
+        print("TESTING \(data)")
         self.imageProfile.sd_setImage(with: URL(string: data.picture), placeholderImage: UIImage(systemName: "person"))
         self.labelName.text = data.name
         self.labelEmail.text = data.email
@@ -192,6 +194,7 @@ class ProfileViewController: UIViewController {
         let alertController = UIAlertController(title: "Information", message: "Successfully logged out.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
             guard let self = self else { return }
+            
             UserService.shared.deleteUserSession()
             let viewController = LoginViewController()
             let delegate = self.view.window?.windowScene?.delegate as? SceneDelegate
@@ -206,6 +209,7 @@ class ProfileViewController: UIViewController {
         let alertController = UIAlertController(title: "Confirmation", message: "Are you sure you want logout ?", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
             guard let self = self else { return }
+            
             self.presentInformation()
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)

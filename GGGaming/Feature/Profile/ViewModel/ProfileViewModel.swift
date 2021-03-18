@@ -52,15 +52,12 @@ final class ProfileViewModel {
             }
                 
             if status() == ProfileAddItemErrorEnum.success {
-                switch type {
-                case .education:
-                    let model = Profile.shared.makeExperienceModel(timeSpan: term, institutionName: name)
-                    UserService.shared.appendUserEducationList(model)
-                case .skill:
-                    break
-                case .workingExperience:
-                    break
-                }
+                self.saveData(
+                    name: trimmedName,
+                    term: trimmedTerm,
+                    progressValue: trimmedProgressValue,
+                    type: type
+                )
             }
                 
             return status()
@@ -68,18 +65,7 @@ final class ProfileViewModel {
         
         let profileData = input.loadTrigger.flatMapLatest { _ -> Driver<ProfileModel> in
             
-            let user = UserService.shared.getUser()
-            
-            let profile: ProfileModel = Profile.shared.makeProfileModel(
-                name: user?.userName ?? "-",
-                email: user?.userEmail ?? "-",
-                picture: user?.userPhotoURL ?? "-",
-                educationList: user?.userEducationList ?? [],
-                workingExperienceList: user?.userExperienceList ?? [],
-                skills: user?.userSkillList ?? []
-            )
-            
-            return Driver.just(profile)
+            return Driver.just(self.makeProfileModel())
         }
         
         let addSuccess = addStatus.filter {
@@ -127,5 +113,33 @@ final class ProfileViewModel {
         }
         
         return ProfileAddItemErrorEnum.success
+    }
+    
+    private func saveData(name: String, term: String, progressValue: String, type: ProfileAddItemEnum) {
+        switch type {
+        case .education:
+            let model = Profile.shared.makeExperienceModel(timeSpan: term, institutionName: name)
+            UserService.shared.appendUserEducationList(model)
+        case .skill:
+            break
+        case .workingExperience:
+            let model = Profile.shared.makeExperienceModel(timeSpan: term, institutionName: name)
+            UserService.shared.appendUserWorkingExperienceList(model)
+        }
+    }
+    
+    private func makeProfileModel() -> ProfileModel {
+        let user = UserService.shared.getUser()
+        
+        let profile: ProfileModel = Profile.shared.makeProfileModel(
+            name: user?.userName ?? "-",
+            email: user?.userEmail ?? "-",
+            picture: user?.userPhotoURL ?? "-",
+            educationList: user?.userEducationList ?? [],
+            workingExperienceList: user?.userExperienceList ?? [],
+            skills: user?.userSkillList ?? []
+        )
+        
+        return profile
     }
 }

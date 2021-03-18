@@ -25,13 +25,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYn-71-uno">
-                            <rect key="frame" x="24" y="8" width="374" height="21"/>
+                            <rect key="frame" x="32" y="8" width="366" height="21"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTy-gS-WRK">
-                            <rect key="frame" x="0.0" y="10" width="16" height="16"/>
+                            <rect key="frame" x="8" y="10" width="16" height="16"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="16" id="4FN-9W-cFM"/>
@@ -39,7 +39,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIq-mQ-5aN">
-                            <rect key="frame" x="24" y="37" width="374" height="21"/>
+                            <rect key="frame" x="32" y="37" width="366" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                         <constraint firstAttribute="trailing" secondItem="UIq-mQ-5aN" secondAttribute="trailing" constant="16" id="Twi-ud-dPP"/>
                         <constraint firstItem="pYn-71-uno" firstAttribute="top" secondItem="TTy-gS-WRK" secondAttribute="top" constant="-2" id="aKS-z8-Q3y"/>
                         <constraint firstItem="pYn-71-uno" firstAttribute="top" secondItem="4OU-e1-Bl1" secondAttribute="top" constant="8" id="ikO-4d-IXn"/>
-                        <constraint firstItem="TTy-gS-WRK" firstAttribute="leading" secondItem="4OU-e1-Bl1" secondAttribute="leading" id="iyb-Ig-7iI"/>
+                        <constraint firstItem="TTy-gS-WRK" firstAttribute="leading" secondItem="4OU-e1-Bl1" secondAttribute="leading" constant="8" id="iyb-Ig-7iI"/>
                         <constraint firstItem="UIq-mQ-5aN" firstAttribute="leading" secondItem="pYn-71-uno" secondAttribute="leading" id="yiO-ZQ-EKT"/>
                     </constraints>
                 </view>

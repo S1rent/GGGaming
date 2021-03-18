@@ -32,6 +32,12 @@ public class UserService {
         UserService.shared.setUser(user)
     }
     
+    public func appendUserWorkingExperienceList(_ experience: Experience) {
+        var user = UserService.shared.getUser()
+        user?.userExperienceList?.append(experience)
+        UserService.shared.setUser(user)
+    }
+    
     public func registerUserSession(data: UserModel) {
         if var user = UserService.shared.getUser() {
             user.userID = data.userID

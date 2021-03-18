@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="GGGaming" customModuleProvider="target">
             <connections>
                 <outlet property="activityIndicator" destination="BkG-Zl-vqh" id="Gqz-vO-b4k"/>
-                <outlet property="buttonAddEducation" destination="y3F-Ex-lxx" id="Nbv-yf-UI6"/>
+                <outlet property="buttonAddEducation" destination="y3F-Ex-lxx" id="PPJ-l4-xXB"/>
                 <outlet property="buttonLogout" destination="UKN-FS-PAw" id="jku-WF-7jS"/>
                 <outlet property="educationInitView" destination="ndd-1N-hEX" id="3XH-TL-CTs"/>
                 <outlet property="educationStackView" destination="5ei-f6-lPI" id="fbu-kq-THn"/>
@@ -112,7 +112,7 @@
                                             </constraints>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Working Experience" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63Z-Jl-5l1">
-                                            <rect key="frame" x="44" y="356.5" width="354" height="29"/>
+                                            <rect key="frame" x="44" y="356.5" width="316" height="29"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -199,7 +199,7 @@
                                                 <action selector="logoutTapped:" destination="-1" eventType="touchUpInside" id="XxW-Ad-Hl9"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3F-Ex-lxx">
+                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3F-Ex-lxx" userLabel="Button Add Education">
                                             <rect key="frame" x="368" y="302.5" width="30" height="29"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="30" id="ABb-Zl-Ti0"/>
@@ -207,7 +207,18 @@
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" image="plus" catalog="system"/>
                                             <connections>
-                                                <action selector="addEducationTapped:" destination="-1" eventType="touchUpInside" id="kDQ-op-JBY"/>
+                                                <action selector="addEducationTapped:" destination="-1" eventType="touchUpInside" id="wst-DJ-wW3"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2I-0f-RBF" userLabel="Button Add Experience">
+                                            <rect key="frame" x="368" y="356.5" width="30" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="QNs-lh-LTk"/>
+                                            </constraints>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" image="plus" catalog="system"/>
+                                            <connections>
+                                                <action selector="addExperienceTapped:" destination="-1" eventType="touchUpInside" id="53L-fk-jJj"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -216,8 +227,8 @@
                                         <constraint firstItem="fgn-xY-OeC" firstAttribute="leading" secondItem="BPd-se-1od" secondAttribute="leading" constant="16" id="12K-XK-g4Q"/>
                                         <constraint firstAttribute="trailing" secondItem="brd-Mg-fWl" secondAttribute="trailing" id="3yR-mD-fKq"/>
                                         <constraint firstItem="5ei-f6-lPI" firstAttribute="leading" secondItem="BPd-se-1od" secondAttribute="leading" constant="16" id="5Ip-mo-YEP"/>
+                                        <constraint firstAttribute="trailing" secondItem="D2I-0f-RBF" secondAttribute="trailing" constant="16" id="7hZ-ib-HwK"/>
                                         <constraint firstItem="fgn-xY-OeC" firstAttribute="top" secondItem="mMb-zb-xYy" secondAttribute="bottom" constant="8" id="94j-qh-8Rh"/>
-                                        <constraint firstAttribute="trailing" secondItem="63Z-Jl-5l1" secondAttribute="trailing" constant="16" id="Abw-3d-BLi"/>
                                         <constraint firstItem="5ei-f6-lPI" firstAttribute="top" secondItem="gmD-9h-IJs" secondAttribute="bottom" constant="8" id="Eok-3y-Mfn"/>
                                         <constraint firstItem="63Z-Jl-5l1" firstAttribute="top" secondItem="5ei-f6-lPI" secondAttribute="bottom" constant="16" id="GDh-KS-Djn"/>
                                         <constraint firstItem="M3V-L9-2eM" firstAttribute="leading" secondItem="BPd-se-1od" secondAttribute="leading" constant="16" id="HQy-mh-Npa"/>
@@ -227,6 +238,7 @@
                                         <constraint firstItem="fgn-xY-OeC" firstAttribute="top" secondItem="mMb-zb-xYy" secondAttribute="bottom" constant="8" symbolic="YES" id="K7t-kt-xJ9"/>
                                         <constraint firstAttribute="trailing" secondItem="y3F-Ex-lxx" secondAttribute="trailing" constant="16" id="K8x-Dt-fbo"/>
                                         <constraint firstAttribute="trailing" secondItem="fgn-xY-OeC" secondAttribute="trailing" constant="16" id="KL1-kA-eSa"/>
+                                        <constraint firstItem="D2I-0f-RBF" firstAttribute="top" secondItem="63Z-Jl-5l1" secondAttribute="top" id="MEy-8m-6ry"/>
                                         <constraint firstItem="5Q6-gP-zpn" firstAttribute="leading" secondItem="BPd-se-1od" secondAttribute="leading" id="NnD-1P-g0P"/>
                                         <constraint firstItem="e9j-zk-sYq" firstAttribute="leading" secondItem="BPd-se-1od" secondAttribute="leading" constant="16" id="PzD-pk-V3H"/>
                                         <constraint firstItem="y3F-Ex-lxx" firstAttribute="height" secondItem="gmD-9h-IJs" secondAttribute="height" id="QeL-FB-ToE"/>
@@ -254,6 +266,7 @@
                                         <constraint firstItem="YZI-ot-lif" firstAttribute="top" secondItem="mMb-zb-xYy" secondAttribute="top" constant="5" id="uFa-uB-hB8"/>
                                         <constraint firstItem="e9j-zk-sYq" firstAttribute="leading" secondItem="UKN-FS-PAw" secondAttribute="leading" constant="-2" id="wDA-4A-fY5"/>
                                         <constraint firstItem="brd-Mg-fWl" firstAttribute="leading" secondItem="BPd-se-1od" secondAttribute="leading" id="yZI-ft-jLY"/>
+                                        <constraint firstItem="D2I-0f-RBF" firstAttribute="leading" secondItem="63Z-Jl-5l1" secondAttribute="trailing" constant="8" id="zQY-0B-4ci"/>
                                     </constraints>
                                 </view>
                             </subviews>

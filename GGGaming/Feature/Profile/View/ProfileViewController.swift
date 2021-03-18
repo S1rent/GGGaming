@@ -67,7 +67,7 @@ class ProfileViewController: UIViewController {
     let itemNameRelay = BehaviorRelay<String>(value: "")
     let itemTermRelay = BehaviorRelay<String>(value: "")
     let itemProgressValueRelay = BehaviorRelay<String>(value: "")
-    let itemTypeRelay = BehaviorRelay<ProfileAddItemEnum>(value: .education)
+    let itemTypeRelay = BehaviorRelay<ProfileAddItemEnum>(value: .workingExperience)
     
     init(viewModel: ProfileViewModel) {
         self.viewModel = viewModel
@@ -101,7 +101,13 @@ class ProfileViewController: UIViewController {
             output.data.drive(onNext: { [weak self] data in
                 guard let self = self else { return }
                 
+                self.setActivityIndicator(loading: true)
                 self.setupData(data)
+            }),
+            output.addSuccess.drive(onNext: { [weak self] message in
+                guard let self = self else { return }
+                
+                self.presentInformationPopup(title: "Success", message: message, callBack: self.refreshCallback)
             }),
             output.addError.drive(onNext: { [weak self] errorMessage in
                 guard let self = self else { return }
@@ -112,6 +118,15 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupData(_ data: ProfileModel) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
+            guard let self = self else { return }
+            self.setActivityIndicator(loading: false)
+        }
+        
+        self.skillStackView.safelyRemoveAllArrangedSubviews()
+        self.educationStackView.safelyRemoveAllArrangedSubviews()
+        self.workingExperienceStackView.safelyRemoveAllArrangedSubviews()
+        
         self.imageProfile.sd_setImage(with: URL(string: data.picture), placeholderImage: UIImage(systemName: "person"))
         self.labelName.text = data.name
         self.labelEmail.text = data.email
@@ -122,11 +137,6 @@ class ProfileViewController: UIViewController {
         
         if imageProfile.image == UIImage(systemName: "person") {
             self.imageProfile.layer.cornerRadius = 0
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
-            guard let self = self else { return }
-            self.setActivityIndicator(loading: false)
         }
     }
     
@@ -190,34 +200,6 @@ class ProfileViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    private func presentInformation() {
-        let alertController = UIAlertController(title: "Information", message: "Successfully logged out.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
-            guard let self = self else { return }
-            
-            UserService.shared.logout()
-            let viewController = LoginViewController()
-            let delegate = self.view.window?.windowScene?.delegate as? SceneDelegate
-            delegate?.setRootViewController(viewController: viewController)
-        })
-        alertController.addAction(okAction)
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    private func showLogoutPopupConfirmation() {
-        let alertController = UIAlertController(title: "Confirmation", message: "Are you sure you want logout ?", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
-            guard let self = self else { return }
-            
-            self.presentInformation()
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-        alertController.addAction(okAction)
-        alertController.addAction(cancelAction)
-        UIApplication.topViewController()?.navigationController?.present(alertController, animated: true, completion: nil)
     }
     
     private func setupView() {
@@ -285,11 +267,44 @@ class ProfileViewController: UIViewController {
         return view
     }
     
-    private func addExperienceCallback(name: String, term: String, type: ProfileAddItemEnum) {
+    func addExperienceCallback(name: String, term: String, type: ProfileAddItemEnum) {
         self.itemNameRelay.accept(name)
         self.itemTermRelay.accept(term)
         self.itemTypeRelay.accept(type)
         self.addItemRelay.accept(())
+    }
+    
+    func refreshCallback() {
+        UIApplication.topViewController()?.dismiss(animated: true, completion: nil)
+        self.loadRelay.accept(())
+    }
+    
+    private func presentInformation() {
+        let alertController = UIAlertController(title: "Information", message: "Successfully logged out.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            
+            UserService.shared.logout()
+            let viewController = LoginViewController()
+            let delegate = self.view.window?.windowScene?.delegate as? SceneDelegate
+            delegate?.setRootViewController(viewController: viewController)
+        })
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func showLogoutPopupConfirmation() {
+        let alertController = UIAlertController(title: "Confirmation", message: "Are you sure you want logout ?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.presentInformation()
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        UIApplication.topViewController()?.navigationController?.present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func logoutTapped(_ sender: Any) {
@@ -297,10 +312,22 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func addEducationTapped(_ sender: Any) {
-        let viewController = ProfileAddExperiencePopUpViewController(addCallback: self.addExperienceCallback, type: ProfileAddItemEnum.education)
+        let viewController = ProfileAddExperiencePopUpViewController(
+            addCallback: self.addExperienceCallback,
+            type: ProfileAddItemEnum.education
+        )
         viewController.modalPresentationStyle = .overFullScreen
         
         self.present(viewController, animated: true, completion: nil)
     }
     
+    @IBAction func addExperienceTapped(_ sender: Any) {
+        let viewController = ProfileAddExperiencePopUpViewController(
+            addCallback: self.addExperienceCallback,
+            type: ProfileAddItemEnum.workingExperience
+        )
+        viewController.modalPresentationStyle = .overFullScreen
+        
+        self.present(viewController, animated: true, completion: nil)
+    }
 }

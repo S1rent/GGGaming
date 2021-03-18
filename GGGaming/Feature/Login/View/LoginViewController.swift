@@ -55,6 +55,7 @@ class LoginViewController: UIViewController {
         if session?.userID != nil && !(session?.userID?.isEmpty ?? true) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) { [weak self] in
                 guard let self = self else { return }
+                
                 let viewController = UINavigationController(rootViewController: HomeTabBarViewController())
                 viewController.isNavigationBarHidden = false
                 let delegate = self.view.window?.windowScene?.delegate as? SceneDelegate

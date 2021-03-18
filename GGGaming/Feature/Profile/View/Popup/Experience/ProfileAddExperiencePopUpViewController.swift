@@ -39,6 +39,7 @@ class ProfileAddExperiencePopUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupGestureRecognizer()
         self.setupView()
         self.bindUI()
     }
@@ -64,6 +65,15 @@ class ProfileAddExperiencePopUpViewController: UIViewController {
         
         self.popupView.layer.borderWidth = 2
         self.popupView.layer.borderColor = UIColor.white.cgColor
+    }
+    
+    private func setupGestureRecognizer() {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+        self.view.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    @objc func hideKeyboard() {
+        self.view.endEditing(true)
     }
     
     @IBAction func backgroundTapped(_ sender: Any) {

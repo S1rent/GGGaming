@@ -12,18 +12,27 @@ import SnapKit
 
 class ProfileViewController: UIViewController {
     
-    @IBOutlet weak var imageProfile: UIImageView!
-    @IBOutlet weak var labelName: UILabel!
-    @IBOutlet weak var labelEmail: UILabel!
+    // Education Outlet
+    @IBOutlet weak var buttonAddEducation: UIButton!
     @IBOutlet weak var educationStackView: UIStackView!
     @IBOutlet weak var educationInitView: UIView!
     
-    @IBOutlet weak var workingExperienceStackView: UIStackView!
-    @IBOutlet weak var workingExperienceInitView: UIView!
-    @IBOutlet weak var skillStackView: UIStackView!
-    @IBOutlet weak var skillInitView: UIView!
+    // Logout Outlet
     @IBOutlet weak var logoutView: UIView!
     @IBOutlet weak var buttonLogout: UIButton!
+    
+    // Profile Outlet
+    @IBOutlet weak var imageProfile: UIImageView!
+    @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var labelEmail: UILabel!
+    
+    // Skill Outler
+    @IBOutlet weak var skillStackView: UIStackView!
+    @IBOutlet weak var skillInitView: UIView!
+    
+    // Working Experience Outlet
+    @IBOutlet weak var workingExperienceStackView: UIStackView!
+    @IBOutlet weak var workingExperienceInitView: UIView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
         didSet {
@@ -51,11 +60,18 @@ class ProfileViewController: UIViewController {
     }()
     
     let viewModel: ProfileViewModel
-    let loadRelay: BehaviorRelay<Void>
+    let loadRelay = BehaviorRelay<Void>(value: ())
+    
+    let addItemRelay = BehaviorRelay<Void>(value: ())
+    
+    let itemNameRelay = BehaviorRelay<String>(value: "")
+    let itemTermRelay = BehaviorRelay<String>(value: "")
+    let itemProgressValueRelay = BehaviorRelay<String>(value: "")
+    let itemTypeRelay = BehaviorRelay<ProfileAddItemEnum>(value: .education)
     
     init(viewModel: ProfileViewModel) {
         self.viewModel = viewModel
-        self.loadRelay = BehaviorRelay<Void>(value: ())
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -73,7 +89,12 @@ class ProfileViewController: UIViewController {
 
     private func bindUI() {
         let output = self.viewModel.transform(input: ProfileViewModel.Input(
-            loadTrigger: self.loadRelay.asDriver()
+            loadTrigger: self.loadRelay.asDriver(),
+            itemName: itemNameRelay.asDriverOnErrorJustComplete(),
+            itemTerm: itemTermRelay.asDriverOnErrorJustComplete(),
+            itemProgressValue: itemProgressValueRelay.asDriverOnErrorJustComplete(),
+            itemType: itemTypeRelay.asDriverOnErrorJustComplete(),
+            addTrigger: addItemRelay.asDriverOnErrorJustComplete().skip(1)
         ))
         
         self.rx.disposeBag.insert(
@@ -81,12 +102,16 @@ class ProfileViewController: UIViewController {
                 guard let self = self else { return }
                 
                 self.setupData(data)
+            }),
+            output.addError.drive(onNext: { [weak self] errorMessage in
+                guard let self = self else { return }
+                
+                self.presentInformationPopup(title: "Error", message: errorMessage)
             })
         )
     }
     
     private func setupData(_ data: ProfileModel) {
-        print("TESTING \(data)")
         self.imageProfile.sd_setImage(with: URL(string: data.picture), placeholderImage: UIImage(systemName: "person"))
         self.labelName.text = data.name
         self.labelEmail.text = data.email
@@ -107,7 +132,24 @@ class ProfileViewController: UIViewController {
     
     private func setupExperienceStackViewData(stackView: UIStackView, experienceList: [Experience]) {
         
-        for (index, experience) in experienceList.enumerated() {
+        if experienceList.isEmpty {
+            self.setupNoDataItem(stackView)
+        } else {
+            self.setupExperienceItems(stackView, experienceList)
+        }
+    }
+    
+    private func setupSkillStackViewData(stackView: UIStackView, skills: [Skill]) {
+
+        if skills.isEmpty {
+            self.setupNoDataItem(stackView)
+        } else {
+            self.setupSkillItems(stackView, skills: skills)
+        }
+    }
+    
+    private func setupExperienceItems(_ stackView: UIStackView, _ experiences: [Experience]) {
+        for (index, experience) in experiences.enumerated() {
             let experienceItem = ExperienceItemView()
             
             experienceItem.labelDuration.text = experience.timeSpan
@@ -115,7 +157,7 @@ class ProfileViewController: UIViewController {
             
             stackView.addArrangedSubview(experienceItem)
             
-            if index != experienceList.count-1 {
+            if index != experiences.count-1 {
                 let separatorView = addSeparatorView()
                 
                 stackView.addArrangedSubview(separatorView)
@@ -128,8 +170,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    private func setupSkillStackViewData(stackView: UIStackView, skills: [Skill]) {
-
+    private func setupSkillItems(_ stackView: UIStackView, skills: [Skill]) {
         for (index, skill) in skills.enumerated() {
             let skillItem = SkillItemView()
             
@@ -151,16 +192,70 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    private func presentInformation() {
+        let alertController = UIAlertController(title: "Information", message: "Successfully logged out.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            
+            UserService.shared.logout()
+            let viewController = LoginViewController()
+            let delegate = self.view.window?.windowScene?.delegate as? SceneDelegate
+            delegate?.setRootViewController(viewController: viewController)
+        })
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func showLogoutPopupConfirmation() {
+        let alertController = UIAlertController(title: "Confirmation", message: "Are you sure you want logout ?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.presentInformation()
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        UIApplication.topViewController()?.navigationController?.present(alertController, animated: true, completion: nil)
+    }
+    
     private func setupView() {
         self.imageProfile.layer.cornerRadius = self.imageProfile.frame.width / 2
         self.logoutView.layer.cornerRadius = 6
         self.buttonLogout.layer.cornerRadius = 6
+        
+        self.buttonAddEducation.imageView?.contentMode = .scaleAspectFill
         
         self.setupStackView(stackView: self.educationStackView)
         self.setupStackView(stackView: self.workingExperienceStackView)
         self.setupStackView(stackView: self.skillStackView)
         
         self.setActivityIndicator(loading: true)
+    }
+    
+    private func setupNoDataItem(_ stackView: UIStackView) {
+        let view = UIView()
+        view.layer.backgroundColor = UIColor.clear.cgColor
+        
+        let label = UILabel()
+        label.textColor = UIColor.white
+        label.text = "No Data."
+        
+        view.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+        
+        stackView.addArrangedSubview(view)
+        view.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.height.equalTo(50)
+        }
     }
     
     private func setupStackView(stackView: UIStackView) {
@@ -190,35 +285,22 @@ class ProfileViewController: UIViewController {
         return view
     }
     
-    private func presentInformation() {
-        let alertController = UIAlertController(title: "Information", message: "Successfully logged out.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
-            guard let self = self else { return }
-            
-            UserService.shared.deleteUserSession()
-            let viewController = LoginViewController()
-            let delegate = self.view.window?.windowScene?.delegate as? SceneDelegate
-            delegate?.setRootViewController(viewController: viewController)
-        })
-        alertController.addAction(okAction)
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    private func showLogoutPopupConfirmation() {
-        let alertController = UIAlertController(title: "Confirmation", message: "Are you sure you want logout ?", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
-            guard let self = self else { return }
-            
-            self.presentInformation()
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-        alertController.addAction(okAction)
-        alertController.addAction(cancelAction)
-        UIApplication.topViewController()?.navigationController?.present(alertController, animated: true, completion: nil)
+    private func addExperienceCallback(name: String, term: String, type: ProfileAddItemEnum) {
+        self.itemNameRelay.accept(name)
+        self.itemTermRelay.accept(term)
+        self.itemTypeRelay.accept(type)
+        self.addItemRelay.accept(())
     }
     
     @IBAction func logoutTapped(_ sender: Any) {
         self.showLogoutPopupConfirmation()
     }
+    
+    @IBAction func addEducationTapped(_ sender: Any) {
+        let viewController = ProfileAddExperiencePopUpViewController(addCallback: self.addExperienceCallback, type: ProfileAddItemEnum.education)
+        viewController.modalPresentationStyle = .overFullScreen
+        
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
 }

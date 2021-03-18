@@ -48,7 +48,7 @@ final class RegisterViewModel {
                 return RegisterEnum.errorFatal
             }
             
-            UserService.shared.registerUserSession(user: model)
+            UserService.shared.registerUserSession(data: model)
             
             return RegisterEnum.success
         }

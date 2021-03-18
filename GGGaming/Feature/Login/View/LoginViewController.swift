@@ -51,8 +51,8 @@ class LoginViewController: UIViewController {
     }
     
     private func setupView() {
-        let session = UserService.shared.getUserSession()
-        if session.userID != nil && !(session.userID?.isEmpty ?? false) {
+        let session = UserService.shared.getUser()
+        if session?.userID != nil && !(session?.userID?.isEmpty ?? true) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) { [weak self] in
                 guard let self = self else { return }
                 let viewController = UINavigationController(rootViewController: HomeTabBarViewController())

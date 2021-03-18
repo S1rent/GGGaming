@@ -42,7 +42,7 @@ final class LoginViewModel {
             guard let model = UserCoreDataFunctionality.shared.getUser(email: tuple.0).first
             else { return LoginEnum.errorFatal }
             
-            UserService.shared.registerUserSession(user: model)
+            UserService.shared.registerUserSession(data: model)
             
             return LoginEnum.success
         }

@@ -33,6 +33,11 @@
 		A1D2D60525FE47AC00606466 /* GameSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D2D60325FE47AC00606466 /* GameSearchResultViewController.swift */; };
 		A1D2D60625FE47AC00606466 /* GameSearchResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D2D60425FE47AC00606466 /* GameSearchResultViewController.xib */; };
 		A1D2D60C25FE48D500606466 /* GameSearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D2D60B25FE48D500606466 /* GameSearchResultViewModel.swift */; };
+		A1D7C94F26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C94D26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.swift */; };
+		A1D7C95026036A1A006E5653 /* ProfileAddExperiencePopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D7C94E26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.xib */; };
+		A1D7C95826037277006E5653 /* ProfileEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C95726037277006E5653 /* ProfileEnum.swift */; };
+		A1D7C95C26037EB4006E5653 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C95B26037EB4006E5653 /* UIViewController+Extension.swift */; };
+		A1D7C96026039356006E5653 /* AuthenticatedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C95F26039356006E5653 /* AuthenticatedUser.swift */; };
 		A1DD970B2602634D00953D04 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DD970A2602634D00953D04 /* LoginViewModel.swift */; };
 		A1DD9711260263DA00953D04 /* LoginEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DD9710260263DA00953D04 /* LoginEnum.swift */; };
 		A1E04A0A25FF10AF0072775A /* GameListByDeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E04A0825FF10AF0072775A /* GameListByDeveloperViewController.swift */; };
@@ -108,6 +113,11 @@
 		A1D2D60325FE47AC00606466 /* GameSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSearchResultViewController.swift; sourceTree = "<group>"; };
 		A1D2D60425FE47AC00606466 /* GameSearchResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameSearchResultViewController.xib; sourceTree = "<group>"; };
 		A1D2D60B25FE48D500606466 /* GameSearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSearchResultViewModel.swift; sourceTree = "<group>"; };
+		A1D7C94D26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAddExperiencePopUpViewController.swift; sourceTree = "<group>"; };
+		A1D7C94E26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileAddExperiencePopUpViewController.xib; sourceTree = "<group>"; };
+		A1D7C95726037277006E5653 /* ProfileEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEnum.swift; sourceTree = "<group>"; };
+		A1D7C95B26037EB4006E5653 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		A1D7C95F26039356006E5653 /* AuthenticatedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedUser.swift; sourceTree = "<group>"; };
 		A1DD970A2602634D00953D04 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A1DD9710260263DA00953D04 /* LoginEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEnum.swift; sourceTree = "<group>"; };
 		A1E04A0825FF10AF0072775A /* GameListByDeveloperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListByDeveloperViewController.swift; sourceTree = "<group>"; };
@@ -349,6 +359,56 @@
 				A15C251A25FB7CF700BF7EE2 /* GameDetailViewModel.swift */,
 			);
 			path = GameDetail;
+			sourceTree = "<group>";
+		};
+		A1D7C94A260369BF006E5653 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				A1D7C94B260369C3006E5653 /* Experience */,
+				A1D7C94C260369C8006E5653 /* Skill */,
+			);
+			path = Popup;
+			sourceTree = "<group>";
+		};
+		A1D7C94B260369C3006E5653 /* Experience */ = {
+			isa = PBXGroup;
+			children = (
+				A1D7C94D26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.swift */,
+				A1D7C94E26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.xib */,
+			);
+			path = Experience;
+			sourceTree = "<group>";
+		};
+		A1D7C94C260369C8006E5653 /* Skill */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Skill;
+			sourceTree = "<group>";
+		};
+		A1D7C95326036DD6006E5653 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				A1E5F2BD25FA7D9300ADC5B8 /* ExperienceItem */,
+				A1E5F2BE25FA7D9900ADC5B8 /* SkillItem */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		A1D7C95526037267006E5653 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A1D7C9562603726D006E5653 /* Enum */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A1D7C9562603726D006E5653 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				A1D7C95726037277006E5653 /* ProfileEnum.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 		A1DD970E260263CA00953D04 /* Utils */ = {
@@ -608,6 +668,7 @@
 		A1E5F2A225FA78DD00ADC5B8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				A1D7C95526037267006E5653 /* Utils */,
 				A1E5F2A525FA78F000ADC5B8 /* Model */,
 				A1E5F2A425FA78ED00ADC5B8 /* View */,
 				A1E5F2A325FA78E900ADC5B8 /* ViewModel */,
@@ -626,8 +687,8 @@
 		A1E5F2A425FA78ED00ADC5B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A1E5F2BD25FA7D9300ADC5B8 /* ExperienceItem */,
-				A1E5F2BE25FA7D9900ADC5B8 /* SkillItem */,
+				A1D7C95326036DD6006E5653 /* Item */,
+				A1D7C94A260369BF006E5653 /* Popup */,
 				A1E5F2AC25FA791400ADC5B8 /* ProfileViewController.swift */,
 				A1E5F2AD25FA791400ADC5B8 /* ProfileViewController.xib */,
 			);
@@ -646,10 +707,11 @@
 			isa = PBXGroup;
 			children = (
 				A1E5F2B225FA7B8700ADC5B8 /* ObservableType+Extension.swift */,
-				A1E5F2B625FA7BAB00ADC5B8 /* UIStackView+Extension.swift */,
-				A1E5F2BA25FA7BE100ADC5B8 /* UIApplication+Extension.swift */,
-				A1E5F2C325FA7DCD00ADC5B8 /* UIView+Extension.swift */,
 				A15C251D25FB878600BF7EE2 /* String+Extension.swift */,
+				A1E5F2BA25FA7BE100ADC5B8 /* UIApplication+Extension.swift */,
+				A1E5F2B625FA7BAB00ADC5B8 /* UIStackView+Extension.swift */,
+				A1E5F2C325FA7DCD00ADC5B8 /* UIView+Extension.swift */,
+				A1D7C95B26037EB4006E5653 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -685,6 +747,7 @@
 			isa = PBXGroup;
 			children = (
 				A1EFBAE92600F89F002432CA /* UserService.swift */,
+				A1D7C95F26039356006E5653 /* AuthenticatedUser.swift */,
 			);
 			path = UserDefaults;
 			sourceTree = "<group>";
@@ -692,7 +755,6 @@
 		A1EFBAEC2600FA0B002432CA /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				A1EFBAEF2600FA17002432CA /* Model */,
 				A1DD970E260263CA00953D04 /* Utils */,
 				A1EFBAEE2600FA13002432CA /* View */,
 				A1EFBAED2600FA0F002432CA /* ViewModel */,
@@ -715,13 +777,6 @@
 				A1EFBAF12600FA3D002432CA /* LoginViewController.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		A1EFBAEF2600FA17002432CA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		A1EFBB0C2601068D002432CA /* Register */ = {
@@ -843,6 +898,7 @@
 				A1E5F2CD25FA7F2D00ADC5B8 /* ExperienceItemView.xib in Resources */,
 				A1E04A0B25FF10AF0072775A /* GameListByDeveloperViewController.xib in Resources */,
 				A1E5F2AF25FA791400ADC5B8 /* ProfileViewController.xib in Resources */,
+				A1D7C95026036A1A006E5653 /* ProfileAddExperiencePopUpViewController.xib in Resources */,
 				A1EFBB13260106E6002432CA /* RegisterViewController.xib in Resources */,
 				A1E5F29025FA726700ADC5B8 /* HomeViewController.xib in Resources */,
 			);
@@ -934,9 +990,11 @@
 				A1E5F2AA25FA790900ADC5B8 /* ProfileModel.swift in Sources */,
 				A1E5F2DB25FA8A6900ADC5B8 /* HomeTarget.swift in Sources */,
 				A1D2D60525FE47AC00606466 /* GameSearchResultViewController.swift in Sources */,
+				A1D7C96026039356006E5653 /* AuthenticatedUser.swift in Sources */,
 				A15C250425FB75BF00BF7EE2 /* GameNetworkProvider.swift in Sources */,
 				A1EFBAF22600FA3D002432CA /* LoginViewController.swift in Sources */,
 				A1E5F28B25FA725000ADC5B8 /* HomeViewModel.swift in Sources */,
+				A1D7C95C26037EB4006E5653 /* UIViewController+Extension.swift in Sources */,
 				A1E04AAE25FF8AF20072775A /* WishlistItemView.swift in Sources */,
 				A15C250B25FB760D00BF7EE2 /* GameDetailResponseWrapper.swift in Sources */,
 				A1E5F28F25FA726700ADC5B8 /* HomeViewController.swift in Sources */,
@@ -950,6 +1008,7 @@
 				A15C251B25FB7CF700BF7EE2 /* GameDetailViewModel.swift in Sources */,
 				A1E5F2D725FA889600ADC5B8 /* HomeCollectionViewCell.swift in Sources */,
 				A1E5F27825FA6FE600ADC5B8 /* HomeTabBarViewController.swift in Sources */,
+				A1D7C95826037277006E5653 /* ProfileEnum.swift in Sources */,
 				A1E5F2A725FA78FD00ADC5B8 /* ProfileViewModel.swift in Sources */,
 				A1E04A3825FF185A0072775A /* GameListByDeveloperViewModel.swift in Sources */,
 				A1CD1B7725FA63E000CB4B15 /* GGGaming.xcdatamodeld in Sources */,
@@ -958,6 +1017,7 @@
 				A1EFBB12260106E6002432CA /* RegisterViewController.swift in Sources */,
 				A1E5F2C025FA7DAF00ADC5B8 /* SkillItemView.swift in Sources */,
 				A15C250825FB75CD00BF7EE2 /* GameTarget.swift in Sources */,
+				A1D7C94F26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.swift in Sources */,
 				A1E5F2AE25FA791400ADC5B8 /* ProfileViewController.swift in Sources */,
 				A1DD970B2602634D00953D04 /* LoginViewModel.swift in Sources */,
 				A1E04A9225FF26870072775A /* GameDeveloperListViewController.swift in Sources */,

@@ -25,17 +25,14 @@ public struct ProfileModel {
     }
 }
 
-public struct Experience {
+public struct Experience: Codable {
+    let experienceID: String
     let timeSpan: String
     let institutionName: String
-    
-    public init(timeSpan: String, institutionName: String) {
-        self.timeSpan = timeSpan
-        self.institutionName = institutionName
-    }
 }
 
-public struct Skill {
+public struct Skill: Codable {
+    let skillID: String
     let skillName: String
     let progress: Double
 }
@@ -46,14 +43,20 @@ class Profile {
     
     public init() { }
     
-    public func makeExperienceModel(timeSpan: String, institutionName: String) -> Experience {
-        let model = Experience(timeSpan: timeSpan, institutionName: institutionName)
+    public func makeExperienceModel(
+        timeSpan: String,
+        institutionName: String
+    ) -> Experience {
+        let model = Experience(experienceID: UUID().uuidString, timeSpan: timeSpan, institutionName: institutionName)
         
         return model
     }
     
-    public func makeSkillModel(skillName: String, progress: Double) -> Skill {
-        let model = Skill(skillName: skillName, progress: progress)
+    public func makeSkillModel(
+        skillName: String,
+        progress: Double
+    ) -> Skill {
+        let model = Skill(skillID: UUID().uuidString, skillName: skillName, progress: progress)
         
         return model
     }

@@ -7,48 +7,65 @@
 
 import Foundation
 
-enum UserDefaultsKey: String {
-    case userID = "session_userID"
-    case userPassword = "session_userPassword"
-    case userName = "session_userName"
-    case userEmail = "session_userEmail"
-    case userPhotoURL = "session_userPhotoURL"
-}
-
-class UserService {
-    
+public class UserService {
     public static let shared = UserService()
+
+    private var userData: AuthenticatedUser?
+    private let userDefaultsKey = "gggaming_authenticated_user"
     
-    private init() { }
-    
-    func registerUserSession(user: UserModel) {
-        UserDefaults.standard.set(user.userID, forKey: UserDefaultsKey.userID.rawValue)
-        UserDefaults.standard.set(user.userPassword, forKey: UserDefaultsKey.userPassword.rawValue)
-        UserDefaults.standard.set(user.userName, forKey: UserDefaultsKey.userName.rawValue)
-        UserDefaults.standard.set(user.userEmail, forKey: UserDefaultsKey.userEmail.rawValue)
+    private init() {
+        if let rawData = UserDefaults.standard.value(forKey: userDefaultsKey) as? Data {
+            self.userData = try? JSONDecoder().decode(AuthenticatedUser.self, from: rawData)
+        }
     }
     
-    func getUserSession() -> UserModel {
-        let id = UserDefaults.standard.string(forKey: UserDefaultsKey.userID.rawValue) ?? ""
-        let password = UserDefaults.standard.string(forKey: UserDefaultsKey.userPassword.rawValue) ?? ""
-        let name = UserDefaults.standard.string(forKey: UserDefaultsKey.userName.rawValue) ?? ""
-        let email = UserDefaults.standard.string(forKey: UserDefaultsKey.userEmail.rawValue) ?? ""
-        return UserModel(
-            email: email,
-            id: id,
-            password: password,
-            name: name
-        )
+    public func logout() {
+        self.userData = nil
+        
+        UserDefaults.standard.removeObject(forKey: userDefaultsKey)
+        UserDefaults.standard.synchronize()
     }
     
-    func getUserPhoto() -> String {
-        return UserDefaults.standard.string(forKey: UserDefaultsKey.userPhotoURL.rawValue) ?? ""
+    public func appendUserEducationList(_ education: Experience) {
+        var user = UserService.shared.getUser()
+        user?.userEducationList?.append(education)
+        UserService.shared.setUser(user)
     }
     
-    func deleteUserSession() {
-        UserDefaults.standard.set("", forKey: UserDefaultsKey.userID.rawValue)
-        UserDefaults.standard.set("", forKey: UserDefaultsKey.userPassword.rawValue)
-        UserDefaults.standard.set("", forKey: UserDefaultsKey.userName.rawValue)
-        UserDefaults.standard.set("", forKey: UserDefaultsKey.userEmail.rawValue)
+    public func registerUserSession(data: UserModel) {
+        if var user = UserService.shared.getUser() {
+            user.userID = data.userID
+            user.userEmail = data.userEmail
+            user.userPassword = data.userPassword
+            user.userName = data.userName
+            
+            UserService.shared.setUser(user)
+        } else {
+            let user = AuthenticatedUser(
+                userID: data.userID,
+                userPassword: data.userPassword,
+                userName: data.userName,
+                userEmail: data.userEmail,
+                userPhotoURL: "",
+                userEducationList: [],
+                userExperienceList: [],
+                userSkillList: []
+            )
+            
+            UserService.shared.setUser(user)
+        }
+        
+    }
+    
+    public func setUser(_ user: AuthenticatedUser?) {
+        self.userData = user
+        if let encodedData = try? JSONEncoder().encode(self.userData) {
+            UserDefaults.standard.set(encodedData, forKey: userDefaultsKey)
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    public func getUser() -> AuthenticatedUser? {
+        return self.userData
     }
 }

@@ -1,5 +1,5 @@
 //
-//  WishlistModel.swift
+//  FavoriteModel.swift
 //  GGGaming
 //
 //  Created by IT Division on 15/03/21.
@@ -7,26 +7,26 @@
 
 import Foundation
 
-class Wishlist {
-    var gameWishList: [Game] = []
+class FavoriteModel {
+    var favoriteGame: [Game] = []
     
-    public static let shared = Wishlist()
+    public static let shared = FavoriteModel()
     private init() { }
     
     public func getWishList() -> [Game] {
-        return self.gameWishList
+        return self.favoriteGame
     }
     
     public func addGameToWishList(game: Game) {
-        self.gameWishList.append(game)
+        self.favoriteGame.append(game)
     }
     
     public func removeGameFromWishList(game: Game) {
-        self.gameWishList = self.gameWishList.filter { $0.gameID != game.gameID }
+        self.favoriteGame = self.favoriteGame.filter { $0.gameID != game.gameID }
     }
     
     public func isGameInsideWishList(gameData: Game) -> Bool {
-        for game in self.gameWishList where game.gameID == gameData.gameID {
+        for game in self.favoriteGame where game.gameID == gameData.gameID {
             return true
         }
         return false

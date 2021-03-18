@@ -1,5 +1,5 @@
 //
-//  WishlistViewController.swift
+//  FavoriteViewController.swift
 //  GGGaming
 //
 //  Created by IT Division on 11/03/21.
@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class WishlistViewController: UIViewController {
+class FavoriteViewController: UIViewController {
     
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var initView: UIView!
@@ -31,12 +31,12 @@ class WishlistViewController: UIViewController {
     }
     
     let changeTitle: (_ title: String) -> Void
-    let viewModel: WishlistViewModel
+    let viewModel: FavoriteViewModel
     let loadRelay: BehaviorRelay<Void>
     
     init(
         callBack: @escaping (_ title: String) -> Void,
-        viewModel: WishlistViewModel
+        viewModel: FavoriteViewModel
     ) {
         self.changeTitle = callBack
         self.viewModel = viewModel
@@ -52,7 +52,7 @@ class WishlistViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeTitle("Wishlist")
+        self.changeTitle("Favorite")
         self.setActivityIndicator(loading: true)
         self.noResultView.alpha = 1
         self.noResultView.isHidden = false
@@ -68,7 +68,7 @@ class WishlistViewController: UIViewController {
 
     private func bindUI() {
         let willAppear = self.rx.sentMessage(#selector(UIViewController.viewWillAppear(_:))).mapToVoid().asDriverOnErrorJustComplete()
-        let output = self.viewModel.transform(input: WishlistViewModel.Input(
+        let output = self.viewModel.transform(input: FavoriteViewModel.Input(
             loadTrigger: Driver.merge(self.loadRelay.asDriver(), willAppear)
         ))
         
@@ -99,7 +99,7 @@ class WishlistViewController: UIViewController {
     private func setupStackViewData(_ gameList: [Game]) {
         self.stackView.safelyRemoveAllArrangedSubviews()
         for game in gameList {
-            let item = WishlistItemView(gameData: game, callBack: self.refreshCallback)
+            let item = FavoriteItemView(gameData: game, callBack: self.refreshCallback)
             item.setData(gameData: game)
             
             self.stackView.addArrangedSubview(item)

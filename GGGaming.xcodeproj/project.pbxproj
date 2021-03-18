@@ -48,18 +48,18 @@
 		A1E04A9325FF26870072775A /* GameDeveloperListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E04A9125FF26870072775A /* GameDeveloperListViewController.xib */; };
 		A1E04A9E25FF35E30072775A /* GameDeveloperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E04A9C25FF35E30072775A /* GameDeveloperTableViewCell.swift */; };
 		A1E04A9F25FF35E30072775A /* GameDeveloperTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E04A9D25FF35E30072775A /* GameDeveloperTableViewCell.xib */; };
-		A1E04AAA25FF653B0072775A /* WishlistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E04AA925FF653B0072775A /* WishlistModel.swift */; };
-		A1E04AAE25FF8AF20072775A /* WishlistItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E04AAD25FF8AF20072775A /* WishlistItemView.swift */; };
-		A1E04AB225FF8AFC0072775A /* WishlistItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E04AB125FF8AFC0072775A /* WishlistItemView.xib */; };
+		A1E04AAA25FF653B0072775A /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E04AA925FF653B0072775A /* FavoriteModel.swift */; };
+		A1E04AAE25FF8AF20072775A /* FavoriteItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E04AAD25FF8AF20072775A /* FavoriteItemView.swift */; };
+		A1E04AB225FF8AFC0072775A /* FavoriteItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E04AB125FF8AFC0072775A /* FavoriteItemView.xib */; };
 		A1E5F27825FA6FE600ADC5B8 /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F27725FA6FE600ADC5B8 /* HomeTabBarViewController.swift */; };
 		A1E5F27C25FA700D00ADC5B8 /* HomeTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F27B25FA700D00ADC5B8 /* HomeTabBarViewModel.swift */; };
 		A1E5F28125FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F28025FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift */; };
 		A1E5F28B25FA725000ADC5B8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F28A25FA725000ADC5B8 /* HomeViewModel.swift */; };
 		A1E5F28F25FA726700ADC5B8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F28D25FA726700ADC5B8 /* HomeViewController.swift */; };
 		A1E5F29025FA726700ADC5B8 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E5F28E25FA726700ADC5B8 /* HomeViewController.xib */; };
-		A1E5F29825FA761B00ADC5B8 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F29625FA761B00ADC5B8 /* WishlistViewController.swift */; };
-		A1E5F29925FA761B00ADC5B8 /* WishlistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E5F29725FA761B00ADC5B8 /* WishlistViewController.xib */; };
-		A1E5F29C25FA762600ADC5B8 /* WishlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F29B25FA762500ADC5B8 /* WishlistViewModel.swift */; };
+		A1E5F29825FA761B00ADC5B8 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F29625FA761B00ADC5B8 /* FavoriteViewController.swift */; };
+		A1E5F29925FA761B00ADC5B8 /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E5F29725FA761B00ADC5B8 /* FavoriteViewController.xib */; };
+		A1E5F29C25FA762600ADC5B8 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F29B25FA762500ADC5B8 /* FavoriteViewModel.swift */; };
 		A1E5F2A725FA78FD00ADC5B8 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2A625FA78FD00ADC5B8 /* ProfileViewModel.swift */; };
 		A1E5F2AA25FA790900ADC5B8 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2A925FA790900ADC5B8 /* ProfileModel.swift */; };
 		A1E5F2AE25FA791400ADC5B8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5F2AC25FA791400ADC5B8 /* ProfileViewController.swift */; };
@@ -128,18 +128,18 @@
 		A1E04A9125FF26870072775A /* GameDeveloperListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameDeveloperListViewController.xib; sourceTree = "<group>"; };
 		A1E04A9C25FF35E30072775A /* GameDeveloperTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDeveloperTableViewCell.swift; sourceTree = "<group>"; };
 		A1E04A9D25FF35E30072775A /* GameDeveloperTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameDeveloperTableViewCell.xib; sourceTree = "<group>"; };
-		A1E04AA925FF653B0072775A /* WishlistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistModel.swift; sourceTree = "<group>"; };
-		A1E04AAD25FF8AF20072775A /* WishlistItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistItemView.swift; sourceTree = "<group>"; };
-		A1E04AB125FF8AFC0072775A /* WishlistItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishlistItemView.xib; sourceTree = "<group>"; };
+		A1E04AA925FF653B0072775A /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
+		A1E04AAD25FF8AF20072775A /* FavoriteItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteItemView.swift; sourceTree = "<group>"; };
+		A1E04AB125FF8AFC0072775A /* FavoriteItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteItemView.xib; sourceTree = "<group>"; };
 		A1E5F27725FA6FE600ADC5B8 /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
 		A1E5F27B25FA700D00ADC5B8 /* HomeTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewModel.swift; sourceTree = "<group>"; };
 		A1E5F28025FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewControllerList.swift; sourceTree = "<group>"; };
 		A1E5F28A25FA725000ADC5B8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A1E5F28D25FA726700ADC5B8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A1E5F28E25FA726700ADC5B8 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		A1E5F29625FA761B00ADC5B8 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
-		A1E5F29725FA761B00ADC5B8 /* WishlistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishlistViewController.xib; sourceTree = "<group>"; };
-		A1E5F29B25FA762500ADC5B8 /* WishlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewModel.swift; sourceTree = "<group>"; };
+		A1E5F29625FA761B00ADC5B8 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		A1E5F29725FA761B00ADC5B8 /* FavoriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
+		A1E5F29B25FA762500ADC5B8 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		A1E5F2A625FA78FD00ADC5B8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		A1E5F2A925FA790900ADC5B8 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		A1E5F2AC25FA791400ADC5B8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -471,18 +471,19 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
-		A1E04AAC25FF8ADB0072775A /* WishlistItemView */ = {
+		A1E04AAC25FF8ADB0072775A /* ItemView */ = {
 			isa = PBXGroup;
 			children = (
-				A1E04AAD25FF8AF20072775A /* WishlistItemView.swift */,
-				A1E04AB125FF8AFC0072775A /* WishlistItemView.xib */,
+				A1E04AAD25FF8AF20072775A /* FavoriteItemView.swift */,
+				A1E04AB125FF8AFC0072775A /* FavoriteItemView.xib */,
 			);
-			path = WishlistItemView;
+			path = ItemView;
 			sourceTree = "<group>";
 		};
 		A1E5F26D25FA6F5400ADC5B8 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				A1E5F29225FA75D100ADC5B8 /* Favorite */,
 				A15C24FE25FB759700BF7EE2 /* Game */,
 				A1E5F28325FA720D00ADC5B8 /* Home */,
 				A1E5F27425FA6FCA00ADC5B8 /* HomeTabBar */,
@@ -490,7 +491,6 @@
 				A1EFBAEC2600FA0B002432CA /* Login */,
 				A1EFBB0C2601068D002432CA /* Register */,
 				A1E5F2A225FA78DD00ADC5B8 /* Profile */,
-				A1E5F29225FA75D100ADC5B8 /* Wishlist */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -629,20 +629,20 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		A1E5F29225FA75D100ADC5B8 /* Wishlist */ = {
+		A1E5F29225FA75D100ADC5B8 /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
 				A1E5F29525FA760600ADC5B8 /* Model */,
 				A1E5F29425FA760100ADC5B8 /* View */,
 				A1E5F29325FA75FC00ADC5B8 /* ViewModel */,
 			);
-			path = Wishlist;
+			path = Favorite;
 			sourceTree = "<group>";
 		};
 		A1E5F29325FA75FC00ADC5B8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				A1E5F29B25FA762500ADC5B8 /* WishlistViewModel.swift */,
+				A1E5F29B25FA762500ADC5B8 /* FavoriteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -650,9 +650,9 @@
 		A1E5F29425FA760100ADC5B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A1E04AAC25FF8ADB0072775A /* WishlistItemView */,
-				A1E5F29625FA761B00ADC5B8 /* WishlistViewController.swift */,
-				A1E5F29725FA761B00ADC5B8 /* WishlistViewController.xib */,
+				A1E04AAC25FF8ADB0072775A /* ItemView */,
+				A1E5F29625FA761B00ADC5B8 /* FavoriteViewController.swift */,
+				A1E5F29725FA761B00ADC5B8 /* FavoriteViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -660,7 +660,7 @@
 		A1E5F29525FA760600ADC5B8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A1E04AA925FF653B0072775A /* WishlistModel.swift */,
+				A1E04AA925FF653B0072775A /* FavoriteModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -892,9 +892,9 @@
 				A1CEFB2725FB5C7E0034DB0D /* HomeGameItemView.xib in Resources */,
 				A1D2D60625FE47AC00606466 /* GameSearchResultViewController.xib in Resources */,
 				A1E04A9325FF26870072775A /* GameDeveloperListViewController.xib in Resources */,
-				A1E5F29925FA761B00ADC5B8 /* WishlistViewController.xib in Resources */,
+				A1E5F29925FA761B00ADC5B8 /* FavoriteViewController.xib in Resources */,
 				A1CD1B7925FA63E200CB4B15 /* Assets.xcassets in Resources */,
-				A1E04AB225FF8AFC0072775A /* WishlistItemView.xib in Resources */,
+				A1E04AB225FF8AFC0072775A /* FavoriteItemView.xib in Resources */,
 				A1E5F2CD25FA7F2D00ADC5B8 /* ExperienceItemView.xib in Resources */,
 				A1E04A0B25FF10AF0072775A /* GameListByDeveloperViewController.xib in Resources */,
 				A1E5F2AF25FA791400ADC5B8 /* ProfileViewController.xib in Resources */,
@@ -973,9 +973,9 @@
 				A15C251725FB7C7300BF7EE2 /* GameNavigator.swift in Sources */,
 				A1CD1B6D25FA63E000CB4B15 /* AppDelegate.swift in Sources */,
 				A1E5F2CA25FA7EF800ADC5B8 /* ExperienceItemView.swift in Sources */,
-				A1E5F29C25FA762600ADC5B8 /* WishlistViewModel.swift in Sources */,
+				A1E5F29C25FA762600ADC5B8 /* FavoriteViewModel.swift in Sources */,
 				A1DD9711260263DA00953D04 /* LoginEnum.swift in Sources */,
-				A1E04AAA25FF653B0072775A /* WishlistModel.swift in Sources */,
+				A1E04AAA25FF653B0072775A /* FavoriteModel.swift in Sources */,
 				A1E5F2BB25FA7BE100ADC5B8 /* UIApplication+Extension.swift in Sources */,
 				A1E04A0A25FF10AF0072775A /* GameListByDeveloperViewController.swift in Sources */,
 				A1D2D60C25FE48D500606466 /* GameSearchResultViewModel.swift in Sources */,
@@ -995,12 +995,12 @@
 				A1EFBAF22600FA3D002432CA /* LoginViewController.swift in Sources */,
 				A1E5F28B25FA725000ADC5B8 /* HomeViewModel.swift in Sources */,
 				A1D7C95C26037EB4006E5653 /* UIViewController+Extension.swift in Sources */,
-				A1E04AAE25FF8AF20072775A /* WishlistItemView.swift in Sources */,
+				A1E04AAE25FF8AF20072775A /* FavoriteItemView.swift in Sources */,
 				A15C250B25FB760D00BF7EE2 /* GameDetailResponseWrapper.swift in Sources */,
 				A1E5F28F25FA726700ADC5B8 /* HomeViewController.swift in Sources */,
 				A1E5F2DE25FA8A7300ADC5B8 /* HomeNetworkProvider.swift in Sources */,
 				A1E5F2E125FA8E8A00ADC5B8 /* HomeDeveloperResponseWrapper.swift in Sources */,
-				A1E5F29825FA761B00ADC5B8 /* WishlistViewController.swift in Sources */,
+				A1E5F29825FA761B00ADC5B8 /* FavoriteViewController.swift in Sources */,
 				A1E5F2B725FA7BAB00ADC5B8 /* UIStackView+Extension.swift in Sources */,
 				A1E04A8D25FF26340072775A /* GameDeveloperListViewModel.swift in Sources */,
 				A1CEFB0F25FB33F20034DB0D /* ErrorTracker.swift in Sources */,

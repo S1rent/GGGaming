@@ -1,5 +1,5 @@
 //
-//  WishlistViewModel.swift
+//  FavoriteViewModel.swift
 //  GGGaming
 //
 //  Created by IT Division on 11/03/21.
@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class WishlistViewModel {
+final class FavoriteViewModel {
     struct Input {
         let loadTrigger: Driver<Void>
     }
@@ -22,7 +22,7 @@ final class WishlistViewModel {
     public func transform(input: Input) -> Output {
         
         let data = input.loadTrigger.map { _ -> [Game] in
-            return Wishlist.shared.getWishList()
+            return FavoriteModel.shared.getWishList()
         }
         
         let hasData = data.map { !($0.isEmpty) }

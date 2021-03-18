@@ -25,10 +25,10 @@ final class HomeTabBarViewControllerList {
     }
     
     func getWishlistViewController() -> UIViewController {
-        let viewModel = WishlistViewModel()
-        let viewController = WishlistViewController(callBack: callBack, viewModel: viewModel)
+        let viewModel = FavoriteViewModel()
+        let viewController = FavoriteViewController(callBack: callBack, viewModel: viewModel)
         
-        viewController.tabBarItem = UITabBarItem(title: "Wishlist", image: #imageLiteral(resourceName: "icn-wishlist"), tag: 0)
+        viewController.tabBarItem = UITabBarItem(title: "Favorite", image: #imageLiteral(resourceName: "icn-wishlist"), tag: 0)
         viewController.tabBarItem.imageInsets = UIEdgeInsets.init(top: -5, left: -5, bottom: -5, right: -5)
         
         return viewController

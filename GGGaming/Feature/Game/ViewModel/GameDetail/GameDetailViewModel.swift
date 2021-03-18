@@ -41,7 +41,7 @@ final class GameDetailViewModel {
         }
         
         let isInsideUserWishlist = input.loadTrigger.map { _ -> Bool in
-            return Wishlist.shared.isGameInsideWishList(gameData: self.gameData)
+            return FavoriteModel.shared.isGameInsideWishList(gameData: self.gameData)
         }
         
         return Output(

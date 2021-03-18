@@ -1,5 +1,5 @@
 //
-//  WishlistItemView.swift
+//  FavoriteItemView.swift
 //  GGGaming
 //
 //  Created by IT Division on 15/03/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WishlistItemView: UIView {
+class FavoriteItemView: UIView {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var imageGame: UIImageView!
@@ -38,7 +38,7 @@ class WishlistItemView: UIView {
     }
     
     private func bindNib() {
-        Bundle.main.loadNibNamed(WishlistItemView.identifier, owner: self, options: nil)
+        Bundle.main.loadNibNamed(FavoriteItemView.identifier, owner: self, options: nil)
         self.addSubview(self.contentView)
         self.contentView.frame = self.bounds
         self.contentView.layer.masksToBounds = true
@@ -65,7 +65,7 @@ class WishlistItemView: UIView {
     }
     
     private func presentInformation() {
-        Wishlist.shared.removeGameFromWishList(game: self.gameData)
+        FavoriteModel.shared.removeGameFromWishList(game: self.gameData)
         let alertController = UIAlertController(title: "Information", message: "Successfully remove game from wishlist.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)

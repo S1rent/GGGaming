@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WishlistItemView" customModule="GGGaming" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteItemView" customModule="GGGaming" customModuleProvider="target">
             <connections>
                 <outlet property="buttonDetail" destination="Twf-mG-INF" id="BeX-4n-5Cq"/>
                 <outlet property="buttonRemove" destination="l8f-Dd-Cgv" id="jcp-yD-4eL"/>

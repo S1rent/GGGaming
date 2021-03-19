@@ -15,7 +15,19 @@ class SkillItemView: UIView {
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var buttonDelete: UIButton!
     
-    init() {
+    let callBack: ((_ stackView: SkillItemView) -> Void)
+    let refreshCallback: (() -> Void)
+    let data: Skill
+    
+    init(
+        callBack: @escaping ((_ stackView: SkillItemView) -> Void),
+        data: Skill,
+        refreshCallback: @escaping (() -> Void)
+    ) {
+        self.callBack = callBack
+        self.data = data
+        self.refreshCallback = refreshCallback
+        
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         
         self.bindNib()
@@ -41,9 +53,11 @@ class SkillItemView: UIView {
     }
     
     @IBAction func deleteTapped(_ sender: Any) {
+        UserService.shared.removeSkillFromSkillList(self.data)
+        self.refreshCallback()
     }
     
     @IBAction func viewTapped(_ sender: Any) {
-        self.buttonDelete.alpha = 1
+        self.callBack(self)
     }
 }

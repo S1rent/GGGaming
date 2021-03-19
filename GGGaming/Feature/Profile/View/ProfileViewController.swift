@@ -69,6 +69,9 @@ class ProfileViewController: UIViewController {
     let itemProgressValueRelay = BehaviorRelay<String>(value: "")
     let itemTypeRelay = BehaviorRelay<ProfileAddItemEnum>(value: .skill)
     
+    var currentSkillItem: SkillItemView?
+    var currentExperienceItem: ExperienceItemView?
+    
     init(viewModel: ProfileViewModel) {
         self.viewModel = viewModel
         
@@ -117,6 +120,7 @@ class ProfileViewController: UIViewController {
         )
     }
     
+    // data function
     private func setupData(_ data: ProfileModel) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
             guard let self = self else { return }
@@ -150,7 +154,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupSkillStackViewData(stackView: UIStackView, skills: [Skill]) {
-
+        
         if skills.isEmpty {
             self.setupNoDataItem(stackView)
         } else {
@@ -167,6 +171,11 @@ class ProfileViewController: UIViewController {
             
             stackView.addArrangedSubview(experienceItem)
             
+            experienceItem.snp.makeConstraints { make in
+                make.leading.equalToSuperview()
+                make.trailing.equalToSuperview()
+            }
+            
             if index != experiences.count-1 {
                 self.addSeparatorView(stackView)
             }
@@ -175,18 +184,135 @@ class ProfileViewController: UIViewController {
     
     private func setupSkillItems(_ stackView: UIStackView, skills: [Skill]) {
         for (index, skill) in skills.enumerated() {
-            let skillItem = SkillItemView()
+            let skillItem = SkillItemView(
+                callBack: self.setActiveSkillItemView,
+                data: skill,
+                refreshCallback: self.pureRefreshCallback
+            )
             
             skillItem.labelSkillName.text = skill.skillName
             skillItem.progressView.progress = Float(skill.progress / 100)
             
             stackView.addArrangedSubview(skillItem)
             
+            skillItem.snp.makeConstraints { make in
+                make.leading.equalToSuperview()
+                make.trailing.equalToSuperview()
+            }
+            
             if index != skills.count-1 {
                 self.addSeparatorView(stackView)
             }
         }
     }
+    
+    // IBAction function
+    @IBAction func logoutTapped(_ sender: Any) {
+        self.showLogoutPopupConfirmation()
+    }
+    
+    @IBAction func addEducationTapped(_ sender: Any) {
+        let viewController = ProfileAddExperiencePopUpViewController(
+            addCallback: self.addExperienceCallback,
+            type: ProfileAddItemEnum.education
+        )
+        viewController.modalPresentationStyle = .overFullScreen
+        
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func addExperienceTapped(_ sender: Any) {
+        let viewController = ProfileAddExperiencePopUpViewController(
+            addCallback: self.addExperienceCallback,
+            type: ProfileAddItemEnum.workingExperience
+        )
+        viewController.modalPresentationStyle = .overFullScreen
+        
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func addSkillTapped(_ sender: Any) {
+        let viewController = ProfileAddSkillPopUpViewController(
+            addCallback: self.addSkillCallback,
+            type: ProfileAddItemEnum.skill
+        )
+        viewController.modalPresentationStyle = .overFullScreen
+        
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    // callback function
+    func addExperienceCallback(name: String, term: String, type: ProfileAddItemEnum) {
+        self.itemTermRelay.accept(term)
+        self.notifyRelay(name: name, type: type)
+    }
+    
+    func addSkillCallback(name: String, progressValue: String, type: ProfileAddItemEnum) {
+        self.itemProgressValueRelay.accept(progressValue)
+        self.notifyRelay(name: name, type: type)
+    }
+    
+    func notifyRelay(name: String, type: ProfileAddItemEnum) {
+        self.itemNameRelay.accept(name)
+        self.itemTypeRelay.accept(type)
+        self.addItemRelay.accept(())
+    }
+    
+    func refreshCallback() {
+        UIApplication.topViewController()?.dismiss(animated: true, completion: nil)
+        self.loadRelay.accept(())
+    }
+    
+    func pureRefreshCallback() {
+        self.loadRelay.accept(())
+    }
+    
+    func setActiveSkillItemView(_ item: SkillItemView) {
+        if let activeItem = self.currentSkillItem {
+            activeItem.buttonDelete.alpha = 0
+            activeItem.buttonDelete.isUserInteractionEnabled = false
+            activeItem.backgroundColor = UIColor.clear
+        }
+        
+        self.currentSkillItem = item
+        
+        if let activeItem = self.currentSkillItem {
+            activeItem.buttonDelete.alpha = 1
+            activeItem.buttonDelete.isUserInteractionEnabled = true
+            activeItem.backgroundColor = UIColor.darkGray
+        }
+    }
+    
+    // popup function
+    private func presentInformation() {
+        let alertController = UIAlertController(title: "Information", message: "Successfully logged out.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            
+            UserService.shared.logout()
+            let viewController = LoginViewController()
+            let delegate = self.view.window?.windowScene?.delegate as? SceneDelegate
+            delegate?.setRootViewController(viewController: viewController)
+        })
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func showLogoutPopupConfirmation() {
+        let alertController = UIAlertController(title: "Confirmation", message: "Are you sure you want logout ?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.presentInformation()
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        UIApplication.topViewController()?.navigationController?.present(alertController, animated: true, completion: nil)
+    }
+    
+    // helper function
     
     private func setupView() {
         self.imageProfile.layer.cornerRadius = self.imageProfile.frame.width / 2
@@ -256,92 +382,5 @@ class ProfileViewController: UIViewController {
             make.leading.equalToSuperview().offset(8)
             make.trailing.equalToSuperview().offset(-8)
         }
-    }
-    
-    // IBAction function
-    
-    @IBAction func logoutTapped(_ sender: Any) {
-        self.showLogoutPopupConfirmation()
-    }
-    
-    @IBAction func addEducationTapped(_ sender: Any) {
-        let viewController = ProfileAddExperiencePopUpViewController(
-            addCallback: self.addExperienceCallback,
-            type: ProfileAddItemEnum.education
-        )
-        viewController.modalPresentationStyle = .overFullScreen
-        
-        self.present(viewController, animated: true, completion: nil)
-    }
-    
-    @IBAction func addExperienceTapped(_ sender: Any) {
-        let viewController = ProfileAddExperiencePopUpViewController(
-            addCallback: self.addExperienceCallback,
-            type: ProfileAddItemEnum.workingExperience
-        )
-        viewController.modalPresentationStyle = .overFullScreen
-        
-        self.present(viewController, animated: true, completion: nil)
-    }
-    
-    @IBAction func addSkillTapped(_ sender: Any) {
-        let viewController = ProfileAddSkillPopUpViewController(
-            addCallback: self.addSkillCallback,
-            type: ProfileAddItemEnum.skill
-        )
-        viewController.modalPresentationStyle = .overFullScreen
-        
-        self.present(viewController, animated: true, completion: nil)
-    }
-    
-    // callback function
-    func addExperienceCallback(name: String, term: String, type: ProfileAddItemEnum) {
-        self.itemTermRelay.accept(term)
-        self.notifyRelay(name: name, type: type)
-    }
-    
-    func addSkillCallback(name: String, progressValue: String, type: ProfileAddItemEnum) {
-        self.itemProgressValueRelay.accept(progressValue)
-        self.notifyRelay(name: name, type: type)
-    }
-    
-    func notifyRelay(name: String, type: ProfileAddItemEnum) {
-        self.itemNameRelay.accept(name)
-        self.itemTypeRelay.accept(type)
-        self.addItemRelay.accept(())
-    }
-    
-    func refreshCallback() {
-        UIApplication.topViewController()?.dismiss(animated: true, completion: nil)
-        self.loadRelay.accept(())
-    }
-    
-    // popup function
-    private func presentInformation() {
-        let alertController = UIAlertController(title: "Information", message: "Successfully logged out.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
-            guard let self = self else { return }
-            
-            UserService.shared.logout()
-            let viewController = LoginViewController()
-            let delegate = self.view.window?.windowScene?.delegate as? SceneDelegate
-            delegate?.setRootViewController(viewController: viewController)
-        })
-        alertController.addAction(okAction)
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    private func showLogoutPopupConfirmation() {
-        let alertController = UIAlertController(title: "Confirmation", message: "Are you sure you want logout ?", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
-            guard let self = self else { return }
-            
-            self.presentInformation()
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-        alertController.addAction(okAction)
-        alertController.addAction(cancelAction)
-        UIApplication.topViewController()?.navigationController?.present(alertController, animated: true, completion: nil)
     }
 }

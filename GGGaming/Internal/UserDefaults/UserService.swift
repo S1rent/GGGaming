@@ -44,6 +44,13 @@ public class UserService {
         UserService.shared.setUser(user)
     }
     
+    public func removeSkillFromSkillList(_ skill: Skill) {
+        var user = UserService.shared.getUser()
+        let filteredSkills = user?.userSkillList?.filter { $0.skillID != skill.skillID }
+        user?.userSkillList = filteredSkills
+        UserService.shared.setUser(user)
+    }
+    
     public func registerUserSession(data: UserModel) {
         if var user = UserService.shared.getUser() {
             user.userID = data.userID

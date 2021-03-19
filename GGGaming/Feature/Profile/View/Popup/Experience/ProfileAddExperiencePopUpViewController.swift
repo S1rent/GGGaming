@@ -11,10 +11,12 @@ import RxCocoa
 
 class ProfileAddExperiencePopUpViewController: UIViewController {
     
+    @IBOutlet weak var labelPopupTitle: UILabel!
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var buttonAdd: UIButton!
     @IBOutlet weak var experienceNameField: UITextField!
     @IBOutlet weak var termField: UITextField!
+    @IBOutlet weak var labelExperienceName: UILabel!
     
     let addCallback: ((_ name: String, _ term: String, _ type: ProfileAddItemEnum) -> Void)
     let type: ProfileAddItemEnum
@@ -60,6 +62,10 @@ class ProfileAddExperiencePopUpViewController: UIViewController {
     }
     
     private func setupView() {
+        self.labelExperienceName.text = self.type == ProfileAddItemEnum.education ? "Institution Name" : "Experience Name"
+        self.labelPopupTitle.text = self.type == ProfileAddItemEnum.education ? "Add Education Item" : "Add Experience Item"
+        self.experienceNameField.placeholder = self.type == ProfileAddItemEnum.education ? "ex: Harvard University" : "ex: Software Engineer"
+        
         self.popupView.layer.cornerRadius = 6
         self.buttonAdd.layer.cornerRadius = 6
         

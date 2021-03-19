@@ -12,6 +12,8 @@
             <connections>
                 <outlet property="buttonAdd" destination="fFN-lR-Fbq" id="WZn-0V-c4d"/>
                 <outlet property="experienceNameField" destination="Bhh-OJ-d2Q" id="03f-kg-euq"/>
+                <outlet property="labelExperienceName" destination="MWS-M9-ZID" id="j8z-yA-FdV"/>
+                <outlet property="labelPopupTitle" destination="w39-Lq-HQB" id="xg6-0o-qiD"/>
                 <outlet property="popupView" destination="oWM-eK-OBZ" id="HFw-tv-caZ"/>
                 <outlet property="termField" destination="CTF-Ai-cjW" id="9q5-ic-MJ0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

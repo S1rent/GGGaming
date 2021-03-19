@@ -131,6 +131,7 @@ class GameDetailViewController: UIViewController {
         }
         
         self.labelGameDeveloper.text = developerString
+        self.labelGameDescription.font = .systemFont(ofSize: 16)
     }
     
     private func setupAction(_ action: Bool) {
@@ -172,10 +173,10 @@ class GameDetailViewController: UIViewController {
     
     @IBAction func actionButtonTapped(_ sender: Any) {
         if isInsideWishlist {
-            Wishlist.shared.removeGameFromWishList(game: self.gameData)
+            FavoriteModel.shared.removeGameFromWishList(game: self.gameData)
             self.showInformation(remove: true)
         } else {
-            Wishlist.shared.addGameToWishList(game: self.gameData)
+            FavoriteModel.shared.addGameToWishList(game: self.gameData)
             self.showInformation(remove: false)
         }
     }

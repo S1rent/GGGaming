@@ -16,4 +16,5 @@ target 'GGGaming' do
     pod 'FLEX', :configurations => ['Debug']
     pod 'SDWebImage', '~> 5.0'
     pod 'SwiftLint'
+    pod 'IQKeyboardManagerSwift'
 end

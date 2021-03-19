@@ -27,7 +27,7 @@ final class HomeTabBarViewModel {
             
             let tabVCList = [
                 vcList.getHomeViewController(),
-                vcList.getWishlistViewController()
+                vcList.getFavoriteViewController()
             ]
             
             return Driver.just(tabVCList)

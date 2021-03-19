@@ -73,7 +73,7 @@ class FavoriteItemView: UIView {
     
     private func presentInformation() {
         _ = FavoriteCoreDataFunctionality.shared.removeFavorite(self.gameData.gameID )
-        let alertController = UIAlertController(title: "Information", message: "Successfully remove game from wishlist.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Information", message: "Successfully remove game from favorite.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
         
@@ -83,7 +83,7 @@ class FavoriteItemView: UIView {
     }
     
     @IBAction func removeGameTapped(_ sender: Any) {
-        let alertController = UIAlertController(title: "Warning", message: "Are you sure you want to remove this game from your wishlist ?", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Warning", message: "Are you sure you want to remove this game from your favorite ?", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
             self.presentInformation()
         })

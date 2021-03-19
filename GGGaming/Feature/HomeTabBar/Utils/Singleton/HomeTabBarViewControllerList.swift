@@ -24,7 +24,7 @@ final class HomeTabBarViewControllerList {
         return viewController
     }
     
-    func getWishlistViewController() -> UIViewController {
+    func getFavoriteViewController() -> UIViewController {
         let viewModel = FavoriteViewModel()
         let viewController = FavoriteViewController(callBack: callBack, viewModel: viewModel)
         

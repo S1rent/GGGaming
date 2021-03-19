@@ -44,7 +44,7 @@ class GameDetailViewController: UIViewController {
     let loadTrigger: BehaviorRelay<Void>
     
     var hasData = false
-    var isInsideWishlist = false
+    var isInsideFavorite = false
     
     init(gameID: Int, viewModel: GameDetailViewModel) {
         self.gameID = gameID
@@ -96,10 +96,10 @@ class GameDetailViewController: UIViewController {
                     }
                 }
             }),
-            output.action.drive(onNext: { [weak self] isInsideWishList in
+            output.action.drive(onNext: { [weak self] isInsideFavorite in
                 guard let self = self else { return }
                 
-                if isInsideWishList {
+                if isInsideFavorite {
                     self.setupAction(true)
                 } else {
                     self.setupAction(false)
@@ -139,14 +139,14 @@ class GameDetailViewController: UIViewController {
     private func setupAction(_ action: Bool) {
         if action {
             self.actionButton.setTitleColor(UIColor.red, for: .normal)
-            self.actionButton.setTitle("Remove from Wishlist", for: .normal)
+            self.actionButton.setTitle("Remove from Favorite", for: .normal)
             self.actionView.layer.backgroundColor = UIColor.red.cgColor
-            self.isInsideWishlist = true
+            self.isInsideFavorite = true
         } else {
             self.actionButton.setTitleColor(UIColor.green, for: .normal)
-            self.actionButton.setTitle("Add to Wishlist", for: .normal)
+            self.actionButton.setTitle("Add to Favorite", for: .normal)
             self.actionView.layer.backgroundColor = UIColor.green.cgColor
-            self.isInsideWishlist = false
+            self.isInsideFavorite = false
         }
     }
     
@@ -161,9 +161,9 @@ class GameDetailViewController: UIViewController {
     private func showInformation(remove: Bool) {
         var alertController = UIAlertController()
         if remove {
-            alertController = UIAlertController(title: "Information", message: "Successfully remove game from wishlist.", preferredStyle: .alert)
+            alertController = UIAlertController(title: "Information", message: "Successfully remove game from favorite.", preferredStyle: .alert)
         } else {
-            alertController = UIAlertController(title: "Information", message: "Successfully add game to wishlist.", preferredStyle: .alert)
+            alertController = UIAlertController(title: "Information", message: "Successfully add game to favorite.", preferredStyle: .alert)
         }
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
@@ -174,7 +174,7 @@ class GameDetailViewController: UIViewController {
     }
     
     @IBAction func actionButtonTapped(_ sender: Any) {
-        if isInsideWishlist {
+        if isInsideFavorite {
             _ = FavoriteCoreDataFunctionality.shared.removeFavorite(self.gameID)
             self.showInformation(remove: true)
         } else {

@@ -40,14 +40,14 @@ final class GameDetailViewModel {
                 .asDriverOnErrorJustComplete()
         }
         
-        let isInsideUserWishlist = input.loadTrigger.map { _ -> Bool in
+        let isInsideUserFavorite = input.loadTrigger.map { _ -> Bool in
             return FavoriteCoreDataFunctionality.shared.getGame(id: self.gameID)
         }
         
         return Output(
             data: data,
             loading: activityTracker.asDriver(),
-            action: isInsideUserWishlist
+            action: isInsideUserFavorite
         )
     }
 }

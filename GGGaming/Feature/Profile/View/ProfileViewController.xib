@@ -14,6 +14,7 @@
                 <outlet property="activityIndicator" destination="BkG-Zl-vqh" id="Gqz-vO-b4k"/>
                 <outlet property="buttonAddEducation" destination="y3F-Ex-lxx" id="PPJ-l4-xXB"/>
                 <outlet property="buttonLogout" destination="UKN-FS-PAw" id="jku-WF-7jS"/>
+                <outlet property="coverView" destination="ZfZ-i5-kDD" id="q9X-gY-umU"/>
                 <outlet property="educationInitView" destination="ndd-1N-hEX" id="3XH-TL-CTs"/>
                 <outlet property="educationStackView" destination="5ei-f6-lPI" id="fbu-kq-THn"/>
                 <outlet property="imageProfile" destination="dG0-FQ-f1L" id="UXo-3C-ghv"/>
@@ -305,6 +306,10 @@
                         <constraint firstItem="CF3-wl-iJt" firstAttribute="top" secondItem="eeK-TJ-BWA" secondAttribute="top" id="o8o-vK-o3C"/>
                     </constraints>
                 </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZfZ-i5-kDD">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="BkG-Zl-vqh">
                     <rect key="frame" x="197" y="438" width="20" height="20"/>
                 </activityIndicatorView>
@@ -313,11 +318,15 @@
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eeK-TJ-BWA" secondAttribute="bottom" id="0kj-0I-gzm"/>
+                <constraint firstItem="ZfZ-i5-kDD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NEO-aa-gL3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eeK-TJ-BWA" secondAttribute="trailing" id="Rod-WV-AJx"/>
+                <constraint firstItem="ZfZ-i5-kDD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="THz-rz-4tc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZfZ-i5-kDD" secondAttribute="trailing" id="WOn-7F-kCm"/>
                 <constraint firstItem="eeK-TJ-BWA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="d8b-VH-RdZ"/>
                 <constraint firstItem="BkG-Zl-vqh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="e4H-d1-ItH"/>
                 <constraint firstItem="eeK-TJ-BWA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fHd-tJ-O2L"/>
                 <constraint firstItem="BkG-Zl-vqh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="nuS-xU-fi7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZfZ-i5-kDD" secondAttribute="bottom" id="yLt-RC-Z7L"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="111.83035714285714"/>
         </view>

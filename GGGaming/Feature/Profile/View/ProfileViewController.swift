@@ -34,6 +34,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var workingExperienceStackView: UIStackView!
     @IBOutlet weak var workingExperienceInitView: UIView!
     
+    @IBOutlet weak var coverView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
         didSet {
             self.activityIndicator.isHidden = true
@@ -87,13 +88,16 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Profile"
         
+        self.setupRightBarItem()
         self.setupView()
         self.bindUI()
     }
 
     private func bindUI() {
+        let willAppear = self.rx.sentMessage(#selector(UIViewController.viewWillAppear(_:))).mapToVoid().asDriverOnErrorJustComplete()
+        
         let output = self.viewModel.transform(input: ProfileViewModel.Input(
-            loadTrigger: self.loadRelay.asDriver(),
+            loadTrigger: Driver.merge(self.loadRelay.asDriver(), willAppear),
             itemName: itemNameRelay.asDriverOnErrorJustComplete(),
             itemTerm: itemTermRelay.asDriverOnErrorJustComplete(),
             itemProgressValue: itemProgressValueRelay.asDriverOnErrorJustComplete(),
@@ -105,6 +109,8 @@ class ProfileViewController: UIViewController {
             output.data.drive(onNext: { [weak self] data in
                 guard let self = self else { return }
                 
+                self.coverView.alpha = 1
+                self.coverView.animateFadeIn()
                 self.setActivityIndicator(loading: true)
                 self.setupData(data)
             }),
@@ -125,6 +131,8 @@ class ProfileViewController: UIViewController {
     private func setupData(_ data: ProfileModel) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
             guard let self = self else { return }
+            
+            self.coverView.animateFadeOut()
             self.setActivityIndicator(loading: false)
         }
         
@@ -139,10 +147,6 @@ class ProfileViewController: UIViewController {
         self.setupExperienceStackViewData(stackView: self.educationStackView, experienceList: data.educationList, type: ProfileAddItemEnum.education)
         self.setupExperienceStackViewData(stackView: self.workingExperienceStackView, experienceList: data.workingExperienceList, type: ProfileAddItemEnum.workingExperience)
         self.setupSkillStackViewData(stackView: self.skillStackView, skills: data.skills)
-        
-        if imageProfile.image == UIImage(systemName: "person") {
-            self.imageProfile.layer.cornerRadius = 0
-        }
     }
     
     private func setupExperienceStackViewData(stackView: UIStackView, experienceList: [Experience], type: ProfileAddItemEnum) {
@@ -372,5 +376,17 @@ extension ProfileViewController {
             make.leading.equalToSuperview().offset(8)
             make.trailing.equalToSuperview().offset(-8)
         }
+    }
+    
+    func setupRightBarItem() {
+        let buttonProfile = UIBarButtonItem(image: UIImage(systemName: "pencil"), style: .plain, target: self, action: #selector(navigateToChangeProfile))
+        self.navigationItem.rightBarButtonItem = buttonProfile
+    }
+    
+    @objc func navigateToChangeProfile() {
+        let viewModel = ProfileChangeViewModel()
+        let viewController = ProfileChangeViewController(viewModel: viewModel)
+        
+        UIApplication.topViewController()?.navigationController?.pushViewController(viewController, animated: true)
     }
 }

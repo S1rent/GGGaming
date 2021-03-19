@@ -19,53 +19,61 @@ public class UserService {
         }
     }
     
-    public func logout() {
+    func logout() {
         self.userData = nil
         
         UserDefaults.standard.removeObject(forKey: userDefaultsKey)
         UserDefaults.standard.synchronize()
     }
     
-    public func appendUserEducationList(_ education: Experience) {
+    func appendUserEducationList(_ education: Experience) {
         var user = UserService.shared.getUser()
         user?.userEducationList?.append(education)
         UserService.shared.setUser(user)
     }
     
-    public func appendUserWorkingExperienceList(_ experience: Experience) {
+    func appendUserWorkingExperienceList(_ experience: Experience) {
         var user = UserService.shared.getUser()
         user?.userExperienceList?.append(experience)
         UserService.shared.setUser(user)
     }
     
-    public func appendUserSkillList(_ skill: Skill) {
+    func appendUserSkillList(_ skill: Skill) {
         var user = UserService.shared.getUser()
         user?.userSkillList?.append(skill)
         UserService.shared.setUser(user)
     }
     
-    public func removeSkillFromSkillList(_ skill: Skill) {
+    func editProfile(name: String, email: String, photoURL: String) {
+        var user = UserService.shared.getUser()
+        user?.userName = name
+        user?.userEmail = email
+        user?.userPhotoURL = photoURL
+        UserService.shared.setUser(user)
+    }
+    
+    func removeSkillFromSkillList(_ skill: Skill) {
         var user = UserService.shared.getUser()
         let filteredSkills = user?.userSkillList?.filter { $0.skillID != skill.skillID }
         user?.userSkillList = filteredSkills
         UserService.shared.setUser(user)
     }
     
-    public func removeEducationFromEducationList(_ education: Experience) {
+    func removeEducationFromEducationList(_ education: Experience) {
         var user = UserService.shared.getUser()
         let filteredEducationList = user?.userEducationList?.filter { $0.experienceID != education.experienceID }
         user?.userEducationList = filteredEducationList
         UserService.shared.setUser(user)
     }
     
-    public func removeExperienceFromExperienceList(_ experience: Experience) {
+    func removeExperienceFromExperienceList(_ experience: Experience) {
         var user = UserService.shared.getUser()
         let filteredExperienceList = user?.userExperienceList?.filter { $0.experienceID != experience.experienceID }
         user?.userExperienceList = filteredExperienceList
         UserService.shared.setUser(user)
     }
     
-    public func registerUserSession(data: UserModel) {
+    func registerUserSession(data: UserModel) {
         if var user = UserService.shared.getUser() {
             user.userID = data.userID
             user.userEmail = data.userEmail
@@ -90,7 +98,7 @@ public class UserService {
         
     }
     
-    public func setUser(_ user: AuthenticatedUser?) {
+    func setUser(_ user: AuthenticatedUser?) {
         self.userData = user
         if let encodedData = try? JSONEncoder().encode(self.userData) {
             UserDefaults.standard.set(encodedData, forKey: userDefaultsKey)
@@ -98,7 +106,7 @@ public class UserService {
         }
     }
     
-    public func getUser() -> AuthenticatedUser? {
+    func getUser() -> AuthenticatedUser? {
         return self.userData
     }
 }

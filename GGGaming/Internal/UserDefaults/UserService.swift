@@ -51,6 +51,20 @@ public class UserService {
         UserService.shared.setUser(user)
     }
     
+    public func removeEducationFromEducationList(_ education: Experience) {
+        var user = UserService.shared.getUser()
+        let filteredEducationList = user?.userEducationList?.filter { $0.experienceID != education.experienceID }
+        user?.userEducationList = filteredEducationList
+        UserService.shared.setUser(user)
+    }
+    
+    public func removeExperienceFromExperienceList(_ experience: Experience) {
+        var user = UserService.shared.getUser()
+        let filteredExperienceList = user?.userExperienceList?.filter { $0.experienceID != experience.experienceID }
+        user?.userExperienceList = filteredExperienceList
+        UserService.shared.setUser(user)
+    }
+    
     public func registerUserSession(data: UserModel) {
         if var user = UserService.shared.getUser() {
             user.userID = data.userID

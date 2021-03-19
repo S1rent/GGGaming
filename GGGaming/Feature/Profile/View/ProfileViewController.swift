@@ -135,8 +135,8 @@ class ProfileViewController: UIViewController {
         self.labelName.text = data.name
         self.labelEmail.text = data.email
         
-        self.setupExperienceStackViewData(stackView: self.educationStackView, experienceList: data.educationList)
-        self.setupExperienceStackViewData(stackView: self.workingExperienceStackView, experienceList: data.workingExperienceList)
+        self.setupExperienceStackViewData(stackView: self.educationStackView, experienceList: data.educationList, type: ProfileAddItemEnum.education)
+        self.setupExperienceStackViewData(stackView: self.workingExperienceStackView, experienceList: data.workingExperienceList, type: ProfileAddItemEnum.workingExperience)
         self.setupSkillStackViewData(stackView: self.skillStackView, skills: data.skills)
         
         if imageProfile.image == UIImage(systemName: "person") {
@@ -144,12 +144,12 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    private func setupExperienceStackViewData(stackView: UIStackView, experienceList: [Experience]) {
+    private func setupExperienceStackViewData(stackView: UIStackView, experienceList: [Experience], type: ProfileAddItemEnum) {
         
         if experienceList.isEmpty {
             self.setupNoDataItem(stackView)
         } else {
-            self.setupExperienceItems(stackView, experienceList)
+            self.setupExperienceItems(stackView, experienceList, type: type)
         }
     }
     
@@ -162,9 +162,14 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    private func setupExperienceItems(_ stackView: UIStackView, _ experiences: [Experience]) {
+    private func setupExperienceItems(_ stackView: UIStackView, _ experiences: [Experience], type: ProfileAddItemEnum) {
         for (index, experience) in experiences.enumerated() {
-            let experienceItem = ExperienceItemView()
+            let experienceItem = ExperienceItemView(
+                callBack: self.setActiveExperienceItemView,
+                data: experience,
+                refreshCallback: self.pureRefreshCallback,
+                type: type
+            )
             
             experienceItem.labelDuration.text = experience.timeSpan
             experienceItem.labelDescription.text = experience.institutionName
@@ -277,6 +282,22 @@ class ProfileViewController: UIViewController {
         self.currentSkillItem = item
         
         if let activeItem = self.currentSkillItem {
+            activeItem.buttonDelete.alpha = 1
+            activeItem.buttonDelete.isUserInteractionEnabled = true
+            activeItem.backgroundColor = UIColor.darkGray
+        }
+    }
+    
+    func setActiveExperienceItemView(_ item: ExperienceItemView) {
+        if let activeItem = self.currentExperienceItem {
+            activeItem.buttonDelete.alpha = 0
+            activeItem.buttonDelete.isUserInteractionEnabled = false
+            activeItem.backgroundColor = UIColor.clear
+        }
+        
+        self.currentExperienceItem = item
+        
+        if let activeItem = self.currentExperienceItem {
             activeItem.buttonDelete.alpha = 1
             activeItem.buttonDelete.isUserInteractionEnabled = true
             activeItem.backgroundColor = UIColor.darkGray

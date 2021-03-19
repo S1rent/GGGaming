@@ -80,8 +80,10 @@ class ProfileAddSkillPopUpViewController: UIViewController {
     
     private func animateProgress(_ text: String) {
         let floatValue = Float(text) ?? 0
-        if floatValue >= 0 && floatValue <= 100 {
+        if floatValue > 0 && floatValue <= 100 {
             self.progressView.setProgress(Float(floatValue / 100), animated: true)
+            self.progressField.layer.borderColor = UIColor.clear.cgColor
+            self.progressField.layer.borderWidth = 0
         } else {
             self.progressField.layer.borderColor = UIColor.red.cgColor
             self.progressField.layer.borderWidth = 2

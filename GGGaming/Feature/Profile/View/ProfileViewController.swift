@@ -3,7 +3,7 @@
 //  GGGaming
 //
 //  Created by IT Division on 11/03/21.
-//
+//  [IMPORTANT NOTE] -> Popup Function Is located In ProfileViewController+Extension
 
 import UIKit
 import RxSwift
@@ -61,6 +61,7 @@ class ProfileViewController: UIViewController {
     
     let viewModel: ProfileViewModel
     let loadRelay = BehaviorRelay<Void>(value: ())
+    let navigator = ProfileNavigator.shared
     
     let addItemRelay = BehaviorRelay<Void>(value: ())
     
@@ -217,36 +218,20 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func addEducationTapped(_ sender: Any) {
-        let viewController = ProfileAddExperiencePopUpViewController(
-            addCallback: self.addExperienceCallback,
-            type: ProfileAddItemEnum.education
-        )
-        viewController.modalPresentationStyle = .overFullScreen
-        
-        self.present(viewController, animated: true, completion: nil)
+        self.navigator.navigateToAddExperiencePopUp(callBack: self.addExperienceCallback, type: ProfileAddItemEnum.education)
     }
     
     @IBAction func addExperienceTapped(_ sender: Any) {
-        let viewController = ProfileAddExperiencePopUpViewController(
-            addCallback: self.addExperienceCallback,
-            type: ProfileAddItemEnum.workingExperience
-        )
-        viewController.modalPresentationStyle = .overFullScreen
-        
-        self.present(viewController, animated: true, completion: nil)
+        self.navigator.navigateToAddExperiencePopUp(callBack: self.addExperienceCallback, type: ProfileAddItemEnum.workingExperience)
     }
     
     @IBAction func addSkillTapped(_ sender: Any) {
-        let viewController = ProfileAddSkillPopUpViewController(
-            addCallback: self.addSkillCallback,
-            type: ProfileAddItemEnum.skill
-        )
-        viewController.modalPresentationStyle = .overFullScreen
-        
-        self.present(viewController, animated: true, completion: nil)
+        self.navigator.navigateToAddSkillPopUp(callBack: self.addSkillCallback, type: ProfileAddItemEnum.skill)
     }
-    
-    // callback function
+}
+
+// Callback Function
+extension ProfileViewController {
     func addExperienceCallback(name: String, term: String, type: ProfileAddItemEnum) {
         self.itemTermRelay.accept(term)
         self.notifyRelay(name: name, type: type)
@@ -279,6 +264,12 @@ class ProfileViewController: UIViewController {
             activeItem.backgroundColor = UIColor.clear
         }
         
+        if let activeExperienceItem = self.currentExperienceItem {
+            activeExperienceItem.buttonDelete.alpha = 0
+            activeExperienceItem.buttonDelete.isUserInteractionEnabled = false
+            activeExperienceItem.backgroundColor = UIColor.clear
+        }
+        
         self.currentSkillItem = item
         
         if let activeItem = self.currentSkillItem {
@@ -295,6 +286,12 @@ class ProfileViewController: UIViewController {
             activeItem.backgroundColor = UIColor.clear
         }
         
+        if let activeSkillItem = self.currentSkillItem {
+            activeSkillItem.buttonDelete.alpha = 0
+            activeSkillItem.buttonDelete.isUserInteractionEnabled = false
+            activeSkillItem.backgroundColor = UIColor.clear
+        }
+        
         self.currentExperienceItem = item
         
         if let activeItem = self.currentExperienceItem {
@@ -303,39 +300,11 @@ class ProfileViewController: UIViewController {
             activeItem.backgroundColor = UIColor.darkGray
         }
     }
-    
-    // popup function
-    private func presentInformation() {
-        let alertController = UIAlertController(title: "Information", message: "Successfully logged out.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
-            guard let self = self else { return }
-            
-            UserService.shared.logout()
-            let viewController = LoginViewController()
-            let delegate = self.view.window?.windowScene?.delegate as? SceneDelegate
-            delegate?.setRootViewController(viewController: viewController)
-        })
-        alertController.addAction(okAction)
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    private func showLogoutPopupConfirmation() {
-        let alertController = UIAlertController(title: "Confirmation", message: "Are you sure you want logout ?", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
-            guard let self = self else { return }
-            
-            self.presentInformation()
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-        alertController.addAction(okAction)
-        alertController.addAction(cancelAction)
-        UIApplication.topViewController()?.navigationController?.present(alertController, animated: true, completion: nil)
-    }
-    
-    // helper function
-    
-    private func setupView() {
+}
+
+// View Function
+extension ProfileViewController {
+    func setupView() {
         self.imageProfile.layer.cornerRadius = self.imageProfile.frame.width / 2
         self.logoutView.layer.cornerRadius = 6
         self.buttonLogout.layer.cornerRadius = 6
@@ -349,7 +318,17 @@ class ProfileViewController: UIViewController {
         self.setActivityIndicator(loading: true)
     }
     
-    private func setupNoDataItem(_ stackView: UIStackView) {
+   func setupStackView(stackView: UIStackView) {
+        stackView.safelyRemoveAllArrangedSubviews()
+        stackView.layer.cornerRadius = 6
+        stackView.layer.borderColor = UIColor.white.cgColor
+        stackView.layer.borderWidth = 0.7
+        
+        stackView.alpha = 0
+        stackView.animateFadeIn()
+    }
+    
+    func setupNoDataItem(_ stackView: UIStackView) {
         let view = UIView()
         view.layer.backgroundColor = UIColor.clear.cgColor
         
@@ -373,17 +352,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    private func setupStackView(stackView: UIStackView) {
-        stackView.safelyRemoveAllArrangedSubviews()
-        stackView.layer.cornerRadius = 6
-        stackView.layer.borderColor = UIColor.white.cgColor
-        stackView.layer.borderWidth = 0.7
-        
-        stackView.alpha = 0
-        stackView.animateFadeIn()
-    }
-    
-    private func setActivityIndicator(loading: Bool) {
+    func setActivityIndicator(loading: Bool) {
         if loading {
             self.activityIndicator.animateFadeIn()
             self.activityIndicator.startAnimating()
@@ -393,7 +362,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    private func addSeparatorView(_ stackView: UIStackView) {
+    func addSeparatorView(_ stackView: UIStackView) {
         let view = UIView()
         view.backgroundColor = UIColor.white
         

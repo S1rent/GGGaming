@@ -17,7 +17,7 @@ enum ProfileAddItemErrorEnum: String {
     case errorAddItemNameEmpty = "Name cannot be empty."
     case errorAddItemTermEmpty = "Term cannot be empty."
     case errorAddItemProgressValueEmpty = "Progress value cannot be empty."
-    case errorAddItemProgressValueInapropriate = "Progress value must be at least 0 and also smaller or equal than 100."
+    case errorAddItemProgressValueInapropriate = "Progress value must be at least 1 and also smaller or equal than 100."
     case fatalError = "Something went wrong, please try again later."
     case success = "Item successfully added."
 }

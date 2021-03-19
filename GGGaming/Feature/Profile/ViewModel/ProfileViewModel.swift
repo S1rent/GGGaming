@@ -86,7 +86,9 @@ final class ProfileViewModel {
             addError: addError
         )
     }
-    
+}
+
+extension ProfileViewModel {
     private func validateExperienceModel(_ name: String, _ term: String) -> ProfileAddItemErrorEnum {
         
         if name.isEmpty {
@@ -108,7 +110,7 @@ final class ProfileViewModel {
         
         let intProgressValue = Int(progressValue) ?? -1
     
-        if intProgressValue < 0 || intProgressValue > 100 {
+        if intProgressValue <= 0 || intProgressValue > 100 {
             return ProfileAddItemErrorEnum.errorAddItemProgressValueInapropriate
         }
         

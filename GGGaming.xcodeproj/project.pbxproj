@@ -35,6 +35,8 @@
 		A1D2D60C25FE48D500606466 /* GameSearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D2D60B25FE48D500606466 /* GameSearchResultViewModel.swift */; };
 		A1D5CFA52604884E00755CCA /* ProfileAddSkillPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D5CFA32604884E00755CCA /* ProfileAddSkillPopUpViewController.swift */; };
 		A1D5CFA62604884E00755CCA /* ProfileAddSkillPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D5CFA42604884E00755CCA /* ProfileAddSkillPopUpViewController.xib */; };
+		A1D5CFAA2604A3B900755CCA /* ProfileNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D5CFA92604A3B900755CCA /* ProfileNavigator.swift */; };
+		A1D5CFAE2604A5E400755CCA /* ProfileViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D5CFAD2604A5E400755CCA /* ProfileViewController+Extension.swift */; };
 		A1D7C94F26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C94D26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.swift */; };
 		A1D7C95026036A1A006E5653 /* ProfileAddExperiencePopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D7C94E26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.xib */; };
 		A1D7C95826037277006E5653 /* ProfileEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C95726037277006E5653 /* ProfileEnum.swift */; };
@@ -117,6 +119,8 @@
 		A1D2D60B25FE48D500606466 /* GameSearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSearchResultViewModel.swift; sourceTree = "<group>"; };
 		A1D5CFA32604884E00755CCA /* ProfileAddSkillPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAddSkillPopUpViewController.swift; sourceTree = "<group>"; };
 		A1D5CFA42604884E00755CCA /* ProfileAddSkillPopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileAddSkillPopUpViewController.xib; sourceTree = "<group>"; };
+		A1D5CFA92604A3B900755CCA /* ProfileNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavigator.swift; sourceTree = "<group>"; };
+		A1D5CFAD2604A5E400755CCA /* ProfileViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+Extension.swift"; sourceTree = "<group>"; };
 		A1D7C94D26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAddExperiencePopUpViewController.swift; sourceTree = "<group>"; };
 		A1D7C94E26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileAddExperiencePopUpViewController.xib; sourceTree = "<group>"; };
 		A1D7C95726037277006E5653 /* ProfileEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEnum.swift; sourceTree = "<group>"; };
@@ -365,6 +369,22 @@
 			path = GameDetail;
 			sourceTree = "<group>";
 		};
+		A1D5CFA82604A3AE00755CCA /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				A1D5CFA92604A3B900755CCA /* ProfileNavigator.swift */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
+		A1D5CFAC2604A5D800755CCA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A1D5CFAD2604A5E400755CCA /* ProfileViewController+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		A1D7C94A260369BF006E5653 /* Popup */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,6 +425,8 @@
 			isa = PBXGroup;
 			children = (
 				A1D7C9562603726D006E5653 /* Enum */,
+				A1D5CFAC2604A5D800755CCA /* Extension */,
+				A1D5CFA82604A3AE00755CCA /* Singleton */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -982,6 +1004,7 @@
 				A1E5F2CA25FA7EF800ADC5B8 /* ExperienceItemView.swift in Sources */,
 				A1E5F29C25FA762600ADC5B8 /* FavoriteViewModel.swift in Sources */,
 				A1DD9711260263DA00953D04 /* LoginEnum.swift in Sources */,
+				A1D5CFAA2604A3B900755CCA /* ProfileNavigator.swift in Sources */,
 				A1D5CFA52604884E00755CCA /* ProfileAddSkillPopUpViewController.swift in Sources */,
 				A1E04AAA25FF653B0072775A /* FavoriteModel.swift in Sources */,
 				A1E5F2BB25FA7BE100ADC5B8 /* UIApplication+Extension.swift in Sources */,
@@ -990,6 +1013,7 @@
 				A1CEFB0C25FB33E90034DB0D /* ActivityIndicator.swift in Sources */,
 				A15C251125FB77CA00BF7EE2 /* GameDetailViewController.swift in Sources */,
 				A1CF77632601F80F008E7F9A /* UserModel.swift in Sources */,
+				A1D5CFAE2604A5E400755CCA /* ProfileViewController+Extension.swift in Sources */,
 				A1CF776B2601FD46008E7F9A /* RegisterEnum.swift in Sources */,
 				A15C251E25FB878600BF7EE2 /* String+Extension.swift in Sources */,
 				A1E5F28125FA703C00ADC5B8 /* HomeTabBarViewControllerList.swift in Sources */,

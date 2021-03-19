@@ -102,7 +102,7 @@ final class RegisterViewModel {
             return RegisterEnum.errorEmailEmpty
         } else if trimmedEmail.filter({ $0 == "@" }).count != 1 {
             return RegisterEnum.errorEmailNoAt
-        } else if trimmedEmail.filter({ $0 == "." }).count != 1 {
+        } else if trimmedEmail.filter({ $0 == "." }).count < 1 {
             return RegisterEnum.errorEmailNoDot
         } else if trimmedEmail[trimmedEmail.startIndex] == "@" || trimmedEmail[trimmedEmail.startIndex] == "." {
             return RegisterEnum.errorEmailStartAtOrDot

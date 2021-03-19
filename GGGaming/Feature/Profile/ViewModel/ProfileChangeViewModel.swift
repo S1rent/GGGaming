@@ -74,18 +74,19 @@ final class ProfileChangeViewModel {
     
     private func validateEmail(email: String) -> RegisterEnum {
         let trimmedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
+        let user = UserService.shared.getUser()
         
         if trimmedEmail.isEmpty {
             return RegisterEnum.errorEmailEmpty
         } else if trimmedEmail.filter({ $0 == "@" }).count != 1 {
             return RegisterEnum.errorEmailNoAt
-        } else if trimmedEmail.filter({ $0 == "." }).count != 1 {
+        } else if trimmedEmail.filter({ $0 == "." }).count < 1 {
             return RegisterEnum.errorEmailNoDot
         } else if trimmedEmail[trimmedEmail.startIndex] == "@" || trimmedEmail[trimmedEmail.startIndex] == "." {
             return RegisterEnum.errorEmailStartAtOrDot
         } else if trimmedEmail[trimmedEmail.index(before: trimmedEmail.endIndex)] == "@" || trimmedEmail[trimmedEmail.index(before: trimmedEmail.endIndex)] == "." {
             return RegisterEnum.errorEmailEndAtOrDot
-        } else if !UserCoreDataFunctionality.shared.getUser(email: trimmedEmail).isEmpty {
+        } else if !UserCoreDataFunctionality.shared.getUser(email: trimmedEmail).isEmpty && trimmedEmail != user?.userEmail {
             return RegisterEnum.errorEmailExist
         }
         

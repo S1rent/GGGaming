@@ -157,10 +157,14 @@
                         <constraint firstItem="CdZ-Ab-lhc" firstAttribute="leading" secondItem="ZtO-iq-83A" secondAttribute="leading" constant="16" id="xnF-Ze-WJ0"/>
                         <constraint firstAttribute="trailing" secondItem="0BE-tm-rXr" secondAttribute="trailing" constant="16" id="zJh-w3-Fop"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="86N-Hy-X9d" appends="YES" id="xvF-Gp-Cna"/>
+                    </connections>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="ZtO-iq-83A" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Nfl-ki-zAF"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ZtO-iq-83A" secondAttribute="bottom" id="OO1-HS-Cas"/>
@@ -168,8 +172,16 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZtO-iq-83A" secondAttribute="trailing" id="cUk-9J-nOl"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="86N-Hy-X9d" appends="YES" id="YjW-Zz-iWm"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="65.625"/>
         </view>
+        <tapGestureRecognizer id="86N-Hy-X9d">
+            <connections>
+                <action selector="detailTapped:" destination="-1" id="AQ4-hW-eCA"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="icn-broken-photo" width="170.5" height="170.5"/>

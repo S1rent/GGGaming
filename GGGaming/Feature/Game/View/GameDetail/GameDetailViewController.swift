@@ -38,15 +38,16 @@ class GameDetailViewController: UIViewController {
         }
     }
     
-    let gameData: Game
+    var gameData: GameDetailResponseWrapper?
+    let gameID: Int
     let viewModel: GameDetailViewModel
     let loadTrigger: BehaviorRelay<Void>
     
     var hasData = false
     var isInsideWishlist = false
     
-    init(gameData: Game, viewModel: GameDetailViewModel) {
-        self.gameData = gameData
+    init(gameID: Int, viewModel: GameDetailViewModel) {
+        self.gameID = gameID
         self.viewModel = viewModel
         self.loadTrigger = BehaviorRelay<Void>(value: ())
         
@@ -74,6 +75,7 @@ class GameDetailViewController: UIViewController {
             output.data.drive(onNext: { [weak self] data in
                 guard let self = self else { return }
                 
+                self.gameData = data
                 self.hasData = true
                 self.setData(data)
             }),
@@ -116,7 +118,7 @@ class GameDetailViewController: UIViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         guard let date = dateFormatter.date(from: data.gameReleaseDate ?? "") else { return }
         dateFormatter.dateFormat = "dd MMMM yyyy"
-        self.labelGameReleaseDate.text = dateFormatter.string(from: date)
+        self.labelGameReleaseDate.text = "Released: \(dateFormatter.string(from: date))"
         
         self.imageGamePhotoMain.sd_setImage(with: URL(string: data.gameImagePreview ?? ""), placeholderImage: #imageLiteral(resourceName: "icn-broken-photo"))
         self.imageGamePhotoAdditional.sd_setImage(with: URL(string: data.gameAdditionalImagePreview ?? ""), placeholderImage: #imageLiteral(resourceName: "icn-broken-photo"))
@@ -173,10 +175,11 @@ class GameDetailViewController: UIViewController {
     
     @IBAction func actionButtonTapped(_ sender: Any) {
         if isInsideWishlist {
-            FavoriteModel.shared.removeGameFromWishList(game: self.gameData)
+            _ = FavoriteCoreDataFunctionality.shared.removeFavorite(self.gameID)
             self.showInformation(remove: true)
         } else {
-            FavoriteModel.shared.addGameToWishList(game: self.gameData)
+            guard let data = self.gameData else { return }
+            _ = FavoriteCoreDataFunctionality.shared.insertFavorite(game: data)
             self.showInformation(remove: false)
         }
     }

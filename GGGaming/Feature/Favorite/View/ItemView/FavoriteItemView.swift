@@ -18,12 +18,13 @@ class FavoriteItemView: UIView {
     @IBOutlet weak var buttonDetail: UIButton!
     @IBOutlet weak var buttonRemove: UIButton!
     @IBOutlet weak var removeView: UIView!
+    @IBOutlet weak var labelReleaseDate: UILabel!
     
-    let gameData: Game
+    let gameData: FavoriteModel
     let callBack: (() -> Void)
     
     init(
-        gameData: Game,
+        gameData: FavoriteModel,
         callBack: @escaping () -> Void
     ) {
         self.gameData = gameData
@@ -46,10 +47,16 @@ class FavoriteItemView: UIView {
         self.setupView()
     }
     
-    public func setData(gameData: Game) {
-        self.labelRating.text = "\(gameData.gameRating ?? 0.0)"
-        self.labelGameName.text = gameData.gameName ?? ""
-        self.imageGame.sd_setImage(with: URL(string: gameData.gameImagePreview ?? ""), placeholderImage: #imageLiteral(resourceName: "icn-broken-photo"))
+    public func setData(gameData: FavoriteModel) {
+        self.labelRating.text = "\(gameData.gameRating )"
+        self.labelGameName.text = gameData.gameName 
+        self.imageGame.sd_setImage(with: URL(string: gameData.gamePictureURL), placeholderImage: #imageLiteral(resourceName: "icn-broken-photo"))
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        guard let date = dateFormatter.date(from: gameData.gameReleaseDate ) else { return }
+        dateFormatter.dateFormat = "dd MMMM yyyy"
+        self.labelReleaseDate.text = "Released: \(dateFormatter.string(from: date))"
     }
     
     private func setupView() {
@@ -65,7 +72,7 @@ class FavoriteItemView: UIView {
     }
     
     private func presentInformation() {
-        FavoriteModel.shared.removeGameFromWishList(game: self.gameData)
+        _ = FavoriteCoreDataFunctionality.shared.removeFavorite(self.gameData.gameID )
         let alertController = UIAlertController(title: "Information", message: "Successfully remove game from wishlist.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
@@ -87,6 +94,6 @@ class FavoriteItemView: UIView {
     }
     
     @IBAction func detailTapped(_ sender: Any) {
-        GameNavigator.shared.navigateToGameDetail(gameData: self.gameData)
+        GameNavigator.shared.navigateToGameDetail(gameID: self.gameData.gameID)
     }
 }

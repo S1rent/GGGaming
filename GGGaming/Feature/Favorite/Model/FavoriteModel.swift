@@ -7,28 +7,10 @@
 
 import Foundation
 
-class FavoriteModel {
-    var favoriteGame: [Game] = []
-    
-    public static let shared = FavoriteModel()
-    private init() { }
-    
-    public func getWishList() -> [Game] {
-        return self.favoriteGame
-    }
-    
-    public func addGameToWishList(game: Game) {
-        self.favoriteGame.append(game)
-    }
-    
-    public func removeGameFromWishList(game: Game) {
-        self.favoriteGame = self.favoriteGame.filter { $0.gameID != game.gameID }
-    }
-    
-    public func isGameInsideWishList(gameData: Game) -> Bool {
-        for game in self.favoriteGame where game.gameID == gameData.gameID {
-            return true
-        }
-        return false
-    }
+struct FavoriteModel {
+    var gameID: Int
+    var gameName: String
+    var gameReleaseDate: String
+    var gamePictureURL: String
+    var gameRating: Double
 }

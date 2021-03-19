@@ -13,6 +13,7 @@ class SkillItemView: UIView {
     @IBOutlet weak var labelSkillName: UILabel!
     @IBOutlet weak var roundedView: UIView!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var buttonDelete: UIButton!
     
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
@@ -34,7 +35,15 @@ class SkillItemView: UIView {
     }
     
     private func setupView() {
+        self.buttonDelete.isUserInteractionEnabled = false
         self.roundedView.layer.cornerRadius = self.roundedView.frame.width / 2
         self.progressView.layer.cornerRadius = 6
+    }
+    
+    @IBAction func deleteTapped(_ sender: Any) {
+    }
+    
+    @IBAction func viewTapped(_ sender: Any) {
+        self.buttonDelete.alpha = 1
     }
 }

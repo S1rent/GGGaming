@@ -38,6 +38,12 @@ public class UserService {
         UserService.shared.setUser(user)
     }
     
+    public func appendUserSkillList(_ skill: Skill) {
+        var user = UserService.shared.getUser()
+        user?.userSkillList?.append(skill)
+        UserService.shared.setUser(user)
+    }
+    
     public func registerUserSession(data: UserModel) {
         if var user = UserService.shared.getUser() {
             user.userID = data.userID

@@ -51,8 +51,8 @@ class FavoriteViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.changeTitle("Favorite")
+        
         self.setActivityIndicator(loading: true)
         self.noResultView.alpha = 1
         self.noResultView.isHidden = false

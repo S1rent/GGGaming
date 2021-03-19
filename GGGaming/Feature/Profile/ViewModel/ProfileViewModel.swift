@@ -121,7 +121,9 @@ final class ProfileViewModel {
             let model = Profile.shared.makeExperienceModel(timeSpan: term, institutionName: name)
             UserService.shared.appendUserEducationList(model)
         case .skill:
-            break
+            let value = Double(progressValue) ?? 0
+            let model = Profile.shared.makeSkillModel(skillName: name, progress: value)
+            UserService.shared.appendUserSkillList(model)
         case .workingExperience:
             let model = Profile.shared.makeExperienceModel(timeSpan: term, institutionName: name)
             UserService.shared.appendUserWorkingExperienceList(model)

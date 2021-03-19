@@ -67,7 +67,7 @@ class ProfileViewController: UIViewController {
     let itemNameRelay = BehaviorRelay<String>(value: "")
     let itemTermRelay = BehaviorRelay<String>(value: "")
     let itemProgressValueRelay = BehaviorRelay<String>(value: "")
-    let itemTypeRelay = BehaviorRelay<ProfileAddItemEnum>(value: .workingExperience)
+    let itemTypeRelay = BehaviorRelay<ProfileAddItemEnum>(value: .skill)
     
     init(viewModel: ProfileViewModel) {
         self.viewModel = viewModel
@@ -168,14 +168,7 @@ class ProfileViewController: UIViewController {
             stackView.addArrangedSubview(experienceItem)
             
             if index != experiences.count-1 {
-                let separatorView = addSeparatorView()
-                
-                stackView.addArrangedSubview(separatorView)
-                separatorView.snp.makeConstraints { make in
-                    make.height.equalTo(0.75)
-                    make.leading.equalToSuperview().offset(8)
-                    make.trailing.equalToSuperview().offset(-8)
-                }
+                self.addSeparatorView(stackView)
             }
         }
     }
@@ -190,14 +183,7 @@ class ProfileViewController: UIViewController {
             stackView.addArrangedSubview(skillItem)
             
             if index != skills.count-1 {
-                let separatorView = addSeparatorView()
-                
-                stackView.addArrangedSubview(separatorView)
-                separatorView.snp.makeConstraints { make in
-                    make.height.equalTo(0.75)
-                    make.leading.equalToSuperview().offset(8)
-                    make.trailing.equalToSuperview().offset(-8)
-                }
+                self.addSeparatorView(stackView)
             }
         }
     }
@@ -260,16 +246,67 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    private func addSeparatorView() -> UIView {
+    private func addSeparatorView(_ stackView: UIStackView) {
         let view = UIView()
         view.backgroundColor = UIColor.white
         
-        return view
+        stackView.addArrangedSubview(view)
+        view.snp.makeConstraints { make in
+            make.height.equalTo(0.75)
+            make.leading.equalToSuperview().offset(8)
+            make.trailing.equalToSuperview().offset(-8)
+        }
     }
     
+    // IBAction function
+    
+    @IBAction func logoutTapped(_ sender: Any) {
+        self.showLogoutPopupConfirmation()
+    }
+    
+    @IBAction func addEducationTapped(_ sender: Any) {
+        let viewController = ProfileAddExperiencePopUpViewController(
+            addCallback: self.addExperienceCallback,
+            type: ProfileAddItemEnum.education
+        )
+        viewController.modalPresentationStyle = .overFullScreen
+        
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func addExperienceTapped(_ sender: Any) {
+        let viewController = ProfileAddExperiencePopUpViewController(
+            addCallback: self.addExperienceCallback,
+            type: ProfileAddItemEnum.workingExperience
+        )
+        viewController.modalPresentationStyle = .overFullScreen
+        
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func addSkillTapped(_ sender: Any) {
+        let viewController = ProfileAddSkillPopUpViewController(
+            addCallback: self.addSkillCallback,
+            type: ProfileAddItemEnum.skill
+        )
+        viewController.modalPresentationStyle = .overFullScreen
+        
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    // callback function
     func addExperienceCallback(name: String, term: String, type: ProfileAddItemEnum) {
-        self.itemNameRelay.accept(name)
         self.itemTermRelay.accept(term)
+        self.notifyRelay(name: name, type: type)
+    }
+    
+    func addSkillCallback(name: String, progressValue: String, type: ProfileAddItemEnum) {
+        self.itemProgressValueRelay.accept(progressValue)
+        self.notifyRelay(name: name, type: type)
+    }
+    
+    func notifyRelay(name: String, type: ProfileAddItemEnum) {
+        self.itemNameRelay.accept(name)
         self.itemTypeRelay.accept(type)
         self.addItemRelay.accept(())
     }
@@ -279,6 +316,7 @@ class ProfileViewController: UIViewController {
         self.loadRelay.accept(())
     }
     
+    // popup function
     private func presentInformation() {
         let alertController = UIAlertController(title: "Information", message: "Successfully logged out.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
@@ -305,29 +343,5 @@ class ProfileViewController: UIViewController {
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
         UIApplication.topViewController()?.navigationController?.present(alertController, animated: true, completion: nil)
-    }
-    
-    @IBAction func logoutTapped(_ sender: Any) {
-        self.showLogoutPopupConfirmation()
-    }
-    
-    @IBAction func addEducationTapped(_ sender: Any) {
-        let viewController = ProfileAddExperiencePopUpViewController(
-            addCallback: self.addExperienceCallback,
-            type: ProfileAddItemEnum.education
-        )
-        viewController.modalPresentationStyle = .overFullScreen
-        
-        self.present(viewController, animated: true, completion: nil)
-    }
-    
-    @IBAction func addExperienceTapped(_ sender: Any) {
-        let viewController = ProfileAddExperiencePopUpViewController(
-            addCallback: self.addExperienceCallback,
-            type: ProfileAddItemEnum.workingExperience
-        )
-        viewController.modalPresentationStyle = .overFullScreen
-        
-        self.present(viewController, animated: true, completion: nil)
     }
 }

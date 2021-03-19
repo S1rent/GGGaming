@@ -145,7 +145,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skills" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMb-zb-xYy">
-                                            <rect key="frame" x="44" y="410.5" width="57.5" height="29"/>
+                                            <rect key="frame" x="44" y="410.5" width="316" height="29"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -221,15 +221,28 @@
                                                 <action selector="addExperienceTapped:" destination="-1" eventType="touchUpInside" id="53L-fk-jJj"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxa-S8-v95" userLabel="Button Add Experience">
+                                            <rect key="frame" x="368" y="410.5" width="30" height="29"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="8bp-56-8gN"/>
+                                            </constraints>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" image="plus" catalog="system"/>
+                                            <connections>
+                                                <action selector="addSkillTapped:" destination="-1" eventType="touchUpInside" id="6lH-N3-0TB"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="Kxa-S8-v95" firstAttribute="bottom" secondItem="mMb-zb-xYy" secondAttribute="bottom" id="0ER-S8-ykL"/>
                                         <constraint firstItem="fgn-xY-OeC" firstAttribute="leading" secondItem="BPd-se-1od" secondAttribute="leading" constant="16" id="12K-XK-g4Q"/>
                                         <constraint firstAttribute="trailing" secondItem="brd-Mg-fWl" secondAttribute="trailing" id="3yR-mD-fKq"/>
                                         <constraint firstItem="5ei-f6-lPI" firstAttribute="leading" secondItem="BPd-se-1od" secondAttribute="leading" constant="16" id="5Ip-mo-YEP"/>
                                         <constraint firstAttribute="trailing" secondItem="D2I-0f-RBF" secondAttribute="trailing" constant="16" id="7hZ-ib-HwK"/>
                                         <constraint firstItem="fgn-xY-OeC" firstAttribute="top" secondItem="mMb-zb-xYy" secondAttribute="bottom" constant="8" id="94j-qh-8Rh"/>
                                         <constraint firstItem="5ei-f6-lPI" firstAttribute="top" secondItem="gmD-9h-IJs" secondAttribute="bottom" constant="8" id="Eok-3y-Mfn"/>
+                                        <constraint firstItem="Kxa-S8-v95" firstAttribute="top" secondItem="mMb-zb-xYy" secondAttribute="top" id="FNz-w6-6Vq"/>
                                         <constraint firstItem="63Z-Jl-5l1" firstAttribute="top" secondItem="5ei-f6-lPI" secondAttribute="bottom" constant="16" id="GDh-KS-Djn"/>
                                         <constraint firstItem="M3V-L9-2eM" firstAttribute="leading" secondItem="BPd-se-1od" secondAttribute="leading" constant="16" id="HQy-mh-Npa"/>
                                         <constraint firstItem="e9j-zk-sYq" firstAttribute="bottom" secondItem="UKN-FS-PAw" secondAttribute="bottom" constant="2" id="IoN-Rk-sdC"/>
@@ -252,7 +265,9 @@
                                         <constraint firstItem="brd-Mg-fWl" firstAttribute="top" secondItem="5Q6-gP-zpn" secondAttribute="bottom" id="Y0x-gu-Tmq"/>
                                         <constraint firstItem="e9j-zk-sYq" firstAttribute="top" secondItem="UKN-FS-PAw" secondAttribute="top" constant="-2" id="YXk-Hv-Ixj"/>
                                         <constraint firstItem="YZI-ot-lif" firstAttribute="leading" secondItem="BPd-se-1od" secondAttribute="leading" constant="16" id="b6L-g8-Bli"/>
+                                        <constraint firstAttribute="trailing" secondItem="Kxa-S8-v95" secondAttribute="trailing" constant="16" id="bKY-OA-eki"/>
                                         <constraint firstItem="M3V-L9-2eM" firstAttribute="top" secondItem="63Z-Jl-5l1" secondAttribute="bottom" constant="8" id="cRi-ci-7H4"/>
+                                        <constraint firstItem="Kxa-S8-v95" firstAttribute="centerY" secondItem="mMb-zb-xYy" secondAttribute="centerY" id="cUz-QL-dIV"/>
                                         <constraint firstItem="mMb-zb-xYy" firstAttribute="leading" secondItem="YZI-ot-lif" secondAttribute="trailing" constant="4" id="e3H-Eu-cPw"/>
                                         <constraint firstAttribute="trailing" secondItem="5Q6-gP-zpn" secondAttribute="trailing" id="ekx-SA-WUG"/>
                                         <constraint firstItem="COy-Jt-gIV" firstAttribute="leading" secondItem="BPd-se-1od" secondAttribute="leading" constant="16" id="goW-DL-7cd"/>
@@ -265,6 +280,7 @@
                                         <constraint firstItem="e9j-zk-sYq" firstAttribute="trailing" secondItem="UKN-FS-PAw" secondAttribute="trailing" constant="2" id="sCS-v1-vYo"/>
                                         <constraint firstItem="YZI-ot-lif" firstAttribute="top" secondItem="mMb-zb-xYy" secondAttribute="top" constant="5" id="uFa-uB-hB8"/>
                                         <constraint firstItem="e9j-zk-sYq" firstAttribute="leading" secondItem="UKN-FS-PAw" secondAttribute="leading" constant="-2" id="wDA-4A-fY5"/>
+                                        <constraint firstItem="Kxa-S8-v95" firstAttribute="leading" secondItem="mMb-zb-xYy" secondAttribute="trailing" constant="8" id="y0V-vc-pJK"/>
                                         <constraint firstItem="brd-Mg-fWl" firstAttribute="leading" secondItem="BPd-se-1od" secondAttribute="leading" id="yZI-ft-jLY"/>
                                         <constraint firstItem="D2I-0f-RBF" firstAttribute="leading" secondItem="63Z-Jl-5l1" secondAttribute="trailing" constant="8" id="zQY-0B-4ci"/>
                                     </constraints>

@@ -54,7 +54,7 @@ class HomeGameItemView: UIView {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         guard let date = dateFormatter.date(from: data.gameReleaseDate ?? "") else { return }
         dateFormatter.dateFormat = "dd MMMM yyyy"
-        self.labelGameReleaseDate.text = dateFormatter.string(from: date)
+        self.labelGameReleaseDate.text = "Released: \(dateFormatter.string(from: date))"
         
         self.imageGame.sd_setImage(with: URL(string: data.gameImagePreview ?? ""), placeholderImage: #imageLiteral(resourceName: "icn-broken-photo"))
     }
@@ -66,6 +66,6 @@ class HomeGameItemView: UIView {
     }
     
     @IBAction func navigateToGameDetail(_ sender: Any) {
-        GameNavigator.shared.navigateToGameDetail(gameData: self.data)
+        GameNavigator.shared.navigateToGameDetail(gameID: self.data.gameID ?? 0)
     }
 }

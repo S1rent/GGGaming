@@ -20,9 +20,9 @@
                 <outlet property="labelGameDeveloper" destination="osR-l4-UwA" id="FnN-9w-Ylt"/>
                 <outlet property="labelGameName" destination="HoH-Le-Rvq" id="Cd6-4J-Xh6"/>
                 <outlet property="labelGameReleaseDate" destination="i2z-yq-x2q" id="6dk-w0-mM3"/>
-                <outlet property="labelNoData" destination="P51-lX-Avi" id="add-3b-EGk"/>
+                <outlet property="labelNoData" destination="o3r-Cn-Ve3" id="4nH-Qj-TcG"/>
                 <outlet property="labelRating" destination="QDp-3J-UtF" id="TRD-TS-WMA"/>
-                <outlet property="noResultView" destination="fVI-BC-bc2" id="YDr-Nz-iBt"/>
+                <outlet property="noResultView" destination="AT1-54-Ku1" id="x8N-7u-4gT"/>
                 <outlet property="ratingView" destination="oRc-Z5-USB" id="Fm6-CW-0O0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -177,22 +177,20 @@
                         <constraint firstItem="v2b-AE-YcB" firstAttribute="top" secondItem="Gea-nE-4LB" secondAttribute="top" id="iTD-Oa-Ueg"/>
                     </constraints>
                 </scrollView>
-                <view contentMode="scaleToFill" id="fVI-BC-bc2" userLabel="No Result View">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AT1-54-Ku1">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P51-lX-Avi">
-                            <rect key="frame" x="175.5" y="438.5" width="63.5" height="19.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3r-Cn-Ve3">
+                            <rect key="frame" x="172" y="398" width="70" height="22"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <viewLayoutGuide key="safeArea" id="hfK-x3-bfO"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="P51-lX-Avi" firstAttribute="centerY" secondItem="fVI-BC-bc2" secondAttribute="centerY" id="3tk-LL-mfL"/>
-                        <constraint firstItem="P51-lX-Avi" firstAttribute="centerX" secondItem="fVI-BC-bc2" secondAttribute="centerX" id="cGg-Hk-dvo"/>
+                        <constraint firstItem="o3r-Cn-Ve3" firstAttribute="centerX" secondItem="AT1-54-Ku1" secondAttribute="centerX" id="C6J-FH-O5A"/>
+                        <constraint firstItem="o3r-Cn-Ve3" firstAttribute="centerY" secondItem="AT1-54-Ku1" secondAttribute="centerY" id="YZw-Bg-uBf"/>
                     </constraints>
                 </view>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="wY6-ET-pKp">
@@ -205,9 +203,13 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Gea-nE-4LB" secondAttribute="bottom" id="2TN-lI-wDS"/>
                 <constraint firstItem="wY6-ET-pKp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9JK-ro-Mdr"/>
                 <constraint firstItem="wY6-ET-pKp" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ISO-cc-7CP"/>
+                <constraint firstItem="AT1-54-Ku1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="OS6-sQ-r8t"/>
+                <constraint firstItem="AT1-54-Ku1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bhO-7Y-t6N"/>
                 <constraint firstAttribute="trailing" secondItem="Gea-nE-4LB" secondAttribute="trailing" id="gZf-rB-YsX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AT1-54-Ku1" secondAttribute="trailing" id="no5-8k-PEm"/>
                 <constraint firstItem="Gea-nE-4LB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="nun-1P-m5h"/>
                 <constraint firstItem="Gea-nE-4LB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qZY-A5-ywx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="AT1-54-Ku1" secondAttribute="bottom" id="zff-n9-xNP"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="91.741071428571431"/>
         </view>

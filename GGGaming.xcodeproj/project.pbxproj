@@ -40,6 +40,7 @@
 		A1D5CFB62604C15500755CCA /* ProfileChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D5CFB42604C15500755CCA /* ProfileChangeViewController.swift */; };
 		A1D5CFB72604C15500755CCA /* ProfileChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D5CFB52604C15500755CCA /* ProfileChangeViewController.xib */; };
 		A1D5CFBB2604C23900755CCA /* ProfileChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D5CFBA2604C23900755CCA /* ProfileChangeViewModel.swift */; };
+		A1D5D00C2604E75300755CCA /* FavoriteCoreDataFunctionality.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D5D00B2604E75300755CCA /* FavoriteCoreDataFunctionality.swift */; };
 		A1D7C94F26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C94D26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.swift */; };
 		A1D7C95026036A1A006E5653 /* ProfileAddExperiencePopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D7C94E26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.xib */; };
 		A1D7C95826037277006E5653 /* ProfileEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C95726037277006E5653 /* ProfileEnum.swift */; };
@@ -127,6 +128,7 @@
 		A1D5CFB42604C15500755CCA /* ProfileChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChangeViewController.swift; sourceTree = "<group>"; };
 		A1D5CFB52604C15500755CCA /* ProfileChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileChangeViewController.xib; sourceTree = "<group>"; };
 		A1D5CFBA2604C23900755CCA /* ProfileChangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChangeViewModel.swift; sourceTree = "<group>"; };
+		A1D5D00B2604E75300755CCA /* FavoriteCoreDataFunctionality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoreDataFunctionality.swift; sourceTree = "<group>"; };
 		A1D7C94D26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAddExperiencePopUpViewController.swift; sourceTree = "<group>"; };
 		A1D7C94E26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileAddExperiencePopUpViewController.xib; sourceTree = "<group>"; };
 		A1D7C95726037277006E5653 /* ProfileEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEnum.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 		A1CF775D2601F7A3008E7F9A /* User */ = {
 			isa = PBXGroup;
 			children = (
+				A1D5D00B2604E75300755CCA /* FavoriteCoreDataFunctionality.swift */,
 				A1CF775E2601F7DB008E7F9A /* UserCoreDataFunctionality.swift */,
 			);
 			path = User;
@@ -1071,6 +1074,7 @@
 				A1D7C94F26036A1A006E5653 /* ProfileAddExperiencePopUpViewController.swift in Sources */,
 				A1E5F2AE25FA791400ADC5B8 /* ProfileViewController.swift in Sources */,
 				A1DD970B2602634D00953D04 /* LoginViewModel.swift in Sources */,
+				A1D5D00C2604E75300755CCA /* FavoriteCoreDataFunctionality.swift in Sources */,
 				A1E04A9225FF26870072775A /* GameDeveloperListViewController.swift in Sources */,
 				A1D5CFB62604C15500755CCA /* ProfileChangeViewController.swift in Sources */,
 				A1CF775F2601F7DB008E7F9A /* UserCoreDataFunctionality.swift in Sources */,

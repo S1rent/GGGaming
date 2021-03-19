@@ -20,10 +20,10 @@ final class GameDetailViewModel {
         let action: Driver<Bool>
     }
     
-    let gameData: Game
+    let gameID: Int
     
-    init(gameData: Game) {
-        self.gameData = gameData
+    init(gameID: Int) {
+        self.gameID = gameID
     }
     
     public func transform(input: Input) -> Output {
@@ -34,14 +34,14 @@ final class GameDetailViewModel {
         let data = input.loadTrigger.flatMapLatest { _ -> Driver<GameDetailResponseWrapper> in
             
             return GameNetworkProvider.shared
-                .getGameDetail(with: self.gameData.gameID ?? 0)
+                .getGameDetail(with: self.gameID)
                 .trackError(errorTracker)
                 .trackActivity(activityTracker)
                 .asDriverOnErrorJustComplete()
         }
         
         let isInsideUserWishlist = input.loadTrigger.map { _ -> Bool in
-            return FavoriteModel.shared.isGameInsideWishList(gameData: self.gameData)
+            return FavoriteCoreDataFunctionality.shared.getGame(id: self.gameID)
         }
         
         return Output(

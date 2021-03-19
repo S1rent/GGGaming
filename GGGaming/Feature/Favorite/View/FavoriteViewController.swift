@@ -96,7 +96,7 @@ class FavoriteViewController: UIViewController {
         )
     }
     
-    private func setupStackViewData(_ gameList: [Game]) {
+    private func setupStackViewData(_ gameList: [FavoriteModel]) {
         self.stackView.safelyRemoveAllArrangedSubviews()
         for game in gameList {
             let item = FavoriteItemView(gameData: game, callBack: self.refreshCallback)

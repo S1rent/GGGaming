@@ -15,14 +15,14 @@ final class FavoriteViewModel {
     }
     
     struct Output {
-        let data: Driver<[Game]>
+        let data: Driver<[FavoriteModel]>
         let hasData: Driver<Bool>
     }
     
     public func transform(input: Input) -> Output {
         
-        let data = input.loadTrigger.map { _ -> [Game] in
-            return FavoriteModel.shared.getWishList()
+        let data = input.loadTrigger.map { _ -> [FavoriteModel] in
+            return FavoriteCoreDataFunctionality.shared.getFavorites()
         }
         
         let hasData = data.map { !($0.isEmpty) }
